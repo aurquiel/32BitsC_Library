@@ -1,0 +1,104 @@
+.TH "C:/Users/egomez/Documents/codeblocks/testc22/header.h" 3 "Wed Aug 8 2018" "My Project" \" -*- nroff -*-
+.ad l
+.nh
+.SH NAME
+C:/Users/egomez/Documents/codeblocks/testc22/header.h \- 
+.SH SYNOPSIS
+.br
+.PP
+.SS "Macros"
+
+.in +1c
+.ti -1c
+.RI "#define \fBNumberOfArrayElements\fP(x)   (sizeof (x) / sizeof (*x))"
+.br
+.RI "\fIdefinition to obtain the number of elements belonging to an array, do not work with declarations like; char* = 'str'\&. \fP"
+.in -1c
+.SS "Enumerations"
+
+.in +1c
+.ti -1c
+.RI "enum \fBbool\fP { \fBfalse\fP = 0, \fBtrue\fP = 1 }"
+.br
+.RI "\fIenum to add bool type to the C programing language\&. \fP"
+.ti -1c
+.RI "enum \fBtypesPointers\fP { \fBcharPointer\fP = 0, \fBunsignedCharPointer\fP = 1, \fBint8Pointer\fP = 2, \fBunsignedInt8Pointer\fP = 3, \fBint16Pointer\fP = 4, \fBunsignedInt16Pointer\fP = 5, \fBint32Pointer\fP = 6, \fBunsignedInt32Pointer\fP = 7, \fBint64Pointer\fP = 8, \fBunsignedInt64Pointer\fP = 9, \fBfloatPointer\fP = 10, \fBdoublePointer\fP = 11, \fBstructPointer\fP = 12 }"
+.br
+.RI "\fIenum to enumerate the type of pointers\&. \fP"
+.in -1c
+.SH "Macro Definition Documentation"
+.PP 
+.SS "#define NumberOfArrayElements(x)   (sizeof (x) / sizeof (*x))"
+
+.PP
+definition to obtain the number of elements belonging to an array, do not work with declarations like; char* = 'str'\&. 
+.PP
+Definition at line 10 of file header\&.h\&.
+.SH "Enumeration Type Documentation"
+.PP 
+.SS "enum \fBbool\fP"
+
+.PP
+enum to add bool type to the C programing language\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIfalse \fP\fP
+0 indicating false 
+.TP
+\fB\fItrue \fP\fP
+1 indicating true 
+.PP
+Definition at line 20 of file header\&.h\&.
+.SS "enum \fBtypesPointers\fP"
+
+.PP
+enum to enumerate the type of pointers\&. 
+.PP
+\fBEnumerator\fP
+.in +1c
+.TP
+\fB\fIcharPointer \fP\fP
+0 indicating char* 
+.TP
+\fB\fIunsignedCharPointer \fP\fP
+1 indicating unsigned char* 
+.TP
+\fB\fIint8Pointer \fP\fP
+2 indicating int8_t* 
+.TP
+\fB\fIunsignedInt8Pointer \fP\fP
+3 indicating uint8_t* 
+.TP
+\fB\fIint16Pointer \fP\fP
+4 indicating int16_t* 
+.TP
+\fB\fIunsignedInt16Pointer \fP\fP
+5 indicating uint16_t* 
+.TP
+\fB\fIint32Pointer \fP\fP
+6 indicating int32_t* 
+.TP
+\fB\fIunsignedInt32Pointer \fP\fP
+7 indicating uint32_t* 
+.TP
+\fB\fIint64Pointer \fP\fP
+8 indicating int64_t* 
+.TP
+\fB\fIunsignedInt64Pointer \fP\fP
+9 indicating uint64_t* 
+.TP
+\fB\fIfloatPointer \fP\fP
+10 indicating float* 
+.TP
+\fB\fIdoublePointer \fP\fP
+11 indicating double* 
+.TP
+\fB\fIstructPointer \fP\fP
+12 indicating struct* 
+.PP
+Definition at line 33 of file header\&.h\&.
+.SH "Author"
+.PP 
+Generated automatically by Doxygen for My Project from the source code\&.

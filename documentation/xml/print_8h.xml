@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="print_8h" kind="file">
+    <compoundname>print.h</compoundname>
+    <includes local="no">stdio.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes local="no">stdlib.h</includes>
+    <includes refid="header_8h" local="yes">header.h</includes>
+    <includes refid="error_8h" local="yes">error.h</includes>
+    <includedby refid="main_8c" local="yes">C:/Users/egomez/Documents/codeblocks/testc22/main.c</includedby>
+    <includedby refid="print_8c" local="yes">C:/Users/egomez/Documents/codeblocks/testc22/print.c</includedby>
+    <incdepgraph>
+      <node id="78">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="75">
+        <label>stdint.h</label>
+      </node>
+      <node id="76">
+        <label>stdlib.h</label>
+      </node>
+      <node id="77">
+        <label>header.h</label>
+        <link refid="header_8h"/>
+      </node>
+      <node id="73">
+        <label>C:/Users/egomez/Documents/codeblocks/testc22/print.h</label>
+        <link refid="print.h"/>
+        <childnode refid="74" relation="include">
+        </childnode>
+        <childnode refid="75" relation="include">
+        </childnode>
+        <childnode refid="76" relation="include">
+        </childnode>
+        <childnode refid="77" relation="include">
+        </childnode>
+        <childnode refid="78" relation="include">
+        </childnode>
+      </node>
+      <node id="74">
+        <label>stdio.h</label>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="81">
+        <label>C:/Users/egomez/Documents/codeblocks/testc22/print.c</label>
+        <link refid="print_8c"/>
+      </node>
+      <node id="79">
+        <label>C:/Users/egomez/Documents/codeblocks/testc22/print.h</label>
+        <link refid="print.h"/>
+        <childnode refid="80" relation="include">
+        </childnode>
+        <childnode refid="81" relation="include">
+        </childnode>
+      </node>
+      <node id="80">
+        <label>C:/Users/egomez/Documents/codeblocks/testc22/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="print_8h_1ad81c35d85735b7bbb9891b1eeed4464f" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void PrintArray</definition>
+        <argsstring>(void *theArray, int64_t size, uint8_t typePointer)</argsstring>
+        <name>PrintArray</name>
+        <param>
+          <type>void *</type>
+          <declname>theArray</declname>
+        </param>
+        <param>
+          <type>int64_t</type>
+          <declname>size</declname>
+        </param>
+        <param>
+          <type>uint8_t</type>
+          <declname>typePointer</declname>
+        </param>
+        <briefdescription>
+<para>This function prints the elements belonging to an array. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>theArray</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>size</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of elements of the array </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>typePointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of the elements to be printed </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/egomez/Documents/codeblocks/testc22/print.h" line="22" column="1" bodyfile="C:/Users/egomez/Documents/codeblocks/testc22/print.c" bodystart="3" bodyend="96"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>PRINT_H_INCLUDED</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>PRINT_H_INCLUDED</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdio.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="header_8h" kindref="compound">header.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="error_8h" kindref="compound">error.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="9"><highlight class="normal"></highlight></codeline>
+<codeline lineno="10"><highlight class="normal"></highlight></codeline>
+<codeline lineno="11"><highlight class="normal"></highlight></codeline>
+<codeline lineno="22"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="print_8h_1ad81c35d85735b7bbb9891b1eeed4464f" kindref="member">PrintArray</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*theArray,<sp/>int64_t<sp/>size,<sp/>uint8_t<sp/>typePointer);</highlight></codeline>
+<codeline lineno="23"><highlight class="normal"></highlight></codeline>
+<codeline lineno="24"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>PRINT_H_INCLUDED</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/egomez/Documents/codeblocks/testc22/print.h"/>
+  </compounddef>
+</doxygen>

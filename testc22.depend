@@ -1,0 +1,38 @@
+# depslib dependency file v1.0
+1533753455 source:c:\users\egomez\documents\codeblocks\testc22\main.c
+	"print.h"
+	"interchange.h"
+	"allocator.h"
+
+1533759376 source:c:\users\egomez\documents\codeblocks\testc22\print.c
+	"print.h"
+
+1533759627 c:\users\egomez\documents\codeblocks\testc22\print.h
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	"header.h"
+	"error.h"
+
+1533758190 c:\users\egomez\documents\codeblocks\testc22\header.h
+
+1533755017 c:\users\egomez\documents\codeblocks\testc22\error.h
+
+1533755092 source:c:\users\egomez\documents\codeblocks\testc22\interchange.c
+	"interchange.h"
+
+1533759679 c:\users\egomez\documents\codeblocks\testc22\interchange.h
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	"allocator.h"
+
+1533753348 source:c:\users\egomez\documents\codeblocks\testc22\allocator.c
+	"allocator.h"
+
+1533756513 c:\users\egomez\documents\codeblocks\testc22\allocator.h
+	<stdlib.h>
+	<stdint.h>
+	"header.h"
+	"error.h"
+

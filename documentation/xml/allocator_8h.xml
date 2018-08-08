@@ -1,0 +1,333 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.8.6">
+  <compounddef id="allocator_8h" kind="file">
+    <compoundname>allocator.h</compoundname>
+    <includes local="no">stdlib.h</includes>
+    <includes local="no">stdint.h</includes>
+    <includes refid="header_8h" local="yes">header.h</includes>
+    <includes refid="error_8h" local="yes">error.h</includes>
+    <includedby refid="allocator_8c" local="yes">C:/Users/egomez/Documents/codeblocks/testc22/allocator.c</includedby>
+    <includedby refid="interchange_8h" local="yes">C:/Users/egomez/Documents/codeblocks/testc22/interchange.h</includedby>
+    <includedby refid="main_8c" local="yes">C:/Users/egomez/Documents/codeblocks/testc22/main.c</includedby>
+    <incdepgraph>
+      <node id="11">
+        <label>error.h</label>
+        <link refid="error_8h"/>
+      </node>
+      <node id="9">
+        <label>stdint.h</label>
+      </node>
+      <node id="8">
+        <label>stdlib.h</label>
+      </node>
+      <node id="7">
+        <label>C:/Users/egomez/Documents/codeblocks/testc22/allocator.h</label>
+        <link refid="allocator.h"/>
+        <childnode refid="8" relation="include">
+        </childnode>
+        <childnode refid="9" relation="include">
+        </childnode>
+        <childnode refid="10" relation="include">
+        </childnode>
+        <childnode refid="11" relation="include">
+        </childnode>
+      </node>
+      <node id="10">
+        <label>header.h</label>
+        <link refid="header_8h"/>
+      </node>
+    </incdepgraph>
+    <invincdepgraph>
+      <node id="13">
+        <label>C:/Users/egomez/Documents/codeblocks/testc22/allocator.c</label>
+        <link refid="allocator_8c"/>
+      </node>
+      <node id="12">
+        <label>C:/Users/egomez/Documents/codeblocks/testc22/allocator.h</label>
+        <link refid="allocator.h"/>
+        <childnode refid="13" relation="include">
+        </childnode>
+        <childnode refid="14" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="15">
+        <label>C:/Users/egomez/Documents/codeblocks/testc22/interchange.c</label>
+        <link refid="interchange_8c"/>
+      </node>
+      <node id="14">
+        <label>C:/Users/egomez/Documents/codeblocks/testc22/interchange.h</label>
+        <link refid="interchange_8h"/>
+        <childnode refid="15" relation="include">
+        </childnode>
+        <childnode refid="16" relation="include">
+        </childnode>
+      </node>
+      <node id="16">
+        <label>C:/Users/egomez/Documents/codeblocks/testc22/main.c</label>
+        <link refid="main_8c"/>
+      </node>
+    </invincdepgraph>
+      <sectiondef kind="func">
+      <memberdef kind="function" id="allocator_8h_1a61c8a541e05ecc5e83e4453f88fe242e" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* AllocatorMalloc</definition>
+        <argsstring>(int64_t numberOfElements, int8_t typePointer)</argsstring>
+        <name>AllocatorMalloc</name>
+        <param>
+          <type>int64_t</type>
+          <declname>numberOfElements</declname>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>typePointer</declname>
+        </param>
+        <briefdescription>
+<para>This function is a wrapper of the malloc function, enhancing the notification error in case of NULL as result of the allocation process. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>numberOfElements</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of elements to allocate </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>typePointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of the elements to be allocated </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>pointer to the allocated memory </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/egomez/Documents/codeblocks/testc22/allocator.h" line="18" column="1" bodyfile="C:/Users/egomez/Documents/codeblocks/testc22/allocator.c" bodystart="3" bodyend="45"/>
+      </memberdef>
+      <memberdef kind="function" id="allocator_8h_1a8317bbf1374d8577e1a9f165a16e6ec2" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void **</type>
+        <definition>void** AllocatorMallocTwoDimension</definition>
+        <argsstring>(int64_t numberOfElements, int8_t typePointer)</argsstring>
+        <name>AllocatorMallocTwoDimension</name>
+        <param>
+          <type>int64_t</type>
+          <declname>numberOfElements</declname>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>typePointer</declname>
+        </param>
+        <briefdescription>
+<para>This function is a wrapper of the malloc function to allocate an array of pointers, enhancing the notification error in case of NULL as result of the allocation process. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>numberOfElements</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of elements to allocate </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>typePointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of the elements to be allocated </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>pointer to the allocated memory </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/egomez/Documents/codeblocks/testc22/allocator.h" line="31" column="1" bodyfile="C:/Users/egomez/Documents/codeblocks/testc22/allocator.c" bodystart="47" bodyend="89"/>
+      </memberdef>
+      <memberdef kind="function" id="allocator_8h_1afc1d49cedc81d980c36042da2b15eb81" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* AllocatorCalloc</definition>
+        <argsstring>(int64_t numberOfElements, int8_t typePointer)</argsstring>
+        <name>AllocatorCalloc</name>
+        <param>
+          <type>int64_t</type>
+          <declname>numberOfElements</declname>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>typePointer</declname>
+        </param>
+        <briefdescription>
+<para>This function is a wrapper of the calloc function, enhancing the notification error in case of NULL as result of the allocation process. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>numberOfElements</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of elements to allocate </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>typePointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of the elements to be allocated </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>pointer to the allocated memory </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/egomez/Documents/codeblocks/testc22/allocator.h" line="44" column="1" bodyfile="C:/Users/egomez/Documents/codeblocks/testc22/allocator.c" bodystart="91" bodyend="133"/>
+      </memberdef>
+      <memberdef kind="function" id="allocator_8h_1a2a2ce941856c07e1b58ae8012d403c63" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void **</type>
+        <definition>void** AllocatorCallocTwoDimension</definition>
+        <argsstring>(int64_t numberOfElements, int8_t typePointer)</argsstring>
+        <name>AllocatorCallocTwoDimension</name>
+        <param>
+          <type>int64_t</type>
+          <declname>numberOfElements</declname>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>typePointer</declname>
+        </param>
+        <briefdescription>
+<para>This function is a wrapper of the calloc function to allocate an array of pointers, enhancing the notification error in case of NULL as result of the allocation process. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>numberOfElements</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of elements to allocate </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>typePointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of the elements to be allocated </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>pointer to the allocated memory </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/egomez/Documents/codeblocks/testc22/allocator.h" line="57" column="1" bodyfile="C:/Users/egomez/Documents/codeblocks/testc22/allocator.c" bodystart="135" bodyend="177"/>
+      </memberdef>
+      <memberdef kind="function" id="allocator_8h_1a96639f50952fc722ccd3a3fbe17185ee" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void *</type>
+        <definition>void* AllocatorRealloc</definition>
+        <argsstring>(void *arrayAllocated, uint64_t numberOfElements, int8_t typePointer)</argsstring>
+        <name>AllocatorRealloc</name>
+        <param>
+          <type>void *</type>
+          <declname>arrayAllocated</declname>
+        </param>
+        <param>
+          <type>uint64_t</type>
+          <declname>numberOfElements</declname>
+        </param>
+        <param>
+          <type>int8_t</type>
+          <declname>typePointer</declname>
+        </param>
+        <briefdescription>
+<para>This function is a wrapper of the realloc function, enhancing the notification error in case of NULL as result of the allocation process. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>arrayAllocated</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the array to be reallocated </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>numberOfElements</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>number of elements to allocate </para></parameterdescription>
+</parameteritem>
+<parameteritem>
+<parameternamelist>
+<parametername>typePointer</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>type of the elements to be allocated </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+<simplesect kind="return"><para>pointer to the allocated memory </para></simplesect>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/egomez/Documents/codeblocks/testc22/allocator.h" line="71" column="1" bodyfile="C:/Users/egomez/Documents/codeblocks/testc22/allocator.c" bodystart="179" bodyend="221"/>
+      </memberdef>
+      <memberdef kind="function" id="allocator_8h_1a72d2be9c4c232384a3c814f3d21e0475" prot="public" static="no" const="no" explicit="no" inline="no" virt="non-virtual">
+        <type>void</type>
+        <definition>void AllocatorFree</definition>
+        <argsstring>(void *arrayAllocated)</argsstring>
+        <name>AllocatorFree</name>
+        <param>
+          <type>void *</type>
+          <declname>arrayAllocated</declname>
+        </param>
+        <briefdescription>
+<para>This function is a wrapper of the free function, enhancing the freeing process ensuring that the memory was released. </para>        </briefdescription>
+        <detaileddescription>
+<para><parameterlist kind="param"><parameteritem>
+<parameternamelist>
+<parametername>arrayAllocated</parametername>
+</parameternamelist>
+<parameterdescription>
+<para>pointer to the array to be reallocated </para></parameterdescription>
+</parameteritem>
+</parameterlist>
+</para>        </detaileddescription>
+        <inbodydescription>
+        </inbodydescription>
+        <location file="C:/Users/egomez/Documents/codeblocks/testc22/allocator.h" line="81" column="1" bodyfile="C:/Users/egomez/Documents/codeblocks/testc22/allocator.c" bodystart="223" bodyend="227"/>
+      </memberdef>
+      </sectiondef>
+    <briefdescription>
+    </briefdescription>
+    <detaileddescription>
+    </detaileddescription>
+    <programlisting>
+<codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>ALLOCATOR_H_INCLUDED</highlight></codeline>
+<codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ALLOCATOR_H_INCLUDED</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="4"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdlib.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="5"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&lt;stdint.h&gt;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="6"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="header_8h" kindref="compound">header.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="7"><highlight class="normal"></highlight><highlight class="preprocessor">#include<sp/>&quot;<ref refid="error_8h" kindref="compound">error.h</ref>&quot;</highlight><highlight class="normal"></highlight></codeline>
+<codeline lineno="8"><highlight class="normal"></highlight></codeline>
+<codeline lineno="18"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="allocator_8h_1a61c8a541e05ecc5e83e4453f88fe242e" kindref="member">AllocatorMalloc</ref>(int64_t<sp/>numberOfElements,<sp/>int8_t<sp/>typePointer);</highlight></codeline>
+<codeline lineno="19"><highlight class="normal"></highlight></codeline>
+<codeline lineno="20"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21"><highlight class="normal"></highlight></codeline>
+<codeline lineno="31"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**<ref refid="allocator_8h_1a8317bbf1374d8577e1a9f165a16e6ec2" kindref="member">AllocatorMallocTwoDimension</ref>(int64_t<sp/>numberOfElements,<sp/>int8_t<sp/>typePointer);</highlight></codeline>
+<codeline lineno="32"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33"><highlight class="normal"></highlight></codeline>
+<codeline lineno="34"><highlight class="normal"></highlight></codeline>
+<codeline lineno="44"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="allocator_8h_1afc1d49cedc81d980c36042da2b15eb81" kindref="member">AllocatorCalloc</ref>(int64_t<sp/>numberOfElements,<sp/>int8_t<sp/>typePointer);</highlight></codeline>
+<codeline lineno="45"><highlight class="normal"></highlight></codeline>
+<codeline lineno="46"><highlight class="normal"></highlight></codeline>
+<codeline lineno="47"><highlight class="normal"></highlight></codeline>
+<codeline lineno="57"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>**<ref refid="allocator_8h_1a2a2ce941856c07e1b58ae8012d403c63" kindref="member">AllocatorCallocTwoDimension</ref>(int64_t<sp/>numberOfElements,<sp/>int8_t<sp/>typePointer);</highlight></codeline>
+<codeline lineno="58"><highlight class="normal"></highlight></codeline>
+<codeline lineno="59"><highlight class="normal"></highlight></codeline>
+<codeline lineno="71"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/>*<ref refid="allocator_8h_1a96639f50952fc722ccd3a3fbe17185ee" kindref="member">AllocatorRealloc</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>arrayAllocated,<sp/>uint64_t<sp/>numberOfElements,<sp/>int8_t<sp/>typePointer);</highlight></codeline>
+<codeline lineno="72"><highlight class="normal"></highlight></codeline>
+<codeline lineno="73"><highlight class="normal"></highlight></codeline>
+<codeline lineno="74"><highlight class="normal"></highlight></codeline>
+<codeline lineno="81"><highlight class="keywordtype">void</highlight><highlight class="normal"><sp/><ref refid="allocator_8h_1a72d2be9c4c232384a3c814f3d21e0475" kindref="member">AllocatorFree</ref>(</highlight><highlight class="keywordtype">void</highlight><highlight class="normal">*<sp/>arrayAllocated);</highlight></codeline>
+<codeline lineno="82"><highlight class="normal"></highlight></codeline>
+<codeline lineno="83"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>ALLOCATOR_H_INCLUDED</highlight></codeline>
+    </programlisting>
+    <location file="C:/Users/egomez/Documents/codeblocks/testc22/allocator.h"/>
+  </compounddef>
+</doxygen>
