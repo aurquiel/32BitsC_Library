@@ -65,7 +65,7 @@
           <briefdescription>
           </briefdescription>
           <detaileddescription>
-          </detaileddescription>
+<para>-101 indicating error of array size </para>          </detaileddescription>
         </enumvalue>
         <enumvalue id="error_8h_1a2a9eafb7318cefb8f4de964a86f16a2aab5eb13c891d3038f17b04a5beba34f1b" prot="public">
           <name>errorTypePrint</name>
@@ -73,15 +73,15 @@
           <briefdescription>
           </briefdescription>
           <detaileddescription>
-          </detaileddescription>
+<para>-101 indicating error of type of array </para>          </detaileddescription>
         </enumvalue>
         <briefdescription>
-        </briefdescription>
+<para>enum to enumerate the errors of <ref refid="print_8c" kindref="compound">print.c</ref>. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/egomez/Documents/codeblocks/testc22/error.h" line="4" column="1" bodyfile="C:/Users/egomez/Documents/codeblocks/testc22/error.h" bodystart="4" bodyend="7"/>
+        <location file="C:/Users/egomez/Documents/codeblocks/testc22/error.h" line="9" column="1" bodyfile="C:/Users/egomez/Documents/codeblocks/testc22/error.h" bodystart="9" bodyend="12"/>
       </memberdef>
       <memberdef kind="enum" id="error_8h_1a1829b01692ef234bb560acc5fc9e84f8" prot="public" static="no">
         <name>errorInterchange</name>
@@ -91,7 +91,7 @@
           <briefdescription>
           </briefdescription>
           <detaileddescription>
-          </detaileddescription>
+<para>-201 indicating error of array size </para>          </detaileddescription>
         </enumvalue>
         <enumvalue id="error_8h_1a1829b01692ef234bb560acc5fc9e84f8af8a405268fa24b215f1056ca4a3eef51" prot="public">
           <name>errorTypeInterchange</name>
@@ -99,15 +99,15 @@
           <briefdescription>
           </briefdescription>
           <detaileddescription>
-          </detaileddescription>
+<para>-201 indicating error of type of array </para>          </detaileddescription>
         </enumvalue>
         <briefdescription>
-        </briefdescription>
+<para>enum to enumerate the errors of <ref refid="interchange_8c" kindref="compound">interchange.c</ref>. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/egomez/Documents/codeblocks/testc22/error.h" line="9" column="1" bodyfile="C:/Users/egomez/Documents/codeblocks/testc22/error.h" bodystart="9" bodyend="12"/>
+        <location file="C:/Users/egomez/Documents/codeblocks/testc22/error.h" line="21" column="1" bodyfile="C:/Users/egomez/Documents/codeblocks/testc22/error.h" bodystart="21" bodyend="24"/>
       </memberdef>
       <memberdef kind="enum" id="error_8h_1a552408be2f80b353c540634daff9dc43" prot="public" static="no">
         <name>errorAllocator</name>
@@ -117,7 +117,7 @@
           <briefdescription>
           </briefdescription>
           <detaileddescription>
-          </detaileddescription>
+<para>-301 indicating error of array size </para>          </detaileddescription>
         </enumvalue>
         <enumvalue id="error_8h_1a552408be2f80b353c540634daff9dc43a3c51c62c38b7cfcda4aae0aed4df9de1" prot="public">
           <name>errorTypeAllocator</name>
@@ -125,7 +125,7 @@
           <briefdescription>
           </briefdescription>
           <detaileddescription>
-          </detaileddescription>
+<para>-301 indicating error of type of array </para>          </detaileddescription>
         </enumvalue>
         <enumvalue id="error_8h_1a552408be2f80b353c540634daff9dc43ab1fdf415ff67a6ae7d0925226816117e" prot="public">
           <name>errorNoAllocate</name>
@@ -133,15 +133,15 @@
           <briefdescription>
           </briefdescription>
           <detaileddescription>
-          </detaileddescription>
+<para>-301 indicating error of allocation </para>          </detaileddescription>
         </enumvalue>
         <briefdescription>
-        </briefdescription>
+<para>enum to enumerate the errors of <ref refid="allocator_8c" kindref="compound">allocator.c</ref>. </para>        </briefdescription>
         <detaileddescription>
         </detaileddescription>
         <inbodydescription>
         </inbodydescription>
-        <location file="C:/Users/egomez/Documents/codeblocks/testc22/error.h" line="14" column="1" bodyfile="C:/Users/egomez/Documents/codeblocks/testc22/error.h" bodystart="14" bodyend="18"/>
+        <location file="C:/Users/egomez/Documents/codeblocks/testc22/error.h" line="33" column="1" bodyfile="C:/Users/egomez/Documents/codeblocks/testc22/error.h" bodystart="33" bodyend="37"/>
       </memberdef>
       </sectiondef>
     <briefdescription>
@@ -151,24 +151,28 @@
     <programlisting>
 <codeline lineno="1"><highlight class="preprocessor">#ifndef<sp/>ERROR_H_INCLUDED</highlight></codeline>
 <codeline lineno="2"><highlight class="preprocessor"></highlight><highlight class="preprocessor">#define<sp/>ERROR_H_INCLUDED</highlight></codeline>
-<codeline lineno="3"><highlight class="preprocessor"></highlight><highlight class="normal"></highlight></codeline>
-<codeline lineno="4" refid="error_8h_1a2a9eafb7318cefb8f4de964a86f16a2a" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="5" refid="error_8h_1a2a9eafb7318cefb8f4de964a86f16a2aad10bb5be134c5144150fe8777b92aa09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a2a9eafb7318cefb8f4de964a86f16a2aad10bb5be134c5144150fe8777b92aa09" kindref="member">errorSizePrint</ref><sp/>=<sp/>-101,</highlight></codeline>
-<codeline lineno="6" refid="error_8h_1a2a9eafb7318cefb8f4de964a86f16a2aab5eb13c891d3038f17b04a5beba34f1b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a2a9eafb7318cefb8f4de964a86f16a2aab5eb13c891d3038f17b04a5beba34f1b" kindref="member">errorTypePrint</ref><sp/>=<sp/>-102</highlight></codeline>
-<codeline lineno="7"><highlight class="normal">}<sp/><ref refid="error_8h_1a2a9eafb7318cefb8f4de964a86f16a2a" kindref="member">errorPrint</ref>;</highlight></codeline>
-<codeline lineno="8"><highlight class="normal"></highlight></codeline>
-<codeline lineno="9" refid="error_8h_1a1829b01692ef234bb560acc5fc9e84f8" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="10" refid="error_8h_1a1829b01692ef234bb560acc5fc9e84f8a638ed4737c4e0f966af63906e8302442" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a1829b01692ef234bb560acc5fc9e84f8a638ed4737c4e0f966af63906e8302442" kindref="member">errorSizeInterchange</ref><sp/>=<sp/>-201,</highlight></codeline>
-<codeline lineno="11" refid="error_8h_1a1829b01692ef234bb560acc5fc9e84f8af8a405268fa24b215f1056ca4a3eef51" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a1829b01692ef234bb560acc5fc9e84f8af8a405268fa24b215f1056ca4a3eef51" kindref="member">errorTypeInterchange</ref><sp/>=<sp/>-202</highlight></codeline>
-<codeline lineno="12"><highlight class="normal">}<sp/><ref refid="error_8h_1a1829b01692ef234bb560acc5fc9e84f8" kindref="member">errorInterchange</ref>;</highlight></codeline>
+<codeline lineno="3"><highlight class="preprocessor"></highlight></codeline>
+<codeline lineno="9" refid="error_8h_1a2a9eafb7318cefb8f4de964a86f16a2a" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="10" refid="error_8h_1a2a9eafb7318cefb8f4de964a86f16a2aad10bb5be134c5144150fe8777b92aa09" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a2a9eafb7318cefb8f4de964a86f16a2aad10bb5be134c5144150fe8777b92aa09" kindref="member">errorSizePrint</ref><sp/>=<sp/>-101,<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="11" refid="error_8h_1a2a9eafb7318cefb8f4de964a86f16a2aab5eb13c891d3038f17b04a5beba34f1b" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a2a9eafb7318cefb8f4de964a86f16a2aab5eb13c891d3038f17b04a5beba34f1b" kindref="member">errorTypePrint</ref><sp/>=<sp/>-102<sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="12"><highlight class="normal">}<sp/><ref refid="error_8h_1a2a9eafb7318cefb8f4de964a86f16a2a" kindref="member">errorPrint</ref>;</highlight></codeline>
 <codeline lineno="13"><highlight class="normal"></highlight></codeline>
-<codeline lineno="14" refid="error_8h_1a552408be2f80b353c540634daff9dc43" refkind="member"><highlight class="normal"></highlight><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
-<codeline lineno="15" refid="error_8h_1a552408be2f80b353c540634daff9dc43af79a4beb5b58709569843feb37ff4f18" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a552408be2f80b353c540634daff9dc43af79a4beb5b58709569843feb37ff4f18" kindref="member">errorSizeAllocator</ref><sp/>=<sp/>-301,</highlight></codeline>
-<codeline lineno="16" refid="error_8h_1a552408be2f80b353c540634daff9dc43a3c51c62c38b7cfcda4aae0aed4df9de1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a552408be2f80b353c540634daff9dc43a3c51c62c38b7cfcda4aae0aed4df9de1" kindref="member">errorTypeAllocator</ref><sp/>=<sp/>-302,</highlight></codeline>
-<codeline lineno="17" refid="error_8h_1a552408be2f80b353c540634daff9dc43ab1fdf415ff67a6ae7d0925226816117e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a552408be2f80b353c540634daff9dc43ab1fdf415ff67a6ae7d0925226816117e" kindref="member">errorNoAllocate</ref><sp/>=<sp/>-303</highlight></codeline>
-<codeline lineno="18"><highlight class="normal">}<sp/><ref refid="error_8h_1a552408be2f80b353c540634daff9dc43" kindref="member">errorAllocator</ref>;</highlight></codeline>
-<codeline lineno="19"><highlight class="normal"></highlight></codeline>
-<codeline lineno="20"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>ERROR_H_INCLUDED</highlight></codeline>
+<codeline lineno="14"><highlight class="normal"></highlight></codeline>
+<codeline lineno="15"><highlight class="normal"></highlight></codeline>
+<codeline lineno="21" refid="error_8h_1a1829b01692ef234bb560acc5fc9e84f8" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="22" refid="error_8h_1a1829b01692ef234bb560acc5fc9e84f8a638ed4737c4e0f966af63906e8302442" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a1829b01692ef234bb560acc5fc9e84f8a638ed4737c4e0f966af63906e8302442" kindref="member">errorSizeInterchange</ref><sp/>=<sp/>-201,<sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="23" refid="error_8h_1a1829b01692ef234bb560acc5fc9e84f8af8a405268fa24b215f1056ca4a3eef51" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a1829b01692ef234bb560acc5fc9e84f8af8a405268fa24b215f1056ca4a3eef51" kindref="member">errorTypeInterchange</ref><sp/>=<sp/>-202<sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="24"><highlight class="normal">}<sp/><ref refid="error_8h_1a1829b01692ef234bb560acc5fc9e84f8" kindref="member">errorInterchange</ref>;</highlight></codeline>
+<codeline lineno="25"><highlight class="normal"></highlight></codeline>
+<codeline lineno="26"><highlight class="normal"></highlight></codeline>
+<codeline lineno="27"><highlight class="normal"></highlight></codeline>
+<codeline lineno="33" refid="error_8h_1a552408be2f80b353c540634daff9dc43" refkind="member"><highlight class="keyword">typedef</highlight><highlight class="normal"><sp/></highlight><highlight class="keyword">enum</highlight><highlight class="normal"><sp/>{</highlight></codeline>
+<codeline lineno="34" refid="error_8h_1a552408be2f80b353c540634daff9dc43af79a4beb5b58709569843feb37ff4f18" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a552408be2f80b353c540634daff9dc43af79a4beb5b58709569843feb37ff4f18" kindref="member">errorSizeAllocator</ref><sp/>=<sp/>-301,<sp/><sp/></highlight></codeline>
+<codeline lineno="35" refid="error_8h_1a552408be2f80b353c540634daff9dc43a3c51c62c38b7cfcda4aae0aed4df9de1" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a552408be2f80b353c540634daff9dc43a3c51c62c38b7cfcda4aae0aed4df9de1" kindref="member">errorTypeAllocator</ref><sp/>=<sp/>-302,<sp/><sp/></highlight></codeline>
+<codeline lineno="36" refid="error_8h_1a552408be2f80b353c540634daff9dc43ab1fdf415ff67a6ae7d0925226816117e" refkind="member"><highlight class="normal"><sp/><sp/><sp/><sp/><ref refid="error_8h_1a552408be2f80b353c540634daff9dc43ab1fdf415ff67a6ae7d0925226816117e" kindref="member">errorNoAllocate</ref><sp/>=<sp/>-303<sp/><sp/><sp/><sp/><sp/><sp/></highlight></codeline>
+<codeline lineno="37"><highlight class="normal">}<sp/><ref refid="error_8h_1a552408be2f80b353c540634daff9dc43" kindref="member">errorAllocator</ref>;</highlight></codeline>
+<codeline lineno="38"><highlight class="normal"></highlight></codeline>
+<codeline lineno="39"><highlight class="normal"></highlight><highlight class="preprocessor">#endif<sp/>//<sp/>ERROR_H_INCLUDED</highlight></codeline>
     </programlisting>
     <location file="C:/Users/egomez/Documents/codeblocks/testc22/error.h"/>
   </compounddef>
