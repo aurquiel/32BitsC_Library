@@ -66,14 +66,26 @@ void PrintArray(void *theArray, int64_t size, uint8_t typePointer)
         {
             int64_t* auxiliarPointer = (int64_t*)theArray;
             for(uint64_t i = 0; i < size; i++)
+            {
+                #ifdef __unix__
+                printf("%ld ", auxiliarPointer[i]);
+                #else //windows
                 printf("%I64d ", auxiliarPointer[i]);
+                #endif
+            }
             printf("\n");
         }
         else if(unsignedInt64Pointer == typePointer)
         {
             uint64_t* auxiliarPointer = (uint64_t*)theArray;
             for(uint64_t i = 0; i < size; i++)
+            {
+                #ifdef __unix__
+                printf("%ld ", auxiliarPointer[i]);
+                #else //Windows
                 printf("%I64d ", auxiliarPointer[i]);
+                #endif
+            }
             printf("\n");
         }
         else if(floatPointer == typePointer)

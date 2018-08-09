@@ -36,4 +36,15 @@ typedef enum {
     errorNoAllocate = -303      /*!< -301 indicating error of allocation */
 } errorAllocator;
 
+
+
+/** \brief enum to enumerate the errors of file.c.
+ *
+ * \enum errorFile
+ *
+ */
+typedef enum {
+    errorNoOpenFile = -401      /*!< -401 indicating error opening file */
+} errorFile;
+
 #endif // ERROR_H_INCLUDED

@@ -36,3 +36,50 @@
 	"header.h"
 	"error.h"
 
+1533777593 source:/home/edgargomez/Escritorio/templateC/allocator.c
+	"allocator.h"
+
+1533777593 /home/edgargomez/Escritorio/templateC/allocator.h
+	<stdlib.h>
+	<stdint.h>
+	"header.h"
+	"error.h"
+
+1533777593 /home/edgargomez/Escritorio/templateC/header.h
+
+1533779422 /home/edgargomez/Escritorio/templateC/error.h
+
+1533777593 source:/home/edgargomez/Escritorio/templateC/interchange.c
+	"interchange.h"
+
+1533777593 /home/edgargomez/Escritorio/templateC/interchange.h
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	"allocator.h"
+
+1533779041 source:/home/edgargomez/Escritorio/templateC/main.c
+	"print.h"
+	"interchange.h"
+	"allocator.h"
+
+1533777593 /home/edgargomez/Escritorio/templateC/print.h
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	"header.h"
+	"error.h"
+
+1533778329 source:/home/edgargomez/Escritorio/templateC/print.c
+	"print.h"
+
+1533779313 source:/home/edgargomez/Escritorio/templateC/file.c
+	"file.h"
+
+1533779313 /home/edgargomez/Escritorio/templateC/file.h
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	<fcntl.h>
+	"error.h"
+
