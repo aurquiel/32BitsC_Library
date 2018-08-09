@@ -58,25 +58,25 @@
 	<stdint.h>
 	"allocator.h"
 
-1533779041 source:/home/edgargomez/Escritorio/templateC/main.c
+1533780795 source:/home/edgargomez/Escritorio/templateC/main.c
 	"print.h"
 	"interchange.h"
 	"allocator.h"
 
-1533777593 /home/edgargomez/Escritorio/templateC/print.h
+1533780669 /home/edgargomez/Escritorio/templateC/print.h
 	<stdio.h>
 	<stdint.h>
 	<stdlib.h>
 	"header.h"
 	"error.h"
 
-1533778329 source:/home/edgargomez/Escritorio/templateC/print.c
+1533780564 source:/home/edgargomez/Escritorio/templateC/print.c
 	"print.h"
 
-1533779313 source:/home/edgargomez/Escritorio/templateC/file.c
+1533779481 source:/home/edgargomez/Escritorio/templateC/file.c
 	"file.h"
 
-1533779313 /home/edgargomez/Escritorio/templateC/file.h
+1533780640 /home/edgargomez/Escritorio/templateC/file.h
 	<stdio.h>
 	<stdint.h>
 	<stdlib.h>

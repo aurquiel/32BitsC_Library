@@ -106,3 +106,61 @@ void PrintArray(void *theArray, int64_t size, uint8_t typePointer)
             exit(errorTypePrint);
     }
 }
+
+void PrintChar(char theChar)
+{
+    printf("%c\n",theChar);
+}
+
+void PrintUchar(unsigned char theUchar)
+{
+    printf("%c\n",theUchar);
+}
+
+void Print8int(int8_t theInt)
+{
+    printf("%d\n",theInt);
+}
+
+void Print8Uint(uint8_t theInt)
+{
+    printf("%u\n",theInt);
+}
+
+void Print16int(int16_t theInt)
+{
+    printf("%d\n",theInt);
+}
+
+void Print16Uint(uint16_t theInt)
+{
+    printf("%u\n",theInt);
+}
+
+void Print32int(int32_t theInt)
+{
+    printf("%d\n",theInt);
+}
+
+void Print32Uint(uint32_t theInt)
+{
+    printf("%u\n",theInt);
+}
+
+void Print64int(int64_t theInt)
+{
+    #ifdef __unix__
+    printf("%ld ", theInt);
+    #else //Windows
+    printf("%I64d ", theInt);
+    #endif
+}
+
+void Print64Uint(uint64_t theInt)
+{
+    #ifdef __unix__
+    printf("%ld ", theInt);
+    #else //Windows
+    printf("%I64d ", theInt);
+    #endif
+}
