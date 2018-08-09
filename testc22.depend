@@ -1,13 +1,13 @@
 # depslib dependency file v1.0
-1533759781 source:c:\users\egomez\documents\codeblocks\testc22\main.c
+1533816698 source:c:\users\egomez\documents\codeblocks\testc22\main.c
 	"print.h"
 	"interchange.h"
 	"allocator.h"
 
-1533759376 source:c:\users\egomez\documents\codeblocks\testc22\print.c
+1533816732 source:c:\users\egomez\documents\codeblocks\testc22\print.c
 	"print.h"
 
-1533759627 c:\users\egomez\documents\codeblocks\testc22\print.h
+1533835550 c:\users\egomez\documents\codeblocks\testc22\print.h
 	<stdio.h>
 	<stdint.h>
 	<stdlib.h>
@@ -16,7 +16,7 @@
 
 1533758190 c:\users\egomez\documents\codeblocks\testc22\header.h
 
-1533761109 c:\users\egomez\documents\codeblocks\testc22\error.h
+1533815861 c:\users\egomez\documents\codeblocks\testc22\error.h
 
 1533755092 source:c:\users\egomez\documents\codeblocks\testc22\interchange.c
 	"interchange.h"
@@ -30,7 +30,7 @@
 1533753348 source:c:\users\egomez\documents\codeblocks\testc22\allocator.c
 	"allocator.h"
 
-1533756513 c:\users\egomez\documents\codeblocks\testc22\allocator.h
+1533836106 c:\users\egomez\documents\codeblocks\testc22\allocator.h
 	<stdlib.h>
 	<stdint.h>
 	"header.h"
@@ -77,6 +77,16 @@
 	"file.h"
 
 1533780640 /home/edgargomez/Escritorio/templateC/file.h
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	<fcntl.h>
+	"error.h"
+
+1533815861 source:c:\users\egomez\documents\codeblocks\testc22\file.c
+	"file.h"
+
+1533837437 c:\users\egomez\documents\codeblocks\testc22\file.h
 	<stdio.h>
 	<stdint.h>
 	<stdlib.h>

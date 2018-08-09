@@ -18,6 +18,8 @@ int main(int argc, char *argv[])
     strcpy(miNombre22[0],"edgar");
     PrintArray(miNombre,strlen(miNombre22[0]),charPointer);
 
+    Print64int((int64_t)234236984893264);
+
     return EXIT_SUCCESS;
 }
 

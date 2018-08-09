@@ -150,17 +150,17 @@ void Print32Uint(uint32_t theInt)
 void Print64int(int64_t theInt)
 {
     #ifdef __unix__
-    printf("%ld ", theInt);
+    printf("%ld\n", theInt);
     #else //Windows
-    printf("%I64d ", theInt);
+    printf("%I64d\n", theInt);
     #endif
 }
 
 void Print64Uint(uint64_t theInt)
 {
     #ifdef __unix__
-    printf("%ld ", theInt);
+    printf("%ld\n", theInt);
     #else //Windows
-    printf("%I64d ", theInt);
+    printf("%I64d\n", theInt);
     #endif
 }
