@@ -1,36 +1,35 @@
 # depslib dependency file v1.0
-1533816698 source:c:\users\egomez\documents\codeblocks\testc22\main.c
+1536088511 source:c:\users\egomez\documents\codeblocks\testc22\main.c
 	"print.h"
-	"interchange.h"
+	"array.h"
 	"allocator.h"
 
-1533816732 source:c:\users\egomez\documents\codeblocks\testc22\print.c
+1536087899 source:c:\users\egomez\documents\codeblocks\testc22\print.c
 	"print.h"
 
-1533835550 c:\users\egomez\documents\codeblocks\testc22\print.h
+1536087899 c:\users\egomez\documents\codeblocks\testc22\print.h
 	<stdio.h>
 	<stdint.h>
 	<stdlib.h>
 	"header.h"
 	"error.h"
 
-1533758190 c:\users\egomez\documents\codeblocks\testc22\header.h
+1536087976 c:\users\egomez\documents\codeblocks\testc22\header.h
 
-1533815861 c:\users\egomez\documents\codeblocks\testc22\error.h
+1536088101 c:\users\egomez\documents\codeblocks\testc22\error.h
 
-1533755092 source:c:\users\egomez\documents\codeblocks\testc22\interchange.c
-	"interchange.h"
+1536087224 source:c:\users\egomez\documents\codeblocks\testc22\interchange.c
 
-1533759679 c:\users\egomez\documents\codeblocks\testc22\interchange.h
+1536087058 c:\users\egomez\documents\codeblocks\testc22\interchange.h
 	<string.h>
 	<stdlib.h>
 	<stdint.h>
 	"allocator.h"
 
-1533753348 source:c:\users\egomez\documents\codeblocks\testc22\allocator.c
+1536074460 source:c:\users\egomez\documents\codeblocks\testc22\allocator.c
 	"allocator.h"
 
-1533836106 c:\users\egomez\documents\codeblocks\testc22\allocator.h
+1536088025 c:\users\egomez\documents\codeblocks\testc22\allocator.h
 	<stdlib.h>
 	<stdint.h>
 	"header.h"
@@ -86,10 +85,18 @@
 1533815861 source:c:\users\egomez\documents\codeblocks\testc22\file.c
 	"file.h"
 
-1533837437 c:\users\egomez\documents\codeblocks\testc22\file.h
+1536088101 c:\users\egomez\documents\codeblocks\testc22\file.h
 	<stdio.h>
 	<stdint.h>
 	<stdlib.h>
-	<fcntl.h>
 	"error.h"
+
+1536088101 source:c:\users\egomez\documents\codeblocks\testc22\array.c
+	"array.h"
+
+1536088132 c:\users\egomez\documents\codeblocks\testc22\array.h
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	"allocator.h"
 

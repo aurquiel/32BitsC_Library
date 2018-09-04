@@ -1,50 +1,39 @@
 #ifndef HEADER_H_INCLUDED
 #define HEADER_H_INCLUDED
 
+#define FALSE 0
+#define TRUE 1
 
-/** \brief definition to obtain the number of elements belonging to an array, do not work with declarations like; char* = "str".
- *
- * \def NumberOfArrayElements(x)
- *
- */
+#define EMPTY '\0'
+
+#define CHAR 1
+#define UNSIGNED_CHAR 2
+#define INT8 3
+#define UNSIGNED_INT8 4
+#define INT16 5
+#define UNSIGNED_INT16 6
+#define INT32 7
+#define UNSIGNED_INT32 8
+#define INT64 9
+#define UNSIGNED_INT64 10
+#define FLOAT 11
+#define DOUBLE 12
+#define STRUCT 13
+
+#define POINTER_CHAR 1
+#define POINTER_UNSIGNED_CHAR 2
+#define POINTER_INT8 3
+#define POINTER_UNSIGNED_INT8 4
+#define POINTER_INT16 5
+#define POINTER_UNSIGNED_INT16 6
+#define POINTER_INT32 7
+#define POINTER_UNSIGNED_INT32 8
+#define POINTER_INT64 9
+#define POINTER_UNSIGNED_INT64 10
+#define POINTER_FLOAT 11
+#define POINTER_DOUBLE 12
+#define POINTER_STRUCT 13
+
 #define NumberOfArrayElements(x) (sizeof (x) / sizeof (*x))
-
-
-
-/** \brief enum to add bool type to the C programing language.
- *
- * \enum bool
- *
- */
-#ifndef __cplusplus
-    typedef enum {
-        false = 0,              /*!< 0 indicating false */
-        true = 1                /*!< 1 indicating true */
-        } bool;
-#endif
-
-
-
-/** \brief enum to enumerate the type of pointers.
- *
- * \enum typesPointers
- *
- */
-typedef enum {
-    charPointer = 0,            /*!< 0 indicating char* */
-    unsignedCharPointer = 1,    /*!< 1 indicating unsigned char* */
-    int8Pointer = 2,            /*!< 2 indicating int8_t* */
-    unsignedInt8Pointer = 3,    /*!< 3 indicating uint8_t* */
-    int16Pointer = 4,           /*!< 4 indicating int16_t* */
-    unsignedInt16Pointer = 5,   /*!< 5 indicating uint16_t* */
-    int32Pointer = 6,           /*!< 6 indicating int32_t* */
-    unsignedInt32Pointer = 7,   /*!< 7 indicating uint32_t* */
-    int64Pointer = 8,           /*!< 8 indicating int64_t* */
-    unsignedInt64Pointer = 9,   /*!< 9 indicating uint64_t* */
-    floatPointer = 10,          /*!< 10 indicating float* */
-    doublePointer = 11,         /*!< 11 indicating double* */
-    structPointer = 12          /*!< 12 indicating struct* */
-} typesPointers;
-
 
 #endif // HEADER_H_INCLUDED

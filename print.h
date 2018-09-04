@@ -11,7 +11,7 @@
 
 /** \brief This function prints the elements belonging to an array.
  *
- * \param theArray
+ * \param array
  * pointer to the array
  * \param size
  * number of elements of the array
@@ -19,7 +19,7 @@
  * type of the elements to be printed
  *
  */
-void PrintArray(void *theArray, int64_t size, uint8_t typePointer);
+void PrintArray(void *array, int64_t size, uint8_t typePointer);
 
 
 

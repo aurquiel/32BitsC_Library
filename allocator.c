@@ -1,6 +1,6 @@
 #include "allocator.h"
 
-void *AllocatorMalloc(int64_t numberOfElements, int8_t typePointer)
+void *MallocAllocator(int64_t numberOfElements, int8_t typePointer)
 {
     void* auxiliarMemory = NULL;
 
@@ -8,29 +8,29 @@ void *AllocatorMalloc(int64_t numberOfElements, int8_t typePointer)
         exit(errorSizeAllocator);
     else
     {
-        if(charPointer == typePointer)
+        if(POINTER_CHAR == typePointer)
             auxiliarMemory = (void*)malloc(numberOfElements*sizeof(char));
-        else if(unsignedCharPointer == typePointer)
+        else if(POINTER_UNSIGNED_CHAR == typePointer)
             auxiliarMemory = (void*)malloc(numberOfElements*sizeof(unsigned char));
-        else if(int8Pointer == typePointer)
+        else if(POINTER_INT8  == typePointer)
             auxiliarMemory = (void*)malloc(numberOfElements*sizeof(int8_t));
-        else if(unsignedInt8Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT8 == typePointer)
             auxiliarMemory = (void*)malloc(numberOfElements*sizeof(uint8_t));
-        else if(int16Pointer == typePointer)
+        else if(POINTER_INT16 == typePointer)
             auxiliarMemory = (void*)malloc(numberOfElements*sizeof(int16_t));
-        else if(unsignedInt16Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT16 == typePointer)
             auxiliarMemory = (void*)malloc(numberOfElements*sizeof(uint16_t));
-        else if(int32Pointer == typePointer)
+        else if(POINTER_INT32 == typePointer)
             auxiliarMemory = (void*)malloc(numberOfElements*sizeof(int32_t));
-        else if(unsignedInt32Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT32 == typePointer)
             auxiliarMemory = (void*)malloc(numberOfElements*sizeof(uint32_t));
-        else if(int64Pointer == typePointer)
+        else if(POINTER_INT64 == typePointer)
             auxiliarMemory = (void*)malloc(numberOfElements*sizeof(int64_t));
-        else if(unsignedInt64Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT64 == typePointer)
             auxiliarMemory = (void*)malloc(numberOfElements*sizeof(uint64_t));
-        else if(floatPointer == typePointer)
+        else if(POINTER_FLOAT == typePointer)
             auxiliarMemory = (void*)malloc(numberOfElements*sizeof(float));
-        else if(doublePointer == typePointer)
+        else if(POINTER_DOUBLE == typePointer)
             auxiliarMemory = (void*)malloc(numberOfElements*sizeof(double));
         else
             exit(errorTypeAllocator);
@@ -44,7 +44,7 @@ void *AllocatorMalloc(int64_t numberOfElements, int8_t typePointer)
     return NULL;
 }
 
-void **AllocatorMallocTwoDimension(int64_t numberOfElements, int8_t typePointer)
+void **MallocAllocatorTwoDimension(int64_t numberOfElements, int8_t typePointer)
 {
     void* auxiliarMemory = NULL;
 
@@ -52,29 +52,29 @@ void **AllocatorMallocTwoDimension(int64_t numberOfElements, int8_t typePointer)
         exit(errorSizeAllocator);
     else
     {
-        if(charPointer == typePointer)
+        if(POINTER_CHAR == typePointer)
             auxiliarMemory = (void**)malloc(numberOfElements*sizeof(char*));
-        else if(unsignedCharPointer == typePointer)
+        else if(POINTER_UNSIGNED_CHAR == typePointer)
             auxiliarMemory = (void**)malloc(numberOfElements*sizeof(unsigned char*));
-        else if(int8Pointer == typePointer)
+        else if(POINTER_INT8  == typePointer)
             auxiliarMemory = (void**)malloc(numberOfElements*sizeof(int8_t*));
-        else if(unsignedInt8Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT8 == typePointer)
             auxiliarMemory = (void**)malloc(numberOfElements*sizeof(uint8_t*));
-        else if(int16Pointer == typePointer)
+        else if(POINTER_INT16 == typePointer)
             auxiliarMemory = (void**)malloc(numberOfElements*sizeof(int16_t*));
-        else if(unsignedInt16Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT16 == typePointer)
             auxiliarMemory = (void**)malloc(numberOfElements*sizeof(uint16_t*));
-        else if(int32Pointer == typePointer)
+        else if(POINTER_INT32 == typePointer)
             auxiliarMemory = (void**)malloc(numberOfElements*sizeof(int32_t*));
-        else if(unsignedInt32Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT32 == typePointer)
             auxiliarMemory = (void**)malloc(numberOfElements*sizeof(uint32_t*));
-        else if(int64Pointer == typePointer)
+        else if(POINTER_INT64 == typePointer)
             auxiliarMemory = (void**)malloc(numberOfElements*sizeof(int64_t*));
-        else if(unsignedInt64Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT64 == typePointer)
             auxiliarMemory = (void**)malloc(numberOfElements*sizeof(uint64_t*));
-        else if(floatPointer == typePointer)
+        else if(POINTER_FLOAT == typePointer)
             auxiliarMemory = (void**)malloc(numberOfElements*sizeof(float*));
-        else if(doublePointer == typePointer)
+        else if(POINTER_DOUBLE == typePointer)
             auxiliarMemory = (void**)malloc(numberOfElements*sizeof(double*));
         else
             exit(errorTypeAllocator);
@@ -88,7 +88,7 @@ void **AllocatorMallocTwoDimension(int64_t numberOfElements, int8_t typePointer)
     return NULL;
 }
 
-void *AllocatorCalloc(int64_t numberOfElements, int8_t typePointer)
+void *CallocAllocator(int64_t numberOfElements, int8_t typePointer)
 {
     void* auxiliarMemory = NULL;
 
@@ -96,29 +96,29 @@ void *AllocatorCalloc(int64_t numberOfElements, int8_t typePointer)
         exit(errorSizeAllocator);
     else
     {
-        if(charPointer == typePointer)
+        if(POINTER_CHAR == typePointer)
             auxiliarMemory = (void*)calloc(numberOfElements,sizeof(char));
-        else if(unsignedCharPointer == typePointer)
+        else if(POINTER_UNSIGNED_CHAR == typePointer)
             auxiliarMemory = (void*)calloc(numberOfElements,sizeof(unsigned char));
-        else if(int8Pointer == typePointer)
+        else if(POINTER_INT8  == typePointer)
             auxiliarMemory = (void*)calloc(numberOfElements,sizeof(int8_t));
-        else if(unsignedInt8Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT8 == typePointer)
             auxiliarMemory = (void*)calloc(numberOfElements,sizeof(uint8_t));
-        else if(int16Pointer == typePointer)
+        else if(POINTER_INT16 == typePointer)
             auxiliarMemory = (void*)calloc(numberOfElements,sizeof(int16_t));
-        else if(unsignedInt16Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT16 == typePointer)
             auxiliarMemory = (void*)calloc(numberOfElements,sizeof(uint16_t));
-        else if(int32Pointer == typePointer)
+        else if(POINTER_INT32 == typePointer)
             auxiliarMemory = (void*)calloc(numberOfElements,sizeof(int32_t));
-        else if(unsignedInt32Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT32 == typePointer)
             auxiliarMemory = (void*)calloc(numberOfElements,sizeof(uint32_t));
-        else if(int64Pointer == typePointer)
+        else if(POINTER_INT64 == typePointer)
             auxiliarMemory = (void*)calloc(numberOfElements,sizeof(int64_t));
-        else if(unsignedInt64Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT64 == typePointer)
             auxiliarMemory = (void*)calloc(numberOfElements,sizeof(uint64_t));
-        else if(floatPointer == typePointer)
+        else if(POINTER_FLOAT == typePointer)
             auxiliarMemory = (void*)calloc(numberOfElements,sizeof(float));
-        else if(doublePointer == typePointer)
+        else if(POINTER_DOUBLE == typePointer)
             auxiliarMemory = (void*)calloc(numberOfElements,sizeof(double));
         else
             exit(errorTypeAllocator);
@@ -132,7 +132,7 @@ void *AllocatorCalloc(int64_t numberOfElements, int8_t typePointer)
     return NULL;
 }
 
-void **AllocatorCallocTwoDimension(int64_t numberOfElements, int8_t typePointer)
+void **CallocAllocatorTwoDimension(int64_t numberOfElements, int8_t typePointer)
 {
     void* auxiliarMemory = NULL;
 
@@ -140,29 +140,29 @@ void **AllocatorCallocTwoDimension(int64_t numberOfElements, int8_t typePointer)
         exit(errorSizeAllocator);
     else
     {
-        if(charPointer == typePointer)
+        if(POINTER_CHAR == typePointer)
             auxiliarMemory = (void**)calloc(numberOfElements,sizeof(char*));
-        else if(unsignedCharPointer == typePointer)
+        else if(POINTER_UNSIGNED_CHAR == typePointer)
             auxiliarMemory = (void**)calloc(numberOfElements,sizeof(unsigned char*));
-        else if(int8Pointer == typePointer)
+        else if(POINTER_INT8  == typePointer)
             auxiliarMemory = (void**)calloc(numberOfElements,sizeof(int8_t*));
-        else if(unsignedInt8Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT8 == typePointer)
             auxiliarMemory = (void**)calloc(numberOfElements,sizeof(uint8_t*));
-        else if(int16Pointer == typePointer)
+        else if(POINTER_INT16 == typePointer)
             auxiliarMemory = (void**)calloc(numberOfElements,sizeof(int16_t*));
-        else if(unsignedInt16Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT16 == typePointer)
             auxiliarMemory = (void**)calloc(numberOfElements,sizeof(uint16_t*));
-        else if(int32Pointer == typePointer)
+        else if(POINTER_INT32 == typePointer)
             auxiliarMemory = (void**)calloc(numberOfElements,sizeof(int32_t*));
-        else if(unsignedInt32Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT32 == typePointer)
             auxiliarMemory = (void**)calloc(numberOfElements,sizeof(uint32_t*));
-        else if(int64Pointer == typePointer)
+        else if(POINTER_INT64 == typePointer)
             auxiliarMemory = (void**)calloc(numberOfElements,sizeof(int64_t*));
-        else if(unsignedInt64Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT64 == typePointer)
             auxiliarMemory = (void**)calloc(numberOfElements,sizeof(uint64_t*));
-        else if(floatPointer == typePointer)
+        else if(POINTER_FLOAT == typePointer)
             auxiliarMemory = (void**)calloc(numberOfElements,sizeof(float*));
-        else if(doublePointer == typePointer)
+        else if(POINTER_DOUBLE == typePointer)
             auxiliarMemory = (void**)calloc(numberOfElements,sizeof(double*));
         else
             exit(errorTypeAllocator);
@@ -176,7 +176,7 @@ void **AllocatorCallocTwoDimension(int64_t numberOfElements, int8_t typePointer)
     return NULL;
 }
 
-void *AllocatorRealloc(void* arrayAllocated, uint64_t numberOfElements, int8_t typePointer)
+void *ReallocAllocator(void* arrayAllocated, uint64_t numberOfElements, int8_t typePointer)
 {
     void* auxiliarMemory = NULL;
 
@@ -184,29 +184,29 @@ void *AllocatorRealloc(void* arrayAllocated, uint64_t numberOfElements, int8_t t
         exit(errorSizeAllocator);
     else
     {
-        if(charPointer == typePointer)
+        if(POINTER_CHAR == typePointer)
             auxiliarMemory = (void*)realloc((char*)arrayAllocated,numberOfElements*sizeof(char));
-        else if(unsignedCharPointer == typePointer)
+        else if(POINTER_UNSIGNED_CHAR == typePointer)
             auxiliarMemory = (void*)realloc((unsigned char*)arrayAllocated,numberOfElements*sizeof(unsigned char));
-        else if(int8Pointer == typePointer)
+        else if(POINTER_INT8  == typePointer)
             auxiliarMemory = (void*)realloc((int8_t*)arrayAllocated,numberOfElements*sizeof(int8_t));
-        else if(unsignedInt8Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT8 == typePointer)
             auxiliarMemory = (void*)realloc((uint8_t*)arrayAllocated,numberOfElements*sizeof(uint8_t));
-        else if(int16Pointer == typePointer)
+        else if(POINTER_INT16 == typePointer)
             auxiliarMemory = (void*)realloc((int16_t*)arrayAllocated,numberOfElements*sizeof(int16_t));
-        else if(unsignedInt16Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT16 == typePointer)
             auxiliarMemory = (void*)realloc((uint16_t*)arrayAllocated,numberOfElements*sizeof(uint16_t));
-        else if(int32Pointer == typePointer)
+        else if(POINTER_INT32 == typePointer)
             auxiliarMemory = (void*)realloc((int32_t*)arrayAllocated,numberOfElements*sizeof(int32_t));
-        else if(unsignedInt32Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT32 == typePointer)
             auxiliarMemory = (void*)realloc((uint32_t*)arrayAllocated,numberOfElements*sizeof(uint32_t));
-        else if(int64Pointer == typePointer)
+        else if(POINTER_INT64 == typePointer)
             auxiliarMemory = (void*)realloc((int64_t*)arrayAllocated,numberOfElements*sizeof(int64_t));
-        else if(unsignedInt64Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT64 == typePointer)
             auxiliarMemory = (void*)realloc((uint64_t*)arrayAllocated,numberOfElements*sizeof(uint64_t));
-        else if(floatPointer == typePointer)
+        else if(POINTER_FLOAT == typePointer)
             auxiliarMemory = (void*)realloc((float*)arrayAllocated,numberOfElements*sizeof(float));
-        else if(doublePointer == typePointer)
+        else if(POINTER_DOUBLE == typePointer)
             auxiliarMemory = (void*)realloc((double*)arrayAllocated,numberOfElements*sizeof(double));
         else
             exit(errorTypeAllocator);

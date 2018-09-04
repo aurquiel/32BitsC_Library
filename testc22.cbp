@@ -36,6 +36,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="allocator.h" />
+		<Unit filename="array.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="array.h" />
 		<Unit filename="error.h" />
 		<Unit filename="file.c">
 			<Option compilerVar="CC" />

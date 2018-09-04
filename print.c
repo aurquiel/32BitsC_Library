@@ -1,70 +1,70 @@
 #include "print.h"
 
-void PrintArray(void *theArray, int64_t size, uint8_t typePointer)
+void PrintArray(void *array, int64_t size, uint8_t typePointer)
 {
     if(size <= 0)
         exit(errorSizePrint);
     else
     {
-        if(charPointer == typePointer)
+        if(POINTER_CHAR == typePointer)
         {
-            char* auxiliarPointer = (char*)theArray;
+            char* auxiliarPointer = (char*)array;
             for(uint64_t i = 0; i < size; i++)
                 printf("%c", auxiliarPointer[i]);
             printf("\n");
         }
-        else if(unsignedCharPointer == typePointer)
+        else if(POINTER_UNSIGNED_CHAR == typePointer)
         {
-            unsigned char* auxiliarPointer = (unsigned char*)theArray;
+            unsigned char* auxiliarPointer = (unsigned char*)array;
             for(uint64_t i = 0; i < size; i++)
                 printf("%c", auxiliarPointer[i]);
             printf("\n");
         }
-        else if(int8Pointer == typePointer)
+        else if(POINTER_INT8  == typePointer)
         {
-            int8_t* auxiliarPointer = (int8_t*)theArray;
+            int8_t* auxiliarPointer = (int8_t*)array;
             for(uint64_t i = 0; i < size; i++)
                 printf("%d ", auxiliarPointer[i]);
             printf("\n");
         }
-        else if(unsignedInt8Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT8 == typePointer)
         {
-            uint8_t* auxiliarPointer = (uint8_t*)theArray;
+            uint8_t* auxiliarPointer = (uint8_t*)array;
             for(uint64_t i = 0; i < size; i++)
                 printf("%u ", auxiliarPointer[i]);
             printf("\n");
         }
-        else if(int16Pointer == typePointer)
+        else if(POINTER_INT16 == typePointer)
         {
-            int16_t* auxiliarPointer = (int16_t*)theArray;
+            int16_t* auxiliarPointer = (int16_t*)array;
             for(uint64_t i = 0; i < size; i++)
                 printf("%d ", auxiliarPointer[i]);
             printf("\n");
         }
-        else if(unsignedInt16Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT16 == typePointer)
         {
-            uint16_t* auxiliarPointer = (uint16_t*)theArray;
+            uint16_t* auxiliarPointer = (uint16_t*)array;
             for(uint64_t i = 0; i < size; i++)
                 printf("%u ", auxiliarPointer[i]);
             printf("\n");
         }
-        else if(int32Pointer == typePointer)
+        else if(POINTER_INT32 == typePointer)
         {
-            int32_t* auxiliarPointer = (int32_t*)theArray;
+            int32_t* auxiliarPointer = (int32_t*)array;
             for(uint64_t i = 0; i < size; i++)
                 printf("%d ", auxiliarPointer[i]);
             printf("\n");
         }
-        else if(unsignedInt32Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT32 == typePointer)
         {
-            uint32_t* auxiliarPointer = (uint32_t*)theArray;
+            uint32_t* auxiliarPointer = (uint32_t*)array;
             for(uint64_t i = 0; i < size; i++)
                 printf("%u ", auxiliarPointer[i]);
             printf("\n");
         }
-        else if(int64Pointer == typePointer)
+        else if(POINTER_INT64 == typePointer)
         {
-            int64_t* auxiliarPointer = (int64_t*)theArray;
+            int64_t* auxiliarPointer = (int64_t*)array;
             for(uint64_t i = 0; i < size; i++)
             {
                 #ifdef __unix__
@@ -75,9 +75,9 @@ void PrintArray(void *theArray, int64_t size, uint8_t typePointer)
             }
             printf("\n");
         }
-        else if(unsignedInt64Pointer == typePointer)
+        else if(POINTER_UNSIGNED_INT64 == typePointer)
         {
-            uint64_t* auxiliarPointer = (uint64_t*)theArray;
+            uint64_t* auxiliarPointer = (uint64_t*)array;
             for(uint64_t i = 0; i < size; i++)
             {
                 #ifdef __unix__
@@ -88,16 +88,16 @@ void PrintArray(void *theArray, int64_t size, uint8_t typePointer)
             }
             printf("\n");
         }
-        else if(floatPointer == typePointer)
+        else if(POINTER_FLOAT == typePointer)
         {
-            float* auxiliarPointer = (float*)theArray;
+            float* auxiliarPointer = (float*)array;
             for(uint64_t i = 0; i < size; i++)
                 printf("%f ", auxiliarPointer[i]);
             printf("\n");
         }
-        else if(doublePointer == typePointer)
+        else if(POINTER_DOUBLE == typePointer)
         {
-            double* auxiliarPointer = (double*)theArray;
+            double* auxiliarPointer = (double*)array;
             for(uint64_t i = 0; i < size; i++)
                 printf("%f ", auxiliarPointer[i]);
             printf("\n");
