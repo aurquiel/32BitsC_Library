@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-    uint16_t myArray[] ={123,343,45,45};
+    uint16_t myArray[] = {123,343,45,45};
 
     PrintArray(myArray,NumberOfArrayElements(myArray),POINTER_UNSIGNED_INT16);
 
@@ -33,6 +33,16 @@ int main(int argc, char *argv[])
 
     CopyArray(mensajeDos, mensaje, NumberOfArrayElements(mensaje), UNSIGNED_CHAR);
     PrintArray(mensajeDos, NumberOfArrayElements(mensajeDos),POINTER_UNSIGNED_CHAR);
+
+    printf("\n");
+    char pa[] = "deugdDD";
+    SetArrayCharacter(pa,'v',NumberOfArrayElements(pa),CHAR);
+    printf(pa);
+
+    char a = 'e';
+    char *pA = &a;
+    char* whereis_d = (char*)FindArray(pa,pA,NumberOfArrayElements(pa),CHAR);
+    printf(whereis_d);
 
     return EXIT_SUCCESS;
 }

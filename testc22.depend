@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1536088511 source:c:\users\egomez\documents\codeblocks\testc22\main.c
+1536094874 source:c:\users\egomez\documents\codeblocks\testc22\main.c
 	"print.h"
 	"array.h"
 	"allocator.h"
@@ -91,10 +91,10 @@
 	<stdlib.h>
 	"error.h"
 
-1536088101 source:c:\users\egomez\documents\codeblocks\testc22\array.c
+1536094587 source:c:\users\egomez\documents\codeblocks\testc22\array.c
 	"array.h"
 
-1536088132 c:\users\egomez\documents\codeblocks\testc22\array.h
+1536094779 c:\users\egomez\documents\codeblocks\testc22\array.h
 	<string.h>
 	<stdlib.h>
 	<stdint.h>

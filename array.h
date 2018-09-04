@@ -11,6 +11,8 @@ void InterchangeArrayGeneric(void* a, void *b, int64_t sizeA, int64_t sizeB, int
 void CopyArray(void* arrayDestiny, void* arraySource, int64_t numberBytes, int8_t typeData);
 void ConcatenateCharArray(void* arrayDestiny, void* arraySource, int8_t typeData);
 void ClearArray(void* arrayDestiny,int64_t numberBytes, int8_t typeData);
-void SetArray(void* arrayDestiny, unsigned char character, int64_t numberBytes, int8_t typeData);
+void SetArrayCharacter(void* arrayDestiny, unsigned char character, int64_t numberBytes, int8_t typeData);
+void *FindArray(void* array, void *data, int64_t numberBytes, int8_t typeData);
+uint64_t *FindNumberRepetitionsArray(void* array, void *data, int64_t sizeArray);
 
 #endif // ARRAY_H_INCLUDED
