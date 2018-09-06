@@ -35,14 +35,37 @@ int main(int argc, char *argv[])
     PrintArray(mensajeDos, NumberOfArrayElements(mensajeDos),POINTER_UNSIGNED_CHAR);
 
     printf("\n");
-    char pa[] = "deugdDD";
-    SetArrayCharacter(pa,'v',NumberOfArrayElements(pa),CHAR);
-    printf(pa);
-
-    char a = 'e';
+    char testArray[50];
+    char a = 'a';
     char *pA = &a;
-    char* whereis_d = (char*)FindArray(pa,pA,NumberOfArrayElements(pa),CHAR);
-    printf(whereis_d);
+    SetArray(testArray,pA,NumberOfArrayElements(testArray), CHAR);
+    EndArrayChar(testArray,NumberOfArrayElements(testArray), CHAR);
+    printf(testArray);
+
+    ClearArray(testArray,NumberOfArrayElements(testArray),CHAR);
+    printf(testArray);
+
+    printf("\n");
+    CopyArray(testArray, "hola mundo", NumberOfArrayElements(testArray), CHAR);
+    printf(testArray);
+
+    printf("\n");
+    char c = 'u';
+    char *pC = &c;
+
+    char* whereis_u = (char*)FindArray(testArray,pC,NumberOfArrayElements(testArray),CHAR);
+    if(whereis_u!=NULL)
+        printf(whereis_u);
+    else
+        printf("\n%d",whereis_u);
+
+    int32_t numbers[] = {234,5445,4534,435345,435,45,45345,435435,453453};
+
+    printf("\n");
+    int32_t newNumber = 10;
+    int32_t *PnewNumber = &newNumber;
+    SetArray(numbers,PnewNumber,NumberOfArrayElements(numbers),INT32);
+    PrintArray(numbers,NumberOfArrayElements(numbers),POINTER_INT32);
 
     return EXIT_SUCCESS;
 }

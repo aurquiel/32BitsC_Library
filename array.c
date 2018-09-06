@@ -118,38 +118,41 @@ void ClearArray(void* arrayDestiny, int64_t numberBytes, int8_t typeData)
         exit(errorTypeArray);
 }
 
-void SetArrayCharacter(void* arrayDestiny, unsigned char character, int64_t numberBytes, int8_t typeData)
+//lfind() could be more situable :)
+void SetArray(void* array, void *data, int64_t numberBytes, int8_t typeData)
 {
     if(numberBytes <= 0)
         exit(errorSizeArray);
     else
 
     if(typeData == CHAR)
-        for (int64_t i = 0; i<numberBytes; i++)
-            if( *(char*)(arrayDestiny+i) != '\0')
-                memset( (char*)(arrayDestiny + i), character, 1);
-
+        memset( (char*)array, *((char*)data), numberBytes);
     else if (typeData == UNSIGNED_CHAR)
-        for (int64_t i = 0; i<numberBytes; i++)
-            if( *(unsigned char*)(arrayDestiny+i) != '\0')
-                memset((unsigned char*)arrayDestiny + i, character, 1);
-
+        memset((unsigned char*)array, *((unsigned char*)data), numberBytes);
     else if(typeData == INT8)
-        memset((int8_t*)arrayDestiny, character, numberBytes);
+        for(int64_t i = 0; i<numberBytes; i++)
+            *(((int8_t*)(array) + i)) = *((int8_t*)data);
     else if(typeData == UNSIGNED_INT8)
-        memset((uint8_t*)arrayDestiny, character, numberBytes);
+        for(int64_t i = 0; i<numberBytes; i++)
+            *(((uint8_t*)(array) + i)) = *((uint8_t*)data);
     else if(typeData == INT16)
-        memset((int16_t*)arrayDestiny, character, numberBytes);
+        for(int64_t i = 0; i<numberBytes; i++)
+            *(((int16_t*)(array) + i)) = *((int16_t*)data);
     else if(typeData == UNSIGNED_INT16)
-        memset((uint16_t*)arrayDestiny, character, numberBytes);
+        for(int64_t i = 0; i<numberBytes; i++)
+            *(((uint16_t*)(array) + i)) = *((uint16_t*)data);
     else if(typeData == INT32)
-        memset((int32_t*)arrayDestiny, character, numberBytes);
+        for(int64_t i = 0; i<numberBytes; i++)
+            *(((int32_t*)(array) + i)) = *((int32_t*)data);
     else if(typeData == UNSIGNED_INT32)
-        memset((uint32_t*)arrayDestiny, character, numberBytes);
+        for(int64_t i = 0; i<numberBytes; i++)
+            *(((uint32_t*)(array) + i)) = *((uint32_t*)data);
     else if(typeData == FLOAT)
-        memset((float*)arrayDestiny, character, numberBytes);
+        for(int64_t i = 0; i<numberBytes; i++)
+            *(((int64_t*)(array) + i)) = *((int64_t*)data);
     else if(typeData == DOUBLE)
-        memset((double*)arrayDestiny, character, numberBytes);
+        for(int64_t i = 0; i<numberBytes; i++)
+            *(((uint64_t*)(array) + i)) = *((uint64_t*)data);
     else
         exit(errorTypeArray);
 }
@@ -159,63 +162,67 @@ void *FindArray(void* array, void *data, int64_t numberBytes, int8_t typeData)
     if(numberBytes <= 0)
         exit(errorSizeArray);
     else
-    Data("\nData: %c\n", *(char*)data);
+    //Data("\nData: %c\n", (char*)data);
     if(typeData == CHAR)
         for(int64_t i = 0; i<numberBytes; i++)
-        {
-            printf("\nPalabra: %c\n", *(char*)array + i);
-
-            if( (*(char*)array + i) == *((char*)data) )
+            if( *(char*)(array + i) == *((char*)data) )
                 return (void*)(array + i);
-        }
-
 
     else if(typeData == UNSIGNED_CHAR)
         for(int64_t i = 0; i<numberBytes; i++)
-            if( (*(unsigned char*)array + i) == *((unsigned char*)data) )
+            if( *(unsigned char*)(array + i) == *((unsigned char*)data) )
                 return (void*)(array + i);
 
     else if(typeData == INT8)
         for(int64_t i = 0; i<numberBytes; i++)
-            if( (*(int8_t*)array + i) == *((int8_t*)data) )
+            if( *(int8_t*)(array + i) == *((int8_t*)data) )
                 return (void*)(array + i);
 
     else if(typeData == UNSIGNED_INT8)
         for(int64_t i = 0; i<numberBytes; i++)
-            if( (*(uint8_t*)array + i) == *((uint8_t*)data))
+            if( *(uint8_t*)(array + i) == *((uint8_t*)data))
                 return (void*)(array + i);
 
     else if(typeData == INT16)
         for(int64_t i = 0; i<numberBytes; i++)
-            if( (*(int16_t*)array + i) == *((int16_t*)data))
+            if( *(int16_t*)(array + i) == *((int16_t*)data))
                 return (void*)(array +i);
 
     else if(typeData == UNSIGNED_INT16)
         for(int64_t i = 0; i<numberBytes; i++)
-            if( (*(uint16_t*)array + i) == *((uint16_t*)data) )
+            if( *(uint16_t*)(array + i) == *((uint16_t*)data) )
                 return (void*)(array + i);
 
     else if(typeData == INT32)
         for(int64_t i = 0; i<numberBytes; i++)
-            if( (*(int32_t*)array + i) == *((int32_t*)data))
+            if( *(int32_t*)(array + i) == *((int32_t*)data))
                 return (void*)(array + i);
 
     else if(typeData == UNSIGNED_INT32)
         for(int64_t i = 0; i<numberBytes; i++)
-            if( (*(uint32_t*)array + i) == *((uint32_t*)data))
+            if( *(uint32_t*)(array + i) == *((uint32_t*)data))
                 return (void*)(array + i);
 
     else if(typeData == FLOAT)
         for(int64_t i = 0; i<numberBytes; i++)
-            if( (*(int64_t*)array + i) == *((int64_t*)data) )
+            if( *(int64_t*)(array + i) == *((int64_t*)data) )
                 return (void*)(array + i);
 
     else if(typeData == DOUBLE)
         for(int64_t i = 0; i<numberBytes; i++)
-            if( (*(uint64_t*)array + i) == *((uint64_t*)data) )
+            if( *(uint64_t*)(array + i) == *((uint64_t*)data) )
                 return (void*)(array + i);
     else
         exit(errorTypeArray);
     return NULL;
+}
+
+void EndArrayChar(void* array, int64_t numberBytes, int8_t typeData)
+{
+    --numberBytes;
+    if(typeData == CHAR)
+        memset((char*)(array + numberBytes), '\0', 1);
+    else if (typeData == UNSIGNED_CHAR)
+        memset((unsigned char*)(array + numberBytes), '\0', 1);
 }
 #endif // ARRAY_C_INCLUDED
