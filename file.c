@@ -6,10 +6,13 @@ FILE *FileOpen(char* routeFile, char* modeFile)
     theFile = fopen(routeFile,modeFile);
 
     if(NULL == theFile)
+    {
         exit(errorNoOpenFile);
+    }
     else
+    {
         return theFile;
-
+    }
 }
 
 void FileClose(FILE* theFile)

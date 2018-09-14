@@ -4,7 +4,7 @@
 #define FALSE 0
 #define TRUE 1
 
-#define EMPTY '\0'
+#define EMPTY_ESCAPE '\0'
 
 #define CHAR 1
 #define UNSIGNED_CHAR 2

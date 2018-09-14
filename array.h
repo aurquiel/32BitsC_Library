@@ -7,13 +7,13 @@
 #include "allocator.h"
 
 
-void InterchangeArrayGeneric(void* a, void *b, int64_t sizeA, int64_t sizeB, int8_t typePointer);
-void CopyArray(void* arrayDestiny, void* arraySource, int64_t numberBytes, int8_t typeData);
-void ConcatenateCharArray(void* arrayDestiny, void* arraySource, int8_t typeData);
+void InterchangeArrayGeneric(void* arrayA, int64_t sizeArrayA, void* arrayB, int64_t sizeArrayB, int8_t typeData);
+void CopyArray(void* arrayDestiny, int64_t sizeArrayDestiny, void* arraySource, int64_t sizeArraySource, int8_t typeData);
+void ConcatenateCharArray(void* arrayDestiny, int64_t sizeArrayDestiny, int64_t sizeArraySource, void* arraySource, int8_t typeData);
 void ClearArray(void* arrayDestiny,int64_t numberBytes, int8_t typeData);
 void SetArray(void* arrayDestiny, void *data, int64_t numberBytes, int8_t typeData);
 void *FindArray(void* array, void *data, int64_t numberBytes, int8_t typeData);
-uint64_t *FindNumberRepetitionsArray(void* array, void *data, int64_t sizeArray);
+uint64_t FindNumberRepetitionsArray(void* array, void *data, int64_t sizeArray, int8_t typeData);
 void EndArrayChar(void* array, int64_t numberBytes, int8_t typeData);
 
 #endif // ARRAY_H_INCLUDED

@@ -46,9 +46,6 @@
 		</Unit>
 		<Unit filename="file.h" />
 		<Unit filename="header.h" />
-		<Unit filename="interchange.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="interchange.h" />
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />

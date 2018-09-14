@@ -7,11 +7,11 @@
 #include "error.h"
 
 
-void *MallocAllocator(int64_t numberOfElements, int8_t typePointer);
-void **MallocAllocatorTwoDimension(int64_t numberOfElements, int8_t typePointer);
-void *CallocAllocator(int64_t numberOfElements, int8_t typePointer);
-void **CallocAllocatorTwoDimension(int64_t numberOfElements, int8_t typePointer);
-void *ReallocAllocator(void* arrayAllocated, uint64_t numberOfElements, int8_t typePointer);
+void *MallocAllocator(int64_t numberOfElements, int8_t typeData);
+void **MallocAllocatorTwoDimension(int64_t numberOfElements, int8_t typeData);
+void *CallocAllocator(int64_t numberOfElements, int8_t typeData);
+void **CallocAllocatorTwoDimension(int64_t numberOfElements, int8_t typeData);
+void *ReallocAllocator(void* arrayAllocated, uint64_t numberOfElements, int8_t typeData);
 void AllocatorFree(void* arrayAllocated);
 
 #endif // ALLOCATOR_H_INCLUDED

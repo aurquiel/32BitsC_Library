@@ -1,109 +1,120 @@
 #include "print.h"
 
-void PrintArray(void *array, int64_t size, uint8_t typePointer)
+void PrintArray(void *array, int64_t size, uint8_t typeData)
 {
     if(size <= 0)
+    {
         exit(errorSizePrint);
+    }
+
+    if(CHAR == typeData)
+    {
+        for(uint64_t i = 0; i < size; i++)
+        {
+            printf("%c", *((char*)array + i));
+        }
+        printf("\n");
+    }
+    else if(UNSIGNED_CHAR == typeData)
+    {
+        for(uint64_t i = 0; i < size; i++)
+        {
+            printf("%c", *((unsigned char*)array + i));
+        }
+        printf("\n");
+    }
+    else if(INT8  == typeData)
+    {
+        for(uint64_t i = 0; i < size; i++)
+        {
+            printf("%d ", *((int8_t*)array +i) );
+        }
+        printf("\n");
+    }
+    else if(UNSIGNED_INT8 == typeData)
+    {
+        uint8_t* auxiliarPointer = (uint8_t*)array;
+        for(uint64_t i = 0; i < size; i++)
+        {
+            printf("%u ", auxiliarPointer[i]);
+        }
+        printf("\n");
+    }
+    else if(INT16 == typeData)
+    {
+        for(uint64_t i = 0; i < size; i++)
+        {
+            printf("%d ", *((int16_t*)array + i));
+        }
+        printf("\n");
+    }
+    else if(UNSIGNED_INT16 == typeData)
+    {
+        for(uint64_t i = 0; i < size; i++)
+        {
+            printf("%u ", *((uint16_t*)array + i));
+        }
+        printf("\n");
+    }
+    else if(INT32 == typeData)
+    {
+        for(uint64_t i = 0; i < size; i++)
+        {
+            printf("%d ", *((int32_t*)array + i));
+        }
+        printf("\n");
+    }
+    else if(UNSIGNED_INT32 == typeData)
+    {
+        for(uint64_t i = 0; i < size; i++)
+        {
+            printf("%u ", *((uint32_t*)array + i));
+        }
+        printf("\n");
+    }
+    else if(INT64 == typeData)
+    {
+        for(uint64_t i = 0; i < size; i++)
+        {
+            #ifdef __unix__
+            printf("%ld ", *((int64_t*)array + i));
+            #else //windows
+            printf("%I64d ", *((int64_t*)array + i));
+            #endif
+        }
+        printf("\n");
+    }
+    else if(UNSIGNED_INT64 == typeData)
+    {
+        for(uint64_t i = 0; i < size; i++)
+        {
+            #ifdef __unix__
+            printf("%ld ", *((uint64_t*)array + i));
+            #else //Windows
+            printf("%I64d ", *((uint64_t*)array + i));
+            #endif
+        }
+        printf("\n");
+    }
+    else if(FLOAT == typeData)
+    {
+        for(uint64_t i = 0; i < size; i++)
+        {
+            printf("%f ", *((float*)array + i));
+        }
+        printf("\n");
+    }
+    else if(DOUBLE == typeData)
+    {
+        for(uint64_t i = 0; i < size; i++)
+        {
+            printf("%f ", *((double*)array + i));
+        }
+        printf("\n");
+    }
     else
     {
-        if(POINTER_CHAR == typePointer)
-        {
-            char* auxiliarPointer = (char*)array;
-            for(uint64_t i = 0; i < size; i++)
-                printf("%c", auxiliarPointer[i]);
-            printf("\n");
-        }
-        else if(POINTER_UNSIGNED_CHAR == typePointer)
-        {
-            unsigned char* auxiliarPointer = (unsigned char*)array;
-            for(uint64_t i = 0; i < size; i++)
-                printf("%c", auxiliarPointer[i]);
-            printf("\n");
-        }
-        else if(POINTER_INT8  == typePointer)
-        {
-            int8_t* auxiliarPointer = (int8_t*)array;
-            for(uint64_t i = 0; i < size; i++)
-                printf("%d ", auxiliarPointer[i]);
-            printf("\n");
-        }
-        else if(POINTER_UNSIGNED_INT8 == typePointer)
-        {
-            uint8_t* auxiliarPointer = (uint8_t*)array;
-            for(uint64_t i = 0; i < size; i++)
-                printf("%u ", auxiliarPointer[i]);
-            printf("\n");
-        }
-        else if(POINTER_INT16 == typePointer)
-        {
-            int16_t* auxiliarPointer = (int16_t*)array;
-            for(uint64_t i = 0; i < size; i++)
-                printf("%d ", auxiliarPointer[i]);
-            printf("\n");
-        }
-        else if(POINTER_UNSIGNED_INT16 == typePointer)
-        {
-            uint16_t* auxiliarPointer = (uint16_t*)array;
-            for(uint64_t i = 0; i < size; i++)
-                printf("%u ", auxiliarPointer[i]);
-            printf("\n");
-        }
-        else if(POINTER_INT32 == typePointer)
-        {
-            int32_t* auxiliarPointer = (int32_t*)array;
-            for(uint64_t i = 0; i < size; i++)
-                printf("%d ", auxiliarPointer[i]);
-            printf("\n");
-        }
-        else if(POINTER_UNSIGNED_INT32 == typePointer)
-        {
-            uint32_t* auxiliarPointer = (uint32_t*)array;
-            for(uint64_t i = 0; i < size; i++)
-                printf("%u ", auxiliarPointer[i]);
-            printf("\n");
-        }
-        else if(POINTER_INT64 == typePointer)
-        {
-            int64_t* auxiliarPointer = (int64_t*)array;
-            for(uint64_t i = 0; i < size; i++)
-            {
-                #ifdef __unix__
-                printf("%ld ", auxiliarPointer[i]);
-                #else //windows
-                printf("%I64d ", auxiliarPointer[i]);
-                #endif
-            }
-            printf("\n");
-        }
-        else if(POINTER_UNSIGNED_INT64 == typePointer)
-        {
-            uint64_t* auxiliarPointer = (uint64_t*)array;
-            for(uint64_t i = 0; i < size; i++)
-            {
-                #ifdef __unix__
-                printf("%ld ", auxiliarPointer[i]);
-                #else //Windows
-                printf("%I64d ", auxiliarPointer[i]);
-                #endif
-            }
-            printf("\n");
-        }
-        else if(POINTER_FLOAT == typePointer)
-        {
-            float* auxiliarPointer = (float*)array;
-            for(uint64_t i = 0; i < size; i++)
-                printf("%f ", auxiliarPointer[i]);
-            printf("\n");
-        }
-        else if(POINTER_DOUBLE == typePointer)
-        {
-            double* auxiliarPointer = (double*)array;
-            for(uint64_t i = 0; i < size; i++)
-                printf("%f ", auxiliarPointer[i]);
-            printf("\n");
-        }
-        else
-            exit(errorTypePrint);
+        exit(errorTypePrint);
     }
 }
 
