@@ -9,7 +9,7 @@ int main(int argc, char *argv[])
     ClearArray(numeros,NumberOfArrayElements(numeros),INT8);
     PrintArray(numeros,NumberOfArrayElements(numeros),INT8);
 
-    int8_t numerosA[] = {23,45,78,23};
+    int8_t numerosA[] = {23,45,23,23};
     int8_t numerosB[] = {11,21,31,41};
     PrintArray(numerosA,NumberOfArrayElements(numerosA),INT8);
     PrintArray(numerosB,NumberOfArrayElements(numerosB),INT8);
@@ -17,6 +17,19 @@ int main(int argc, char *argv[])
     printf("hola\n");
     PrintArray(numerosA,NumberOfArrayElements(numerosA),INT8);
     PrintArray(numerosB,NumberOfArrayElements(numerosB),INT8);
+
+    int8_t a = 23;
+    a = *(int8_t*)FindArray(numerosB,(int8_t*)&a,4,INT8);
+    Print8int(a);
+
+    printf("Repeticiones: ");
+    Print8int(FindNumberRepetitionsArray(numerosB,(int8_t*)&a,4,INT8));
+
+    int8_t arreglo[9] = {1,2,3,4};
+    int8_t arregloParte2[] = {5,6,7,8,9};
+
+    ConcatenateArray(arreglo,4,arregloParte2,5,INT8);
+    PrintArray(arreglo,NumberOfArrayElements(arreglo),INT8);
 
     return EXIT_SUCCESS;
 }

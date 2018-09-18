@@ -146,3 +146,49 @@
 1536955386 source:c:\users\egomez\desktop\repos\templatec\array.c
 	"array.h"
 
+1537013864 source:/home/edgargomez/templateC/allocator.c
+	"allocator.h"
+
+1537013864 /home/edgargomez/templateC/allocator.h
+	<stdlib.h>
+	<stdint.h>
+	"header.h"
+	"error.h"
+
+1537013864 /home/edgargomez/templateC/header.h
+
+1537013864 /home/edgargomez/templateC/error.h
+
+1537313618 source:/home/edgargomez/templateC/array.c
+	"array.h"
+
+1537116962 /home/edgargomez/templateC/array.h
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	"allocator.h"
+
+1537013864 source:/home/edgargomez/templateC/file.c
+	"file.h"
+
+1537013864 /home/edgargomez/templateC/file.h
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	"error.h"
+
+1537117233 source:/home/edgargomez/templateC/main.c
+	"print.h"
+	"array.h"
+	"allocator.h"
+
+1537013864 /home/edgargomez/templateC/print.h
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	"header.h"
+	"error.h"
+
+1537013864 source:/home/edgargomez/templateC/print.c
+	"print.h"
+
