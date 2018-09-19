@@ -6,6 +6,8 @@
 
 #define EMPTY_ESCAPE '\0'
 
+#define ZERO 0
+
 #define CHAR 1
 #define UNSIGNED_CHAR 2
 #define INT8 3

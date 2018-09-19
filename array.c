@@ -139,13 +139,18 @@ void ClearArray(void* arrayDestiny, int64_t sizeArray, int8_t typeData)
         exit(errorSizeArray);
     }
 
-    char emptyEscapeChar = EMPTY_ESCAPE;
+    const char emptyEscape = EMPTY_ESCAPE;
+    const int8_t zero = ZERO;
 
-    if( (typeData == CHAR) || (typeData == UNSIGNED_CHAR) || (typeData == INT8) || (typeData == UNSIGNED_INT8) || (typeData == INT16) ||
-        (typeData == UNSIGNED_INT16) || (typeData == INT32) || (typeData == UNSIGNED_INT32) || (typeData == INT64) || (typeData == UNSIGNED_INT64) ||
+    if( (typeData == CHAR) || (typeData == UNSIGNED_CHAR))
+    {
+        SetArray(arrayDestiny, (void*)(&emptyEscape), sizeArray, typeData);
+    }
+    else if( (typeData == INT8) || (typeData == UNSIGNED_INT8) || (typeData == INT16) || (typeData == UNSIGNED_INT16) ||
+        (typeData == INT32) || (typeData == UNSIGNED_INT32) || (typeData == INT64) || (typeData == UNSIGNED_INT64) ||
         (typeData == FLOAT) || (typeData == DOUBLE) )
     {
-        SetArray(arrayDestiny, (void*)(&emptyEscapeChar), sizeArray, typeData);
+        SetArray(arrayDestiny, (void*)(&zero), sizeArray, typeData);
     }
     else
     {
@@ -349,6 +354,189 @@ void *FindArray(void* array, void *data, int64_t sizeArray, int8_t typeData)
     return NULL;
 }
 
+void *FindArrayMaxValue(void* array, int64_t sizeArray, int8_t typeData)
+{
+    if(sizeArray <= 0)
+    {
+        exit(errorSizeArray);
+    }
+
+    if(typeData == CHAR)
+    {
+        char *maxValue = (char*)array;
+
+        for(int64_t i = 0; i<sizeArray; i++)
+        {
+            if( *((char*)array + i) > *maxValue)
+            {
+                maxValue = ((char*)array + i);
+            }
+        }
+
+        return maxValue;
+    }
+    else if(typeData == UNSIGNED_CHAR)
+    {
+        unsigned char *maxValue = (unsigned char*)array;
+
+        for(int64_t i = 0; i<sizeArray; i++)
+        {
+            if( *((unsigned char*)array + i) > *maxValue)
+            {
+                maxValue = ((unsigned char*)array + i);
+            }
+        }
+
+        return maxValue;
+    }
+    else if(typeData == INT8)
+    {
+        int8_t *maxValue = (int8_t*)array;
+
+        for(int64_t i = 0; i<sizeArray; i++)
+        {
+            if( *((int8_t*)array + i) > *maxValue)
+            {
+                maxValue = ((int8_t*)array + i);
+            }
+        }
+
+        return maxValue;
+    }
+    else if(typeData == UNSIGNED_INT8)
+    {
+        uint8_t *maxValue = (uint8_t*)array;
+
+        for(int64_t i = 0; i<sizeArray; i++)
+        {
+            if( *((uint8_t*)array + i) > *maxValue)
+            {
+                maxValue = ((uint8_t*)array + i);
+            }
+        }
+
+        return maxValue;
+    }
+    else if(typeData == INT16)
+    {
+        int16_t *maxValue = (int16_t*)array;
+
+        for(int64_t i = 0; i<sizeArray; i++)
+        {
+            if( *((int16_t*)array + i) > *maxValue)
+            {
+                maxValue = ((int16_t*)array + i);
+            }
+        }
+
+        return maxValue;
+    }
+    else if(typeData == UNSIGNED_INT16)
+    {
+        uint16_t *maxValue = (uint16_t*)array;
+
+        for(int64_t i = 0; i<sizeArray; i++)
+        {
+            if( *((uint16_t*)array + i) > *maxValue)
+            {
+                maxValue = ((uint16_t*)array + i);
+            }
+        }
+
+        return maxValue;
+    }
+    else if(typeData == INT32)
+    {
+        int32_t *maxValue = (int32_t*)array;
+
+        for(int64_t i = 0; i<sizeArray; i++)
+        {
+            if( *((int32_t*)array + i) > *maxValue)
+            {
+                maxValue = ((int32_t*)array + i);
+            }
+        }
+
+        return maxValue;
+    }
+    else if(typeData == UNSIGNED_INT32)
+    {
+        uint32_t *maxValue = (uint32_t*)array;
+
+        for(int64_t i = 0; i<sizeArray; i++)
+        {
+            if( *((uint32_t*)array + i) > *maxValue)
+            {
+                maxValue = ((uint32_t*)array + i);
+            }
+        }
+
+        return maxValue;
+    }
+    else if(typeData == INT64)
+    {
+        int64_t *maxValue = (int64_t*)array;
+
+        for(int64_t i = 0; i<sizeArray; i++)
+        {
+            if( *((int64_t*)array + i) > *maxValue)
+            {
+                maxValue = ((int64_t*)array + i);
+            }
+        }
+
+        return maxValue;
+    }
+    else if(typeData == UNSIGNED_INT64)
+    {
+        uint64_t *maxValue = (uint64_t*)array;
+
+        for(int64_t i = 0; i<sizeArray; i++)
+        {
+            if( *((uint64_t*)array + i) > *maxValue)
+            {
+                maxValue = ((uint64_t*)array + i);
+            }
+        }
+
+        return maxValue;
+    }
+    else if(typeData == FLOAT)
+    {
+        float *maxValue = (float*)array;
+
+        for(int64_t i = 0; i<sizeArray; i++)
+        {
+            if( *((float*)array + i) > *maxValue)
+            {
+                maxValue = ((float*)array + i);
+            }
+        }
+
+        return maxValue;
+    }
+    else if(typeData == DOUBLE)
+    {
+        double *maxValue = (double*)array;
+
+        for(int64_t i = 0; i<sizeArray; i++)
+        {
+            if( *((double*)array + i) > *maxValue)
+            {
+                maxValue = ((double*)array + i);
+            }
+        }
+
+        return maxValue;
+    }
+    else
+    {
+        exit(errorTypeArray);
+    }
+
+    return NULL;
+}
+
 uint64_t FindNumberRepetitionsArray(void* array, void *data, int64_t sizeArray, int8_t typeData)
 {
     uint64_t numberRepetitions = 0;
@@ -493,8 +681,85 @@ uint64_t FindNumberRepetitionsArray(void* array, void *data, int64_t sizeArray, 
     return numberRepetitions;
 }
 
-void QuickSortArray(void* array, int64_t sizeArray, int8_t typeData)
+void RadixSort(void *array, int64_t sizeArray, int8_t typeData)
 {
+    if( (sizeArray <= 0) )
+    {
+        exit(errorSizePrint);
+    }
+
+    if(typeData == CHAR)
+    {
+        char *auxArrayType = (char*)array;
+        char *maxValue = (char*)FindArrayMaxValue(auxArrayType, sizeArray, typeData);
+        char bucket[sizeArray];
+        char temporary[sizeArray];
+        int64_t exp = 1;
+        int64_t i = 0;
+
+        while(( (*maxValue)/exp ) > 0)
+        {
+            ClearArray(bucket, sizeArray, CHAR);
+
+            for(i = 0; i < sizeArray; i++)
+            {
+                bucket[(auxArrayType[i] / exp) % 10]++;
+            }
+            for(i = 1; i < sizeArray; i++)
+            {
+                bucket[i] += bucket[i-1];
+            }
+            for(i = (sizeArray - 1); i >= 0; i--)
+            {
+                char aux = auxArrayType[i];
+                temporary[--bucket[(auxArrayType[i] / exp) % 10]] = aux;
+            }
+
+            CopyArray(auxArrayType,sizeArray,temporary,sizeArray,CHAR);
+            CopyArray(array,sizeArray,temporary,sizeArray,CHAR);
+            exp *= 10;
+        }
+    }
+    else if(typeData == UNSIGNED_CHAR)
+    {
+
+    }
+    else if(typeData == INT8)
+    {
+
+    }
+    else if(typeData == UNSIGNED_INT8)
+    {
+
+    }
+    else if(typeData == INT16)
+    {
+
+    }
+    else if(typeData == UNSIGNED_INT16)
+    {
+
+    }
+    else if(typeData == INT32)
+    {
+
+    }
+    else if(typeData == UNSIGNED_INT32)
+    {
+
+    }
+    else if(typeData == INT64)
+    {
+
+    }
+    else if(typeData == UNSIGNED_INT64)
+    {
+
+    }
+    else
+    {
+        exit(errorTypeArray);
+    }
 
 }
 
@@ -503,11 +768,11 @@ void EndArrayChar(void* array, int64_t sizeArray, int8_t typeData)
     --sizeArray; //position of the \0 character
     if(typeData == CHAR)
     {
-        memset((char*)(array + sizeArray), EMPTY_ESCAPE, 1);
+        memset(((char*)array + sizeArray), EMPTY_ESCAPE, 1);
     }
     else if (typeData == UNSIGNED_CHAR)
     {
-        memset((unsigned char*)(array + sizeArray), EMPTY_ESCAPE, 1);
+        memset(((unsigned char*)array + sizeArray), EMPTY_ESCAPE, 1);
     }
 }
 #endif // ARRAY_C_INCLUDED

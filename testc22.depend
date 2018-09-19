@@ -100,50 +100,50 @@
 	<stdint.h>
 	"allocator.h"
 
-1536941606 source:c:\users\egomez\desktop\repos\templatec\allocator.c
+1537365468 source:c:\users\egomez\desktop\repos\templatec\allocator.c
 	"allocator.h"
 
-1536941260 c:\users\egomez\desktop\repos\templatec\allocator.h
+1537365468 c:\users\egomez\desktop\repos\templatec\allocator.h
 	<stdlib.h>
 	<stdint.h>
 	"header.h"
 	"error.h"
 
-1536936233 c:\users\egomez\desktop\repos\templatec\header.h
+1537365848 c:\users\egomez\desktop\repos\templatec\header.h
 
-1536088101 c:\users\egomez\desktop\repos\templatec\error.h
+1537365468 c:\users\egomez\desktop\repos\templatec\error.h
 
-1536931962 source:c:\users\egomez\desktop\repos\templatec\file.c
+1537365468 source:c:\users\egomez\desktop\repos\templatec\file.c
 	"file.h"
 
-1536088101 c:\users\egomez\desktop\repos\templatec\file.h
+1537365468 c:\users\egomez\desktop\repos\templatec\file.h
 	<stdio.h>
 	<stdint.h>
 	<stdlib.h>
 	"error.h"
 
-1536955690 source:c:\users\egomez\desktop\repos\templatec\main.c
+1537369815 source:c:\users\egomez\desktop\repos\templatec\main.c
 	"print.h"
 	"array.h"
 	"allocator.h"
 
-1536941260 c:\users\egomez\desktop\repos\templatec\print.h
+1537365468 c:\users\egomez\desktop\repos\templatec\print.h
 	<stdio.h>
 	<stdint.h>
 	<stdlib.h>
 	"header.h"
 	"error.h"
 
-1536940996 c:\users\egomez\desktop\repos\templatec\array.h
+1537369627 c:\users\egomez\desktop\repos\templatec\array.h
 	<string.h>
 	<stdlib.h>
 	<stdint.h>
 	"allocator.h"
 
-1536941606 source:c:\users\egomez\desktop\repos\templatec\print.c
+1537390555 source:c:\users\egomez\desktop\repos\templatec\print.c
 	"print.h"
 
-1536955386 source:c:\users\egomez\desktop\repos\templatec\array.c
+1537390578 source:c:\users\egomez\desktop\repos\templatec\array.c
 	"array.h"
 
 1537013864 source:/home/edgargomez/templateC/allocator.c

@@ -2,7 +2,7 @@
 #include "array.h"
 #include "allocator.h"
 
-int main(int argc, char *argv[])
+int main()
 {
     int8_t numeros[] = {23,45,78,23};
     PrintArray(numeros,NumberOfArrayElements(numeros),INT8);
@@ -26,10 +26,18 @@ int main(int argc, char *argv[])
     Print8int(FindNumberRepetitionsArray(numerosB,(int8_t*)&a,4,INT8));
 
     int8_t arreglo[9] = {1,2,3,4};
-    int8_t arregloParte2[] = {5,6,7,8,9};
+    int8_t arregloParte2[] = {5,6,9,8,9};
 
     ConcatenateArray(arreglo,4,arregloParte2,5,INT8);
     PrintArray(arreglo,NumberOfArrayElements(arreglo),INT8);
+
+    int8_t *maxNum = (int8_t*)FindArrayMaxValue(arreglo,9,INT8);
+
+    Print8int(*maxNum);
+
+    char desorden[] = {'r','e'};
+    RadixSort(desorden,NumberOfArrayElements(desorden),CHAR);
+    PrintArray(desorden,NumberOfArrayElements(desorden),CHAR);
 
     return EXIT_SUCCESS;
 }

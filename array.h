@@ -13,7 +13,9 @@ void ConcatenateArray(void* arrayDestiny, int64_t sizeArrayDestiny, void* arrayS
 void ClearArray(void* arrayDestiny,int64_t numberBytes, int8_t typeData);
 void SetArray(void* arrayDestiny, void *data, int64_t numberBytes, int8_t typeData);
 void *FindArray(void* array, void *data, int64_t numberBytes, int8_t typeData);
+void *FindArrayMaxValue(void* array, int64_t sizeArray, int8_t typeData);
 uint64_t FindNumberRepetitionsArray(void* array, void *data, int64_t sizeArray, int8_t typeData);
+void RadixSort(void *array, int64_t sizeArray, int8_t typeData);
 void EndArrayChar(void* array, int64_t numberBytes, int8_t typeData);
 
 #endif // ARRAY_H_INCLUDED
