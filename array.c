@@ -690,39 +690,79 @@ void RadixSort(void *array, int64_t sizeArray, int8_t typeData)
 
     if(typeData == CHAR)
     {
-        char *auxArrayType = (char*)array;
-        char *maxValue = (char*)FindArrayMaxValue(auxArrayType, sizeArray, typeData);
-        char bucket[sizeArray];
-        char temporary[sizeArray];
-        int64_t exp = 1;
-        int64_t i = 0;
+        char repetitions[NATURAL_NUMBERS];
+        ClearArray(repetitions,NATURAL_NUMBERS,typeData);
 
-        while(( (*maxValue)/exp ) > 0)
+        char temporaryArray[sizeArray];
+        ClearArray(temporaryArray,sizeArray,typeData);
+
+        char maxValue = *((char*)FindArrayMaxValue(array,sizeArray,typeData));
+
+        int64_t divisor = 1;
+        while( (maxValue/divisor) > 0)
         {
-            ClearArray(bucket, sizeArray, CHAR);
+            //limpia la cubeta
+            ClearArray(repetitions,10,typeData);
 
-            for(i = 0; i < sizeArray; i++)
+            //Digitos repetidos
+            for(int64_t i = 0; i < sizeArray; i++)
             {
-                bucket[(auxArrayType[i] / exp) % 10]++;
-            }
-            for(i = 1; i < sizeArray; i++)
-            {
-                bucket[i] += bucket[i-1];
-            }
-            for(i = (sizeArray - 1); i >= 0; i--)
-            {
-                char aux = auxArrayType[i];
-                temporary[--bucket[(auxArrayType[i] / exp) % 10]] = aux;
+                repetitions[( ((char*)array)[i] / divisor) % 10]++;
             }
 
-            CopyArray(auxArrayType,sizeArray,temporary,sizeArray,CHAR);
-            CopyArray(array,sizeArray,temporary,sizeArray,CHAR);
-            exp *= 10;
+            for(int64_t i = 1; i < 10; i++)
+            {
+                repetitions[i] += repetitions[i-1];
+            }
+
+            for(int64_t i = (sizeArray - 1); i >= 0; i--)
+            {
+                int64_t aux = --repetitions[(((char*)array)[i] / divisor) % 10];
+                temporaryArray[aux] = ((char*)array)[i];
+            }
+
+            CopyArray(array,sizeArray,temporaryArray,sizeArray,typeData);
+
+            divisor *= 10;
         }
     }
     else if(typeData == UNSIGNED_CHAR)
     {
+        unsigned char repetitions[NATURAL_NUMBERS];
+        ClearArray(repetitions,NATURAL_NUMBERS,typeData);
 
+        unsigned char temporaryArray[sizeArray];
+        ClearArray(temporaryArray,sizeArray,typeData);
+
+        unsigned char maxValue = *((unsigned char*)FindArrayMaxValue(array,sizeArray,typeData));
+
+        int64_t divisor = 1;
+        while( (maxValue/divisor) > 0)
+        {
+            //limpia la cubeta
+            ClearArray(repetitions,10,typeData);
+
+            //Digitos repetidos
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                repetitions[( ((unsigned char*)array)[i] / divisor) % 10]++;
+            }
+
+            for(int64_t i = 1; i < 10; i++)
+            {
+                repetitions[i] += repetitions[i-1];
+            }
+
+            for(int64_t i = (sizeArray - 1); i >= 0; i--)
+            {
+                int64_t aux = --repetitions[(((unsigned char*)array)[i] / divisor) % 10];
+                temporaryArray[aux] = ((unsigned char*)array)[i];
+            }
+
+            CopyArray(array,sizeArray,temporaryArray,sizeArray,typeData);
+
+            divisor *= 10;
+        }
     }
     else if(typeData == INT8)
     {

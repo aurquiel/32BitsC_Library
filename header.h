@@ -8,6 +8,8 @@
 
 #define ZERO 0
 
+#define NATURAL_NUMBERS 10
+
 #define CHAR 1
 #define UNSIGNED_CHAR 2
 #define INT8 3

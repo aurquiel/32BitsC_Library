@@ -35,7 +35,7 @@ int main()
 
     Print8int(*maxNum);
 
-    char desorden[] = {'r','e'};
+    char desorden[] = {'a','r','e','y','h','a','i','z','w'};
     RadixSort(desorden,NumberOfArrayElements(desorden),CHAR);
     PrintArray(desorden,NumberOfArrayElements(desorden),CHAR);
 
