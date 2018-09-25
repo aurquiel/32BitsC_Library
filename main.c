@@ -35,9 +35,17 @@ int main()
 
     Print8int(*maxNum);
 
-    char desorden[] = {'a','r','e','y','h','a','i','z','w'};
-    RadixSort(desorden,NumberOfArrayElements(desorden),CHAR);
-    PrintArray(desorden,NumberOfArrayElements(desorden),CHAR);
+    char array[] = {'a','r','e','y','h','a','i','z','w'};
+    RadixSort(array,NumberOfArrayElements(array),CHAR);
+    PrintArray(array,NumberOfArrayElements(array),CHAR);
+
+    int32_t arrayN[] = {23,456,78,23,6,134,67,32,89,2312,6764,45,56,54243,32,4,23,4,234};
+    RadixSort(arrayN,NumberOfArrayElements(arrayN),INT32);
+    PrintArray(arrayN,NumberOfArrayElements(arrayN),INT32);
+
+    double arrayD[] = {23.676,456.676,78.65756,23.7657,6.0567,134.45,67.78,32.7,89.878,2318.872,6764.7665,45.766,56.67,54243.6765,32.6765,4.67,23.676,4.67,234.67};
+    RadixSort(arrayD,NumberOfArrayElements(arrayD),DOUBLE);
+    PrintArray(arrayD,NumberOfArrayElements(arrayD),DOUBLE);
 
     return EXIT_SUCCESS;
 }

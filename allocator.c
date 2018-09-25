@@ -375,5 +375,4 @@ void *ReallocAllocator(void* arrayAllocated, uint64_t numberOfElements, int8_t t
 void AllocatorFree(void* arrayAllocated)
 {
     free(arrayAllocated);
-    free(arrayAllocated);
 }

@@ -100,7 +100,7 @@
 	<stdint.h>
 	"allocator.h"
 
-1537365468 source:c:\users\egomez\desktop\repos\templatec\allocator.c
+1537879674 source:c:\users\egomez\desktop\repos\templatec\allocator.c
 	"allocator.h"
 
 1537365468 c:\users\egomez\desktop\repos\templatec\allocator.h
@@ -109,7 +109,7 @@
 	"header.h"
 	"error.h"
 
-1537820443 c:\users\egomez\desktop\repos\templatec\header.h
+1537879168 c:\users\egomez\desktop\repos\templatec\header.h
 
 1537365468 c:\users\egomez\desktop\repos\templatec\error.h
 
@@ -122,7 +122,7 @@
 	<stdlib.h>
 	"error.h"
 
-1537816739 source:c:\users\egomez\desktop\repos\templatec\main.c
+1537883079 source:c:\users\egomez\desktop\repos\templatec\main.c
 	"print.h"
 	"array.h"
 	"allocator.h"
@@ -143,8 +143,9 @@
 1537562276 source:c:\users\egomez\desktop\repos\templatec\print.c
 	"print.h"
 
-1537820928 source:c:\users\egomez\desktop\repos\templatec\array.c
+1537882047 source:c:\users\egomez\desktop\repos\templatec\array.c
 	"array.h"
+	"radixSort.h"
 
 1537013864 source:/home/edgargomez/templateC/allocator.c
 	"allocator.h"
@@ -191,4 +192,6 @@
 
 1537013864 source:/home/edgargomez/templateC/print.c
 	"print.h"
+
+1537883280 c:\users\egomez\desktop\repos\templatec\radixsort.h
 

@@ -2,6 +2,7 @@
 #define ARRAY_C_INCLUDED
 
 #include "array.h"
+#include "radixSort.h"
 
 void InterchangeArrayGeneric(void* arrayA, int64_t sizeArrayA, void* arrayB, int64_t sizeArrayB, int8_t typeData)
 {
@@ -690,111 +691,51 @@ void RadixSort(void *array, int64_t sizeArray, int8_t typeData)
 
     if(typeData == CHAR)
     {
-        char repetitions[NATURAL_NUMBERS];
-        ClearArray(repetitions,NATURAL_NUMBERS,typeData);
-
-        char temporaryArray[sizeArray];
-        ClearArray(temporaryArray,sizeArray,typeData);
-
-        char maxValue = *((char*)FindArrayMaxValue(array,sizeArray,typeData));
-
-        int64_t divisor = 1;
-        while( (maxValue/divisor) > 0)
-        {
-            //limpia la cubeta
-            ClearArray(repetitions,10,typeData);
-
-            //Digitos repetidos
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                repetitions[( ((char*)array)[i] / divisor) % 10]++;
-            }
-
-            for(int64_t i = 1; i < 10; i++)
-            {
-                repetitions[i] += repetitions[i-1];
-            }
-
-            for(int64_t i = (sizeArray - 1); i >= 0; i--)
-            {
-                int64_t aux = --repetitions[(((char*)array)[i] / divisor) % 10];
-                temporaryArray[aux] = ((char*)array)[i];
-            }
-
-            CopyArray(array,sizeArray,temporaryArray,sizeArray,typeData);
-
-            divisor *= 10;
-        }
+        RADIX_SORT_OPERATIONS(array,sizeArray,char,typeData);
     }
     else if(typeData == UNSIGNED_CHAR)
     {
-        unsigned char repetitions[NATURAL_NUMBERS];
-        ClearArray(repetitions,NATURAL_NUMBERS,typeData);
-
-        unsigned char temporaryArray[sizeArray];
-        ClearArray(temporaryArray,sizeArray,typeData);
-
-        unsigned char maxValue = *((unsigned char*)FindArrayMaxValue(array,sizeArray,typeData));
-
-        int64_t divisor = 1;
-        while( (maxValue/divisor) > 0)
-        {
-            //limpia la cubeta
-            ClearArray(repetitions,10,typeData);
-
-            //Digitos repetidos
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                repetitions[( ((unsigned char*)array)[i] / divisor) % 10]++;
-            }
-
-            for(int64_t i = 1; i < 10; i++)
-            {
-                repetitions[i] += repetitions[i-1];
-            }
-
-            for(int64_t i = (sizeArray - 1); i >= 0; i--)
-            {
-                int64_t aux = --repetitions[(((unsigned char*)array)[i] / divisor) % 10];
-                temporaryArray[aux] = ((unsigned char*)array)[i];
-            }
-
-            CopyArray(array,sizeArray,temporaryArray,sizeArray,typeData);
-
-            divisor *= 10;
-        }
+        RADIX_SORT_OPERATIONS(array,sizeArray,unsigned char,typeData);
     }
     else if(typeData == INT8)
     {
-
+        RADIX_SORT_OPERATIONS(array,sizeArray,int8_t,typeData);
     }
     else if(typeData == UNSIGNED_INT8)
     {
-
+        RADIX_SORT_OPERATIONS(array,sizeArray,uint8_t,typeData);
     }
     else if(typeData == INT16)
     {
-
+        RADIX_SORT_OPERATIONS(array,sizeArray,int16_t,typeData);
     }
     else if(typeData == UNSIGNED_INT16)
     {
-
+        RADIX_SORT_OPERATIONS(array,sizeArray,uint16_t,typeData);
     }
     else if(typeData == INT32)
     {
-
+        RADIX_SORT_OPERATIONS(array,sizeArray,int32_t,typeData);
     }
     else if(typeData == UNSIGNED_INT32)
     {
-
+        RADIX_SORT_OPERATIONS(array,sizeArray,uint32_t,typeData);
     }
     else if(typeData == INT64)
     {
-
+        RADIX_SORT_OPERATIONS(array,sizeArray,int64_t,typeData);
     }
     else if(typeData == UNSIGNED_INT64)
     {
-
+        RADIX_SORT_OPERATIONS(array,sizeArray,uint64_t,typeData);
+    }
+    else if(typeData == FLOAT)
+    {
+        RADIX_SORT_OPERATIONS(array,sizeArray,float,typeData);
+    }
+    else if(typeData == DOUBLE)
+    {
+        RADIX_SORT_OPERATIONS(array,sizeArray,double,typeData);
     }
     else
     {
