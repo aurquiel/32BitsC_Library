@@ -18,5 +18,7 @@ void Print32int(int32_t theInt);
 void Print32Uint(uint32_t theInt);
 void Print64int(int64_t theInt);
 void Print64Uint(uint64_t theInt);
+void PrintFloat(float theFloat);
+void PrintDouble(double theDouble);
 
 #endif // PRINT_H_INCLUDED

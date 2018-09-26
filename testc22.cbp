@@ -54,6 +54,7 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="print.h" />
+		<Unit filename="radixSort.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

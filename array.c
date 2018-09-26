@@ -3,6 +3,7 @@
 
 #include "array.h"
 #include "radixSort.h"
+#include "math.h"
 
 void InterchangeArrayGeneric(void* arrayA, int64_t sizeArrayA, void* arrayB, int64_t sizeArrayB, int8_t typeData)
 {
@@ -755,5 +756,338 @@ void EndArrayChar(void* array, int64_t sizeArray, int8_t typeData)
     {
         memset(((unsigned char*)array + sizeArray), EMPTY_ESCAPE, 1);
     }
+}
+
+void RandomArrayGenerator(void* array, int64_t sizeArray, void* lowerLimit, void* upperLimit, int8_t typeData)
+{
+    if( (sizeArray <= 0) )
+    {
+        exit(errorSizePrint);
+    }
+    srand(time(NULL));
+
+    if(typeData == CHAR)
+    {
+        if( *((char*)lowerLimit) >= 0)
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                *((char*)array + i) = *((char*)lowerLimit) + (char)(rand()%( *((char*)upperLimit) + 1 - *((char*)lowerLimit) ));
+            }
+        }
+        else
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                if(rand()%2)
+                {
+                    *((char*)array + i) = (char)(rand()%(*((char*)upperLimit) + 1));
+                }
+                else
+                {
+                    *((char*)array + i) = -((char)(rand()%(*((char*)upperLimit) + 1)));
+                }
+            }
+        }
+    }
+    else if(typeData == UNSIGNED_CHAR)
+    {
+        if( *((unsigned char*)lowerLimit) >= 0)
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                *((unsigned char*)array + i) = *((unsigned char*)lowerLimit) + (unsigned char)(rand()%( *((unsigned char*)upperLimit) + 1 - *((unsigned char*)lowerLimit) ));
+            }
+        }
+        else
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                if(rand()%2)
+                {
+                    *((unsigned char*)array + i) = (unsigned char)(rand()%(*((unsigned char*)upperLimit) + 1));
+                }
+                else
+                {
+                    *((unsigned char*)array + i) = -((unsigned char)(rand()%(*((unsigned char*)upperLimit) + 1)));
+                }
+            }
+        }
+    }
+    else if(typeData == INT8)
+    {
+        if( *((int8_t*)lowerLimit) >= 0)
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                *((int8_t*)array + i) = *((int8_t*)lowerLimit) + (int8_t)(rand()%( *((int8_t*)upperLimit) + 1 - *((int8_t*)lowerLimit) ));
+            }
+        }
+        else
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                if(rand()%2)
+                {
+                    *((int8_t*)array + i) = (int8_t)(rand()%(*((int8_t*)upperLimit) + 1));
+                }
+                else
+                {
+                    *((int8_t*)array + i) = -((int8_t)(rand()%(*((int8_t*)upperLimit) + 1)));
+                }
+            }
+        }
+    }
+    else if(typeData == UNSIGNED_INT8)
+    {
+        if( *((uint8_t*)lowerLimit) >= 0)
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                *((uint8_t*)array + i) = *((uint8_t*)lowerLimit) + (uint8_t)(rand()%( *((uint8_t*)upperLimit) + 1 - *((uint8_t*)lowerLimit) ));
+            }
+        }
+        else
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                if(rand()%2)
+                {
+                    *((uint8_t*)array + i) = (uint8_t)(rand()%(*((uint8_t*)upperLimit) + 1));
+                }
+                else
+                {
+                    *((uint8_t*)array + i) = -((uint8_t)(rand()%(*((uint8_t*)upperLimit) + 1)));
+                }
+            }
+        }
+    }
+    else if(typeData == INT16)
+    {
+        if( *((int16_t*)lowerLimit) >= 0)
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                *((int16_t*)array + i) = *((int16_t*)lowerLimit) + (int16_t)(rand()%( *((int16_t*)upperLimit) + 1 - *((int16_t*)lowerLimit) ));
+            }
+        }
+        else
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                if(rand()%2)
+                {
+                    *((int16_t*)array + i) = (int16_t)(rand()%(*((int16_t*)upperLimit) + 1));
+                }
+                else
+                {
+                    *((int16_t*)array + i) = -((int16_t)(rand()%(*((int16_t*)upperLimit) + 1)));
+                }
+            }
+        }
+    }
+    else if(typeData == UNSIGNED_INT16)
+    {
+        if( *((uint16_t*)lowerLimit) >= 0)
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                *((uint16_t*)array + i) = *((uint16_t*)lowerLimit) + (uint16_t)(rand()%( *((uint16_t*)upperLimit) + 1 - *((uint16_t*)lowerLimit) ));
+            }
+        }
+        else
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                if(rand()%2)
+                {
+                    *((uint16_t*)array + i) = (uint16_t)(rand()%(*((uint16_t*)upperLimit) + 1));
+                }
+                else
+                {
+                    *((uint16_t*)array + i) = -((uint16_t)(rand()%(*((uint16_t*)upperLimit) + 1)));
+                }
+            }
+        }
+    }
+    else if(typeData == INT32)
+    {
+        if( *((int32_t*)lowerLimit) >= 0)
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                *((int32_t*)array + i) = *((int32_t*)lowerLimit) + (int32_t)(rand()%( *((int32_t*)upperLimit) + 1 - *((int32_t*)lowerLimit) ));
+            }
+        }
+        else
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                if(rand()%2)
+                {
+                    *((int32_t*)array + i) = (int32_t)(rand()%(*((int32_t*)upperLimit) + 1));
+                }
+                else
+                {
+                    *((int32_t*)array + i) = -((int32_t)(rand()%(*((int32_t*)upperLimit) + 1)));
+                }
+            }
+        }
+    }
+    else if(typeData == UNSIGNED_INT32)
+    {
+        if( *((uint32_t*)lowerLimit) >= 0)
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                *((uint32_t*)array + i) = *((uint32_t*)lowerLimit) + (uint32_t)(rand()%( *((uint32_t*)upperLimit) + 1 - *((uint32_t*)lowerLimit) ));
+            }
+        }
+        else
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                if(rand()%2)
+                {
+                    *((uint32_t*)array + i) = (uint32_t)(rand()%(*((uint32_t*)upperLimit) + 1));
+                }
+                else
+                {
+                    *((uint32_t*)array + i) = -((uint32_t)(rand()%(*((uint32_t*)upperLimit) + 1)));
+                }
+            }
+        }
+    }
+    else if(typeData == INT64)
+    {
+        if( *((int64_t*)lowerLimit) >= 0)
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                *((int64_t*)array + i) = *((int64_t*)lowerLimit) + (int64_t)(rand()%( *((int64_t*)upperLimit) + 1 - *((int64_t*)lowerLimit) ));
+            }
+        }
+        else
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                if(rand()%2)
+                {
+                    *((int64_t*)array + i) = (int64_t)(rand()%(*((int64_t*)upperLimit) + 1));
+                }
+                else
+                {
+                    *((int64_t*)array + i) = -((int64_t)(rand()%(*((int64_t*)upperLimit) + 1)));
+                }
+            }
+        }
+    }
+    else if(typeData == UNSIGNED_INT64)
+    {
+        if( *((uint64_t*)lowerLimit) >= 0)
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                *((uint64_t*)array + i) = *((uint64_t*)lowerLimit) + (uint64_t)(rand()%( *((uint64_t*)upperLimit) + 1 - *((uint64_t*)lowerLimit) ));
+            }
+        }
+        else
+        {
+            for(int64_t i = 0; i < sizeArray; i++)
+            {
+                if(rand()%2)
+                {
+                    *((uint64_t*)array + i) = (uint64_t)(rand()%(*((uint64_t*)upperLimit) + 1));
+                }
+                else
+                {
+                    *((uint64_t*)array + i) = -((uint64_t)(rand()%(*((uint64_t*)upperLimit) + 1)));
+                }
+            }
+        }
+    }
+    else if(typeData == FLOAT)
+    {
+        for(int64_t i = 0; i < sizeArray; i++)
+        {
+            int64_t integerPart = GetIntegerPart( ((float*)array + i), typeData);
+            Print64int(integerPart);
+        }
+    }
+    else if(typeData == DOUBLE)
+    {
+
+    }
+    else
+    {
+        exit(errorTypeArray);
+    }
+}
+
+int64_t GetIntegerPart(void *number, int8_t typeData)
+{
+    int64_t integerPart = 0;
+
+    if(typeData == CHAR || typeData == UNSIGNED_CHAR)
+    {
+        char *arrayIntegerPart = (char*)CallocAllocator(strlen((char*)number),typeData);
+        char *separator = strstr((char*)number,".");
+        memcpy(arrayIntegerPart,(char*)number,separator-(char*)number);
+        EndArrayChar(arrayIntegerPart,separator-(char*)number + 1,CHAR);
+
+        char *pointerEnd = NULL;
+        integerPart = (int64_t)strtol(arrayIntegerPart, &pointerEnd, 10);
+        AllocatorFree(arrayIntegerPart);
+    }
+    else if(typeData == FLOAT)
+    {
+        integerPart = ((int64_t)(*((float*)number)));
+    }
+    else if(typeData == DOUBLE)
+    {
+        integerPart = ((int64_t)(*((double*)number)));
+    }
+    else
+    {
+        exit(errorTypeArray);
+    }
+
+    return integerPart;
+}
+
+int64_t GetDecimalPart(void *number, int8_t typeData)
+{
+    int64_t decimalPart = 0;
+
+    if(typeData == CHAR || typeData == UNSIGNED_CHAR)
+    {
+        int64_t sizeArray = strlen((char*)number);
+        char *arrayDecimalPart = (char*)CallocAllocator(sizeArray,typeData);
+        char *separator = strstr((char*)number,".");
+        memcpy(arrayDecimalPart,separator + 1,(char*)number + sizeArray - separator + 1);
+        EndArrayChar(arrayDecimalPart,(char*)number + sizeArray - separator + 2, CHAR);
+
+        int64_t sizeArrayDecimalPart = strlen((char*)arrayDecimalPart);
+        for(int64_t i = 0, j =sizeArrayDecimalPart; i < sizeArrayDecimalPart ; i++, j--)
+        {
+            decimalPart += (*(arrayDecimalPart + i) - '0')*pow(10, j-1);
+        }
+        AllocatorFree(arrayDecimalPart);
+    }
+    else if(typeData == FLOAT)
+    {
+        float substractIntegerPart = (float*)number - ((int64_t)(*((float*)number)));
+
+    }
+    else if(typeData == DOUBLE)
+    {
+       // integerPart = ((int64_t)(*((double*)number)));
+    }
+    else
+    {
+        exit(errorTypeArray);
+    }
+
+    return decimalPart;
 }
 #endif // ARRAY_C_INCLUDED

@@ -175,3 +175,13 @@ void Print64Uint(uint64_t theInt)
     printf("%I64d\n", theInt);
     #endif
 }
+
+void PrintFloat(float theFloat)
+{
+    printf("%f\n", theFloat);
+}
+
+void PrintDouble(double theDouble)
+{
+    printf("%f\n", theDouble);
+}

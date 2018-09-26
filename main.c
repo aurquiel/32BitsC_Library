@@ -14,7 +14,7 @@ int main()
     PrintArray(numerosA,NumberOfArrayElements(numerosA),INT8);
     PrintArray(numerosB,NumberOfArrayElements(numerosB),INT8);
     InterchangeArrayGeneric(numerosA,NumberOfArrayElements(numerosA),numerosB,NumberOfArrayElements(numerosB),INT8);
-    printf("hola\n");
+    printf("Interchanged arrays\n");
     PrintArray(numerosA,NumberOfArrayElements(numerosA),INT8);
     PrintArray(numerosB,NumberOfArrayElements(numerosB),INT8);
 
@@ -47,6 +47,24 @@ int main()
     RadixSort(arrayD,NumberOfArrayElements(arrayD),DOUBLE);
     PrintArray(arrayD,NumberOfArrayElements(arrayD),DOUBLE);
 
+    char random[80];
+    ClearArray(random,80,CHAR);
+    char low = 'a';
+    char up = 'z';
+    RandomArrayGenerator(random,80,(char*)&low,(char*)&up,CHAR);
+    PrintArray(random,80,CHAR);
+
+    int8_t randomN[100];
+    ClearArray(randomN,100,INT8);
+    int8_t lowN = -8;
+    int8_t upN = 8;
+    RandomArrayGenerator(randomN,100,(int8_t*)&lowN,(int8_t*)&upN,INT8);
+    PrintArray(randomN,100,INT8);
+
+    double ww = 14343.3432;
+    Print64int(GetIntegerPart((double*)&ww, DOUBLE));
+
+    Print64int(GetDecimalPart("45453.576456", CHAR));
     return EXIT_SUCCESS;
 }
 
