@@ -64,7 +64,26 @@ int main()
     double ww = 14343.3432;
     Print64int(GetIntegerPart((double*)&ww, DOUBLE));
 
-    Print64int(GetDecimalPart("45453.576456", CHAR));
+    Print64int(GetDecimalPart("45453.576456",2,CHAR));
+    Print64int(GetIntegerPart("45453.576456",CHAR));
+
+    printf("float\n");
+    float wf = 14343.3456;
+    Print64int(GetDecimalPart((float*)&wf,2, FLOAT));
+
+    printf("double\n");
+    double wf2 = 14343.3456;
+    Print64int(GetDecimalPart((double*)&wf2,4, DOUBLE));
+
+    printf("ramdon double\n");
+
+    double numFloat[100];
+
+    double lowF = -1;
+    double upF = 1;
+    RandomArrayGenerator(numFloat,100,(double*)&lowF,(double*)&upF,DOUBLE);
+    PrintArray(numFloat,100,DOUBLE);
+
     return EXIT_SUCCESS;
 }
 

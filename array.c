@@ -4,6 +4,7 @@
 #include "array.h"
 #include "radixSort.h"
 #include "math.h"
+#include <stdio.h>
 
 void InterchangeArrayGeneric(void* arrayA, int64_t sizeArrayA, void* arrayB, int64_t sizeArrayB, int8_t typeData)
 {
@@ -1008,15 +1009,23 @@ void RandomArrayGenerator(void* array, int64_t sizeArray, void* lowerLimit, void
     }
     else if(typeData == FLOAT)
     {
+        float range = *((float*)upperLimit) - *((float*)lowerLimit);
+        float division = RAND_MAX / range;
+
         for(int64_t i = 0; i < sizeArray; i++)
         {
-            int64_t integerPart = GetIntegerPart( ((float*)array + i), typeData);
-            Print64int(integerPart);
+           *((float*)array + i) = *((float*)lowerLimit) + (rand() / division);
         }
     }
     else if(typeData == DOUBLE)
     {
+        double range = *((double*)upperLimit) - *((double*)lowerLimit);
+        double division = RAND_MAX / range;
 
+        for(int64_t i = 0; i < sizeArray; i++)
+        {
+           *((double*)array + i) = *((double*)lowerLimit) + (rand() / division);
+        }
     }
     else
     {
@@ -1030,14 +1039,13 @@ int64_t GetIntegerPart(void *number, int8_t typeData)
 
     if(typeData == CHAR || typeData == UNSIGNED_CHAR)
     {
-        char *arrayIntegerPart = (char*)CallocAllocator(strlen((char*)number),typeData);
         char *separator = strstr((char*)number,".");
-        memcpy(arrayIntegerPart,(char*)number,separator-(char*)number);
-        EndArrayChar(arrayIntegerPart,separator-(char*)number + 1,CHAR);
+        int64_t numberOfNumbers = separator - (char*)number;
 
-        char *pointerEnd = NULL;
-        integerPart = (int64_t)strtol(arrayIntegerPart, &pointerEnd, 10);
-        AllocatorFree(arrayIntegerPart);
+        for(int64_t i = 0, j = numberOfNumbers; (((char*)number) + i) < separator; i++, j--)
+        {
+            integerPart = integerPart*10 + ( *( ((char*)number) + i) - '0');
+        }
     }
     else if(typeData == FLOAT)
     {
@@ -1055,33 +1063,53 @@ int64_t GetIntegerPart(void *number, int8_t typeData)
     return integerPart;
 }
 
-int64_t GetDecimalPart(void *number, int8_t typeData)
+int64_t GetDecimalPart(void *number,int8_t precision ,int8_t typeData)
 {
+    if(precision <= 0)
+    {
+        exit(-666);
+    }
+
     int64_t decimalPart = 0;
 
     if(typeData == CHAR || typeData == UNSIGNED_CHAR)
     {
-        int64_t sizeArray = strlen((char*)number);
-        char *arrayDecimalPart = (char*)CallocAllocator(sizeArray,typeData);
         char *separator = strstr((char*)number,".");
-        memcpy(arrayDecimalPart,separator + 1,(char*)number + sizeArray - separator + 1);
-        EndArrayChar(arrayDecimalPart,(char*)number + sizeArray - separator + 2, CHAR);
+        int64_t longDecimalPart = strlen(++separator);
 
-        int64_t sizeArrayDecimalPart = strlen((char*)arrayDecimalPart);
-        for(int64_t i = 0, j =sizeArrayDecimalPart; i < sizeArrayDecimalPart ; i++, j--)
+        for(int64_t j = longDecimalPart ; (j > 0); j--)
         {
-            decimalPart += (*(arrayDecimalPart + i) - '0')*pow(10, j-1);
+            decimalPart += (*(separator++) - '0')*pow(10, j - 1);
         }
-        AllocatorFree(arrayDecimalPart);
+
+        if(precision < longDecimalPart)
+        {
+            decimalPart /= pow(10,longDecimalPart - precision);
+        }
     }
     else if(typeData == FLOAT)
     {
-        float substractIntegerPart = (float*)number - ((int64_t)(*((float*)number)));
+        int64_t integerPart = GetIntegerPart(number, typeData);
+        float lessIntegerPart = *((float*)number) - integerPart;
+        lessIntegerPart *= pow(10,precision);
+        decimalPart = (int64_t)lessIntegerPart;
 
+        while(decimalPart % 10 == 0)
+        {
+            decimalPart /= 10;
+        }
     }
     else if(typeData == DOUBLE)
     {
-       // integerPart = ((int64_t)(*((double*)number)));
+        int64_t integerPart = GetIntegerPart(number, typeData);
+        double lessIntegerPart = *((double*)number) - integerPart;
+        lessIntegerPart *= pow(10,precision);
+        decimalPart = (int64_t)lessIntegerPart;
+
+        while(decimalPart % 10 == 0)
+        {
+            decimalPart /= 10;
+        }
     }
     else
     {

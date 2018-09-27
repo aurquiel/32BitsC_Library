@@ -19,6 +19,6 @@ void RadixSort(void *array, int64_t sizeArray, int8_t typeData);
 void RandomArrayGenerator(void* array, int64_t sizeArray, void* lowerLimit, void* upperLimit, int8_t typeData);
 void EndArrayChar(void* array, int64_t numberBytes, int8_t typeData);
 int64_t GetIntegerPart(void *number, int8_t typeData);
-int64_t GetDecimalPart(void *number, int8_t typeData);
+int64_t GetDecimalPart(void *number,int8_t precision, int8_t typeData);
 
 #endif // ARRAY_H_INCLUDED
