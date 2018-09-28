@@ -7,7 +7,10 @@
 #include "header.h"
 #include "error.h"
 
-void PrintArray(void *array, int64_t size, uint8_t typeData);
+#define PrintArray(array, sizeArray, uint8_t typeData) a_special(__func__)
+
+void PrintArray(void *array, int64_t sizeArray, uint8_t typeData);
+void PrintArrayLINE(void *array, int64_t sizeArray, uint8_t typeData, const char *functionCaller);
 void PrintChar(char theChar);
 void PrintUchar(unsigned char theUchar);
 void Print8int(int8_t theInt);

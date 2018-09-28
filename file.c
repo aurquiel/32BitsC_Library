@@ -18,5 +18,4 @@ FILE *FileOpen(char* routeFile, char* modeFile)
 void FileClose(FILE* theFile)
 {
     fclose(theFile);
-    fclose(theFile);
 }

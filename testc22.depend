@@ -100,10 +100,10 @@
 	<stdint.h>
 	"allocator.h"
 
-1537879674 source:c:\users\egomez\desktop\repos\templatec\allocator.c
+1538161258 source:c:\users\egomez\desktop\repos\templatec\allocator.c
 	"allocator.h"
 
-1537365468 c:\users\egomez\desktop\repos\templatec\allocator.h
+1538161258 c:\users\egomez\desktop\repos\templatec\allocator.h
 	<stdlib.h>
 	<stdint.h>
 	"header.h"
@@ -111,9 +111,13 @@
 
 1537879168 c:\users\egomez\desktop\repos\templatec\header.h
 
-1537365468 c:\users\egomez\desktop\repos\templatec\error.h
+1538164199 c:\users\egomez\desktop\repos\templatec\error.h
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
 
-1537365468 source:c:\users\egomez\desktop\repos\templatec\file.c
+1538082190 source:c:\users\egomez\desktop\repos\templatec\file.c
 	"file.h"
 
 1537365468 c:\users\egomez\desktop\repos\templatec\file.h
@@ -122,10 +126,12 @@
 	<stdlib.h>
 	"error.h"
 
-1538080824 source:c:\users\egomez\desktop\repos\templatec\main.c
+1538163995 source:c:\users\egomez\desktop\repos\templatec\main.c
 	"print.h"
 	"array.h"
 	"allocator.h"
+	"sort.h"
+	"aritmethic.h"
 
 1537989836 c:\users\egomez\desktop\repos\templatec\print.h
 	<stdio.h>
@@ -134,21 +140,20 @@
 	"header.h"
 	"error.h"
 
-1538072231 c:\users\egomez\desktop\repos\templatec\array.h
+1538160202 c:\users\egomez\desktop\repos\templatec\array.h
 	<string.h>
 	<stdlib.h>
 	<stdint.h>
 	<time.h>
+	<stdio.h>
 	"allocator.h"
+	"swap.h"
 
-1537989815 source:c:\users\egomez\desktop\repos\templatec\print.c
+1538164436 source:c:\users\egomez\desktop\repos\templatec\print.c
 	"print.h"
 
-1538079364 source:c:\users\egomez\desktop\repos\templatec\array.c
+1538164488 source:c:\users\egomez\desktop\repos\templatec\array.c
 	"array.h"
-	"radixSort.h"
-	"math.h"
-	<stdio.h>
 
 1537013864 source:/home/edgargomez/templateC/allocator.c
 	"allocator.h"
@@ -196,5 +201,39 @@
 1537013864 source:/home/edgargomez/templateC/print.c
 	"print.h"
 
-1537883280 c:\users\egomez\desktop\repos\templatec\radixsort.h
+1538161285 c:\users\egomez\desktop\repos\templatec\radixsort.h
+
+1538162168 source:c:\users\egomez\desktop\repos\templatec\swap.c
+	"swap.h"
+
+1538158812 c:\users\egomez\desktop\repos\templatec\swap.h
+	<stdint.h>
+	<stdlib.h>
+	"header.h"
+	"error.h"
+
+1538161888 source:c:\users\egomez\desktop\repos\templatec\sort.c
+	"sort.h"
+
+1538159140 c:\users\egomez\desktop\repos\templatec\sort.h
+	"error.h"
+	"header.h"
+	"allocator.h"
+	"array.h"
+	"radixSort.h"
+	<stdint.h>
+
+1538162063 source:c:\users\egomez\desktop\repos\templatec\aritmethic.c
+	"aritmethic.h"
+
+1538161331 c:\users\egomez\desktop\repos\templatec\aritmethic.h
+	"error.h"
+	"header.h"
+	<stdint.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+
+1538164199 source:c:\users\egomez\desktop\repos\templatec\error.c
+	"error.h"
 

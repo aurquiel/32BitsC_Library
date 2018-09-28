@@ -1,6 +1,6 @@
 #include "allocator.h"
 
-void *MallocAllocator(int64_t numberOfElements, int8_t typeData)
+void *AllocatorMalloc(int64_t numberOfElements, int8_t typeData)
 {
     void* auxiliarMemory = NULL;
 
@@ -74,7 +74,7 @@ void *MallocAllocator(int64_t numberOfElements, int8_t typeData)
     return NULL;
 }
 
-void **MallocAllocatorTwoDimension(int64_t numberOfElements, int8_t typeData)
+void **AllocatorMallocTwoDimension(int64_t numberOfElements, int8_t typeData)
 {
     void* auxiliarMemory = NULL;
 
@@ -148,7 +148,7 @@ void **MallocAllocatorTwoDimension(int64_t numberOfElements, int8_t typeData)
     return NULL;
 }
 
-void *CallocAllocator(int64_t numberOfElements, int8_t typeData)
+void *AllocatorCalloc(int64_t numberOfElements, int8_t typeData)
 {
     void* auxiliarMemory = NULL;
 
@@ -223,7 +223,7 @@ void *CallocAllocator(int64_t numberOfElements, int8_t typeData)
     return NULL;
 }
 
-void **CallocAllocatorTwoDimension(int64_t numberOfElements, int8_t typeData)
+void **AllocatorCallocTwoDimension(int64_t numberOfElements, int8_t typeData)
 {
     void* auxiliarMemory = NULL;
 

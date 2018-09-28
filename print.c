@@ -1,15 +1,15 @@
 #include "print.h"
 
-void PrintArray(void *array, int64_t size, uint8_t typeData)
+void PrintArray(void *array, int64_t sizeArray, uint8_t typeData)
 {
-    if(size <= 0)
+    if(sizeArray <= 0)
     {
-        exit(errorSizePrint);
+        ErrorRaise(errorSizePrint, __func__);
     }
 
     if(CHAR == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)size; i++)
+        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
         {
             printf("%c", *((char*)array + i));
         }
@@ -17,7 +17,7 @@ void PrintArray(void *array, int64_t size, uint8_t typeData)
     }
     else if(UNSIGNED_CHAR == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)size; i++)
+        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
         {
             printf("%c", *((unsigned char*)array + i));
         }
@@ -25,7 +25,7 @@ void PrintArray(void *array, int64_t size, uint8_t typeData)
     }
     else if(INT8  == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)size; i++)
+        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
         {
             printf("%d ", *((int8_t*)array +i) );
         }
@@ -34,7 +34,7 @@ void PrintArray(void *array, int64_t size, uint8_t typeData)
     else if(UNSIGNED_INT8 == typeData)
     {
         uint8_t* auxiliarPointer = (uint8_t*)array;
-        for(uint64_t i = 0; i < (uint64_t)size; i++)
+        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
         {
             printf("%u ", auxiliarPointer[i]);
         }
@@ -42,7 +42,7 @@ void PrintArray(void *array, int64_t size, uint8_t typeData)
     }
     else if(INT16 == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)size; i++)
+        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
         {
             printf("%d ", *((int16_t*)array + i));
         }
@@ -50,7 +50,7 @@ void PrintArray(void *array, int64_t size, uint8_t typeData)
     }
     else if(UNSIGNED_INT16 == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)size; i++)
+        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
         {
             printf("%u ", *((uint16_t*)array + i));
         }
@@ -58,7 +58,7 @@ void PrintArray(void *array, int64_t size, uint8_t typeData)
     }
     else if(INT32 == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)size; i++)
+        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
         {
             printf("%d ", *((int32_t*)array + i));
         }
@@ -66,7 +66,7 @@ void PrintArray(void *array, int64_t size, uint8_t typeData)
     }
     else if(UNSIGNED_INT32 == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)size; i++)
+        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
         {
             printf("%u ", *((uint32_t*)array + i));
         }
@@ -74,7 +74,7 @@ void PrintArray(void *array, int64_t size, uint8_t typeData)
     }
     else if(INT64 == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)size; i++)
+        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
         {
             #ifdef __unix__
             printf("%ld ", *((int64_t*)array + i));
@@ -86,7 +86,7 @@ void PrintArray(void *array, int64_t size, uint8_t typeData)
     }
     else if(UNSIGNED_INT64 == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)size; i++)
+        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
         {
             #ifdef __unix__
             printf("%ld ", *((uint64_t*)array + i));
@@ -98,7 +98,7 @@ void PrintArray(void *array, int64_t size, uint8_t typeData)
     }
     else if(FLOAT == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)size; i++)
+        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
         {
             printf("%f ", *((float*)array + i));
         }
@@ -106,7 +106,7 @@ void PrintArray(void *array, int64_t size, uint8_t typeData)
     }
     else if(DOUBLE == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)size; i++)
+        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
         {
             printf("%f ", *((double*)array + i));
         }
@@ -114,8 +114,13 @@ void PrintArray(void *array, int64_t size, uint8_t typeData)
     }
     else
     {
-        exit(errorTypePrint);
+        ErrorRaise(errorTypePrint, __func__);
     }
+}
+
+void PrintArrayLINE(void *array, int64_t sizeArray, uint8_t typeData, const char *functionCaller)
+{
+    PrintArray(array, sizeArray, typeData, functionCaller);
 }
 
 void PrintChar(char theChar)

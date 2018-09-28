@@ -36,10 +36,17 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="allocator.h" />
+		<Unit filename="aritmethic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="aritmethic.h" />
 		<Unit filename="array.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="array.h" />
+		<Unit filename="error.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="error.h" />
 		<Unit filename="file.c">
 			<Option compilerVar="CC" />
@@ -55,6 +62,14 @@
 		</Unit>
 		<Unit filename="print.h" />
 		<Unit filename="radixSort.h" />
+		<Unit filename="sort.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sort.h" />
+		<Unit filename="swap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="swap.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />
