@@ -3,11 +3,11 @@
 
 #include "array.h"
 
-void ArrayInterchange(void* arrayA, int64_t sizeArrayA, void* arrayB, int64_t sizeArrayB, int8_t typeData)
+void _ArrayInterchange(void* arrayA, int64_t sizeArrayA, void* arrayB, int64_t sizeArrayB, int8_t typeData, char const *functionName, char const *fileName, const int64_t lineNumber)
 {
     if((sizeArrayA <= 0) || (sizeArrayB <= 0) || (sizeArrayA != sizeArrayB))
     {
-        ErrorRaise(errorSizeArray, __func__);
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
     void *auxiliarArray = AllocatorCalloc(sizeArrayA, typeData);
@@ -18,11 +18,11 @@ void ArrayInterchange(void* arrayA, int64_t sizeArrayA, void* arrayB, int64_t si
     AllocatorFree(auxiliarArray);
 }
 
-void ArrayCopy(void* arrayDestiny, int64_t sizeArrayDestiny, void* arraySource, int64_t sizeArraySource, int8_t typeData)
+void _ArrayCopy(void* arrayDestiny, int64_t sizeArrayDestiny, void* arraySource, int64_t sizeArraySource, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
 {
     if( (sizeArrayDestiny <= 0) || (sizeArraySource <= 0) || (sizeArrayDestiny < sizeArraySource) )
     {
-        ErrorRaise(errorSizeArray, __func__);
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
     if(typeData == CHAR)
@@ -75,15 +75,15 @@ void ArrayCopy(void* arrayDestiny, int64_t sizeArrayDestiny, void* arraySource, 
     }
     else
     {
-        exit(errorTypeArray);
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
     }
 }
 
-void ArrayConcatenate(void* arrayDestiny, int64_t sizeArrayDestiny, void* arraySource, int64_t sizeArraySource, int8_t typeData)
+void _ArrayConcatenate(void* arrayDestiny, int64_t sizeArrayDestiny, void* arraySource, int64_t sizeArraySource, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
 {
     if( (sizeArrayDestiny <= 0) )
     {
-        ErrorRaise(errorSizeArray, __func__);
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
     if(typeData == CHAR)
@@ -128,15 +128,15 @@ void ArrayConcatenate(void* arrayDestiny, int64_t sizeArrayDestiny, void* arrayS
     }
     else
     {
-        exit(errorTypeArray);
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
     }
 }
 
-void ArrayClear(void* arrayDestiny, int64_t sizeArray, int8_t typeData)
+void _ArrayClear(void* array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, __func__);
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
     const char emptyEscape = EMPTY_ESCAPE;
@@ -144,25 +144,25 @@ void ArrayClear(void* arrayDestiny, int64_t sizeArray, int8_t typeData)
 
     if( (typeData == CHAR) || (typeData == UNSIGNED_CHAR))
     {
-        ArraySet(arrayDestiny, (void*)(&emptyEscape), sizeArray, typeData);
+        ArraySet(array, (void*)(&emptyEscape), sizeArray, typeData);
     }
     else if( (typeData == INT8) || (typeData == UNSIGNED_INT8) || (typeData == INT16) || (typeData == UNSIGNED_INT16) ||
         (typeData == INT32) || (typeData == UNSIGNED_INT32) || (typeData == INT64) || (typeData == UNSIGNED_INT64) ||
         (typeData == FLOAT) || (typeData == DOUBLE) )
     {
-        ArraySet(arrayDestiny, (void*)(&zero), sizeArray, typeData);
+        ArraySet(array, (void*)(&zero), sizeArray, typeData);
     }
     else
     {
-         exit(errorTypeArray);
+         ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
     }
 }
 
-void ArraySet(void* array, void *data, int64_t sizeArray, int8_t typeData)
+void _ArraySet(void* array, void *data, int64_t sizeArray, int8_t typeData, char const *functionName, char const *fileName, const int64_t lineNumber)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, __func__);
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
     if(typeData == CHAR)
@@ -215,15 +215,15 @@ void ArraySet(void* array, void *data, int64_t sizeArray, int8_t typeData)
     }
     else
     {
-        exit(errorTypeArray);
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
     }
 }
 
-void *ArrayFind(void* array, void *data, int64_t sizeArray, int8_t typeData)
+void *_ArrayFind(void* array, void *data, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, __func__);
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
     if(typeData == CHAR)
@@ -348,17 +348,17 @@ void *ArrayFind(void* array, void *data, int64_t sizeArray, int8_t typeData)
     }
     else
     {
-        exit(errorTypeArray);
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
     }
 
     return NULL;
 }
 
-void *ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData)
+void *_ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, __func__);
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
     if(typeData == CHAR)
@@ -531,14 +531,18 @@ void *ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData)
     }
     else
     {
-        exit(errorTypeArray);
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
     }
 
     return NULL;
 }
 
-uint64_t ArrayFindNumberRepetitions(void* array, void *data, int64_t sizeArray, int8_t typeData)
+uint64_t _ArrayFindNumberRepetitions(void* array, void *data, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
 {
+    if(sizeArray <= 0)
+    {
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+    }
 
     uint64_t numberRepetitions = 0;
 
@@ -676,17 +680,17 @@ uint64_t ArrayFindNumberRepetitions(void* array, void *data, int64_t sizeArray, 
     }
     else
     {
-        exit(errorTypeArray);
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
     }
 
     return numberRepetitions;
 }
 
-void ArrayEndChar(void* array, int64_t sizeArray, int8_t typeData)
+void _ArrayEndChar(void* array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, __func__);
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
     --sizeArray; //position of the \0 character
@@ -698,13 +702,17 @@ void ArrayEndChar(void* array, int64_t sizeArray, int8_t typeData)
     {
         memset(((unsigned char*)array + sizeArray), EMPTY_ESCAPE, 1);
     }
+    else
+    {
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+    }
 }
 
-void ArrayRandomGenerator(void* array, int64_t sizeArray, void* lowerLimit, void* upperLimit, int8_t typeData)
+void _ArrayRandomGenerator(void* array, int64_t sizeArray, void* lowerLimit, void* upperLimit, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, __func__);
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
     srand(time(NULL));
@@ -971,15 +979,15 @@ void ArrayRandomGenerator(void* array, int64_t sizeArray, void* lowerLimit, void
     }
     else
     {
-        exit(errorTypeArray);
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
     }
 }
 
-void ArrayReverse(void *array, int64_t sizeArray, int8_t typeData)
+void _ArrayReverse(void *array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
 {
     if( sizeArray <= 0 )
     {
-        ErrorRaise(errorSizeArray, __func__);
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
     if(typeData == CHAR)
@@ -1069,15 +1077,15 @@ void ArrayReverse(void *array, int64_t sizeArray, int8_t typeData)
     }
     else
     {
-        exit(errorTypeArray);
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
     }
 }
 
-void ArrayReverseInterval(void *array, int64_t sizeArray, void* lowerLimit, void* upperLimit, int8_t typeData)
+void _ArrayReverseInterval(void *array, int64_t sizeArray, void* lowerLimit, void* upperLimit, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
 {
     if( sizeArray <= 0 )
     {
-       ErrorRaise(errorSizeArray, __func__);
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
     else if( (lowerLimit < array) || upperLimit < lowerLimit )
     {
@@ -1171,15 +1179,15 @@ void ArrayReverseInterval(void *array, int64_t sizeArray, void* lowerLimit, void
     }
     else
     {
-        exit(errorTypeArray);
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
     }
 }
 
-void ArrayReplaceAll(void *array, int64_t sizeArray, void* data, int8_t typeData)
+void _ArrayReplaceAll(void *array, int64_t sizeArray, void* data, int8_t typeData, char const *fileName, char const *functionName, long lineNumber)
 {
     if( sizeArray <= 0 )
     {
-        ErrorRaise(errorSizeArray, __func__);
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
     if(typeData == CHAR)
@@ -1304,15 +1312,15 @@ void ArrayReplaceAll(void *array, int64_t sizeArray, void* data, int8_t typeData
     }
     else
     {
-        exit(errorTypeArray);
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
     }
 }
 
-void ArrayReplaceFrequency(void *array, int64_t sizeArray, void* data, int64_t frequency, int8_t typeData)
+void _ArrayReplaceFrequency(void *array, int64_t sizeArray, void* data, int64_t frequency, int8_t typeData, char const *fileName, char const *functionName, long lineNumber)
 {
     if( sizeArray <= 0 )
     {
-        ErrorRaise(errorSizeArray, __func__);
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
     if(frequency <= 0)
@@ -1442,15 +1450,15 @@ void ArrayReplaceFrequency(void *array, int64_t sizeArray, void* data, int64_t f
     }
     else
     {
-        exit(errorTypeArray);
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
     }
 }
 
-void ArrayShuffle(void* array, int64_t sizeArray, int8_t typeData)
+void _ArrayShuffle(void* array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
 {
      if( sizeArray <= 0 )
     {
-        ErrorRaise(errorSizeArray, __func__);
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
     if(typeData == CHAR)
@@ -1503,7 +1511,7 @@ void ArrayShuffle(void* array, int64_t sizeArray, int8_t typeData)
     }
     else
     {
-        exit(errorTypeArray);
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
     }
 }
 #endif // ARRAY_C_INCLUDED

@@ -13,7 +13,7 @@ int main()
 
     int8_t numerosA[] = {23,45,23,23};
     int8_t numerosB[] = {11,21,31,41};
-    PrintArray(numerosA,NumberOfArrayElements(numerosA),50);
+    PrintArray(numerosA,NumberOfArrayElements(numerosA),INT8);
     PrintArray(numerosB,NumberOfArrayElements(numerosB),INT8);
     ArrayInterchange(numerosA,NumberOfArrayElements(numerosA),numerosB,NumberOfArrayElements(numerosB),INT8);
     printf("Interchanged arrays\n");

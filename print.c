@@ -1,10 +1,10 @@
 #include "print.h"
 
-void PrintArray(void *array, int64_t sizeArray, uint8_t typeData)
+void _PrintArray(void *array, int64_t sizeArray, uint8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizePrint, __func__);
+        ErrorRaise(errorSizePrint, fileName, functionName, lineNumber);
     }
 
     if(CHAR == typeData)
@@ -114,14 +114,10 @@ void PrintArray(void *array, int64_t sizeArray, uint8_t typeData)
     }
     else
     {
-        ErrorRaise(errorTypePrint, __func__);
+        ErrorRaise(errorSizePrint, fileName, functionName, lineNumber);
     }
 }
 
-void PrintArrayLINE(void *array, int64_t sizeArray, uint8_t typeData, const char *functionCaller)
-{
-    PrintArray(array, sizeArray, typeData, functionCaller);
-}
 
 void PrintChar(char theChar)
 {

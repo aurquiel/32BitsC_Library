@@ -43,6 +43,6 @@ typedef enum {
     errorTypeSwap = -702              /*!< -702 indicating error of type */
 } errorSwap;
 
-void ErrorRaise(int64_t messageNumber, const char* functionName);
+void ErrorRaise(int64_t messageNumber, const char* fileName, const char* functionName, const int64_t lineNumber);
 
 #endif // ERROR_H_INCLUDED
