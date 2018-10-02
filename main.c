@@ -100,6 +100,20 @@ int main()
     ArrayReverseInterval(dios, NumberOfArrayElements(dios), dios, dios + 20, CHAR);
     PrintArray(dios,NumberOfArrayElements(dios),CHAR);
 
+    printf("\nShuffle\n");
+    int8_t arregloShuffle[] = {1,2,3,4,5,6,7,8,9};
+    PrintArray(arregloShuffle,NumberOfArrayElements(arregloShuffle),INT8);
+    ArrayShuffle(arregloShuffle,NumberOfArrayElements(arregloShuffle),INT8);
+    PrintArray(arregloShuffle,NumberOfArrayElements(arregloShuffle),INT8);
+    printf("\n%I64d", RAND_MAX);
+
+    int64_t *arrayRND = (int64_t*)AllocatorCalloc(50000000,INT64);
+    int64_t upper = 5000000;
+    int64_t down = 0;
+    ArrayRandomGenerator(arrayRND,50000000,(int64_t*)&down,(int64_t*)&upper,INT64);
+    SortRadix(arrayRND,50000000,INT64);
+    //PrintArray(arrayRND,NumberOfArrayElements(arrayRND),INT64);
+    AllocatorFree(arrayRND);
     return EXIT_SUCCESS;
 }
 

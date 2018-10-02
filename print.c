@@ -114,7 +114,7 @@ void _PrintArray(void *array, int64_t sizeArray, uint8_t typeData, char const *f
     }
     else
     {
-        ErrorRaise(errorSizePrint, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypePrint, fileName, functionName, lineNumber);
     }
 }
 

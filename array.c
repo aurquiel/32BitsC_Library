@@ -1456,58 +1456,111 @@ void _ArrayReplaceFrequency(void *array, int64_t sizeArray, void* data, int64_t 
 
 void _ArrayShuffle(void* array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
 {
-     if( sizeArray <= 0 )
+    if( sizeArray <= 0 )
+    {
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+    }
+
+    if( sizeArray >= RAND_MAX)
     {
         ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
     if(typeData == CHAR)
     {
-
+        for (int64_t i = 0; i < sizeArray - 1; i++)
+        {
+          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
+          Swap(((char*)array+i),((char*)array+j),typeData);
+        }
     }
     else if (typeData == UNSIGNED_CHAR)
     {
-
+        for (int64_t i = 0; i < sizeArray - 1; i++)
+        {
+          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
+          Swap(((unsigned char*)array+i),((unsigned char*)array+j),typeData);
+        }
     }
     else if(typeData == INT8)
     {
-
+        for (int64_t i = 0; i < sizeArray - 1; i++)
+        {
+          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
+          Swap(((int8_t*)array+i),((int8_t*)array+j),typeData);
+        }
     }
     else if(typeData == UNSIGNED_INT8)
     {
-
+        for (int64_t i = 0; i < sizeArray - 1; i++)
+        {
+          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
+          Swap(((uint8_t*)array+i),((uint8_t*)array+j),typeData);
+        }
     }
     else if(typeData == INT16)
     {
-
+        for (int64_t i = 0; i < sizeArray - 1; i++)
+        {
+          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
+          Swap(((int16_t*)array+i),((int16_t*)array+j),typeData);
+        }
     }
     else if(typeData == UNSIGNED_INT16)
     {
-
+        for (int64_t i = 0; i < sizeArray - 1; i++)
+        {
+          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
+          Swap(((uint16_t*)array+i),((uint16_t*)array+j),typeData);
+        }
     }
     else if(typeData == INT32)
     {
-
+        for (int64_t i = 0; i < sizeArray - 1; i++)
+        {
+          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
+          Swap(((int32_t*)array+i),((int32_t*)array+j),typeData);
+        }
     }
     else if(typeData == UNSIGNED_INT32)
     {
-
+        for (int64_t i = 0; i < sizeArray - 1; i++)
+        {
+          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
+          Swap(((uint32_t*)array+i),((uint32_t*)array+j),typeData);
+        }
     }
     else if(typeData == INT64)
     {
-
+        for (int64_t i = 0; i < sizeArray - 1; i++)
+        {
+          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
+          Swap(((int64_t*)array+i),((int64_t*)array+j),typeData);
+        }
     }
     else if(typeData == UNSIGNED_INT64)
     {
-
+        for (int64_t i = 0; i < sizeArray - 1; i++)
+        {
+          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
+          Swap(((uint64_t*)array+i),((uint64_t*)array+j),typeData);
+        }
     }
     else if(typeData == FLOAT)
     {
-
+        for (int64_t i = 0; i < sizeArray - 1; i++)
+        {
+          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
+          Swap(((float*)array+i),((float*)array+j),typeData);
+        }
     }
     else if(typeData == DOUBLE)
     {
-
+        for (int64_t i = 0; i < sizeArray - 1; i++)
+        {
+          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
+          Swap(((double*)array+i),((double*)array+j),typeData);
+        }
     }
     else
     {
