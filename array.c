@@ -1537,10 +1537,12 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
             if(direction == TRUE)
             {
                 *((char*)array + i) = *((char*)startPoint) + *((char*)step);
+                *((char*)startPoint) += *((char*)step);
             }
             else
             {
                 *((char*)array + i) = *((char*)startPoint) - *((char*)step);
+                *((char*)startPoint) -= *((char*)step);
             }
         }
     }
@@ -1551,10 +1553,12 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
             if(direction == TRUE)
             {
                 *((unsigned char*)array + i) = *((unsigned char*)startPoint) + *((unsigned char*)step);
+                *((unsigned char*)startPoint) += *((unsigned char*)step);
             }
             else
             {
                 *((unsigned char*)array + i) = *((unsigned char*)startPoint) - *((unsigned char*)step);
+                *((unsigned char*)startPoint) -= *((unsigned char*)step);
             }
         }
     }
@@ -1565,10 +1569,12 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
             if(direction == TRUE)
             {
                 *((int8_t*)array + i) = *((int8_t*)startPoint) + *((int8_t*)step);
+                *((int8_t*)startPoint) += *((int8_t*)step);
             }
             else
             {
                 *((int8_t*)array + i) = *((int8_t*)startPoint) - *((int8_t*)step);
+                *((int8_t*)startPoint) -= *((int8_t*)step);
             }
         }
     }
@@ -1579,10 +1585,12 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
             if(direction == TRUE)
             {
                 *((uint8_t*)array + i) = *((uint8_t*)startPoint) + *((uint8_t*)step);
+                *((uint8_t*)startPoint) += *((uint8_t*)step);
             }
             else
             {
                 *((uint8_t*)array + i) = *((uint8_t*)startPoint) - *((uint8_t*)step);
+                *((uint8_t*)startPoint) -= *((uint8_t*)step);
             }
         }
     }
@@ -1593,10 +1601,12 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
             if(direction == TRUE)
             {
                 *((int16_t*)array + i) = *((int16_t*)startPoint) + *((int16_t*)step);
+                *((int16_t*)startPoint) += *((int16_t*)step);
             }
             else
             {
                 *((int16_t*)array + i) = *((int16_t*)startPoint) - *((int16_t*)step);
+                *((int16_t*)startPoint) -= *((int16_t*)step);
             }
         }
     }
@@ -1607,10 +1617,12 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
             if(direction == TRUE)
             {
                 *((uint16_t*)array + i) = *((uint16_t*)startPoint) + *((uint16_t*)step);
+                *((uint16_t*)startPoint) += *((uint16_t*)step);
             }
             else
             {
                 *((uint16_t*)array + i) = *((uint16_t*)startPoint) - *((uint16_t*)step);
+                *((uint16_t*)startPoint) -= *((uint16_t*)step);
             }
         }
     }
@@ -1621,10 +1633,12 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
             if(direction == TRUE)
             {
                 *((int32_t*)array + i) = *((int32_t*)startPoint) + *((int32_t*)step);
+                *((int32_t*)startPoint) += *((int32_t*)step);
             }
             else
             {
                 *((int32_t*)array + i) = *((int32_t*)startPoint) - *((int32_t*)step);
+                *((int32_t*)startPoint) -= *((int32_t*)step);
             }
         }
     }
@@ -1635,10 +1649,12 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
             if(direction == TRUE)
             {
                 *((uint32_t*)array + i) = *((uint32_t*)startPoint) + *((uint32_t*)step);
+                *((uint32_t*)startPoint) += *((uint32_t*)step);
             }
             else
             {
                 *((uint32_t*)array + i) = *((uint32_t*)startPoint) - *((uint32_t*)step);
+                *((uint32_t*)startPoint) -= *((uint32_t*)step);
             }
         }
     }
@@ -1649,10 +1665,12 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
             if(direction == TRUE)
             {
                 *((int64_t*)array + i) = *((int64_t*)startPoint) + *((int64_t*)step);
+                *((int64_t*)startPoint) += *((int64_t*)step);
             }
             else
             {
                 *((int64_t*)array + i) = *((int64_t*)startPoint) - *((int64_t*)step);
+                *((int64_t*)startPoint) -= *((int64_t*)step);
             }
         }
     }
@@ -1663,10 +1681,12 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
             if(direction == TRUE)
             {
                 *((uint64_t*)array + i) = *((uint64_t*)startPoint) + *((uint64_t*)step);
+                *((uint64_t*)startPoint) += *((uint64_t*)step);
             }
             else
             {
                 *((uint64_t*)array + i) = *((uint64_t*)startPoint) - *((uint64_t*)step);
+                *((uint64_t*)startPoint) -= *((uint64_t*)step);
             }
         }
     }
@@ -1677,10 +1697,12 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
             if(direction == TRUE)
             {
                 *((float*)array + i) = *((float*)startPoint) + *((float*)step);
+                *((float*)startPoint) += *((float*)step);
             }
             else
             {
                 *((float*)array + i) = *((float*)startPoint) - *((float*)step);
+                *((float*)startPoint) -= *((float*)step);
             }
         }
     }
@@ -1691,10 +1713,12 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
             if(direction == TRUE)
             {
                 *((double*)array + i) = *((double*)startPoint) + *((double*)step);
+                *((double*)startPoint) += *((double*)step);
             }
             else
             {
                 *((double*)array + i) = *((double*)startPoint) - *((double*)step);
+                *((double*)startPoint) -= *((double*)step);
             }
         }
     }
