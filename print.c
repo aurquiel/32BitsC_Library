@@ -11,7 +11,7 @@ void _PrintArray(void *array, int64_t sizeArray, uint8_t typeData, char const *f
     {
         for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
         {
-            printf("%c", *((char*)array + i));
+            printf("%d ", *((char*)array + i));
         }
         printf("\n");
     }

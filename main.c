@@ -21,11 +21,11 @@ int main()
     PrintArray(numerosB,NumberOfArrayElements(numerosB),INT8);
 
     int8_t a = 23;
-    a = *(int8_t*)ArrayFind(numerosB,(int8_t*)&a,4,INT8);
+    a = *(int8_t*)ArrayFind(numerosB,4,(int8_t*)&a,INT8);
     Print8int(a);
 
     printf("Repeticiones: ");
-    Print8int(ArrayFindNumberRepetitions(numerosB,(int8_t*)&a,4,INT8));
+    Print8int(ArrayFindNumberRepetitions(numerosB,4,(int8_t*)&a,INT8));
 
     int8_t arreglo[9] = {1,2,3,4};
     int8_t arregloParte2[] = {5,6,9,8,9};
@@ -49,33 +49,37 @@ int main()
     SortRadix(arrayD,NumberOfArrayElements(arrayD),DOUBLE);
     PrintArray(arrayD,NumberOfArrayElements(arrayD),DOUBLE);
 
-    char random[80];
-    ArrayClear(random,80,CHAR);
-    char low = 'a';
-    char up = 'z';
-    ArrayRandomGenerator(random,80,(char*)&low,(char*)&up,CHAR);
-    PrintArray(random,80,CHAR);
+    printf("\n ramdom char\n");
+    char random[190];
+    ArrayClear(random,190,CHAR);
+    char low = -100;
+    char up = -27;
+    ArrayRandomGenerator(random,190,(char*)&low,(char*)&up,CHAR);
+    PrintArray(random,190,CHAR);
+    printf("\n ramdom char end\n");
 
+    printf("\n ramdom int8\n");
     int8_t randomN[100];
     ArrayClear(randomN,100,INT8);
-    int8_t lowN = -8;
-    int8_t upN = 8;
+    int8_t lowN = 0;
+    int8_t upN = 100;
     ArrayRandomGenerator(randomN,100,(int8_t*)&lowN,(int8_t*)&upN,INT8);
     PrintArray(randomN,100,INT8);
+    printf("\n ramdom int8 end\n");
 
     double ww = 14343.3432;
-    Print64int(AritmethicGetIntegerPart((double*)&ww, DOUBLE));
+    Print64int(AritmethicGetIntegerPartFromDecimal((double*)&ww, DOUBLE));
 
-    Print64int(AritmethicGetDecimalPart("45453.576456",2,CHAR));
-    Print64int(AritmethicGetIntegerPart("45453.576456",CHAR));
+    Print64int(AritmethicGetDecimalPartFromDecimal("45453.576456",2,CHAR));
+    Print64int(AritmethicGetIntegerPartFromDecimal("45453.576456",CHAR));
 
     printf("float\n");
     float wf = 14343.3456;
-    Print64int(AritmethicGetDecimalPart((float*)&wf,2, FLOAT));
+    Print64int(AritmethicGetDecimalPartFromDecimal((float*)&wf,2, FLOAT));
 
     printf("double\n");
     double wf2 = 14343.3456;
-    Print64int(AritmethicGetDecimalPart((double*)&wf2,4, DOUBLE));
+    Print64int(AritmethicGetDecimalPartFromDecimal((double*)&wf2,4, DOUBLE));
 
     printf("ramdon double\n");
 
@@ -107,13 +111,12 @@ int main()
     PrintArray(arregloShuffle,NumberOfArrayElements(arregloShuffle),INT8);
     printf("\n%I64d", RAND_MAX);
 
-    int64_t *arrayRND = (int64_t*)AllocatorCalloc(50000000,INT64);
-    int64_t upper = 5000000;
-    int64_t down = 0;
-    ArrayRandomGenerator(arrayRND,50000000,(int64_t*)&down,(int64_t*)&upper,INT64);
-    SortRadix(arrayRND,50000000,INT64);
-    //PrintArray(arrayRND,NumberOfArrayElements(arrayRND),INT64);
-    AllocatorFree(arrayRND);
+    printf("\nNumber of Digits\n");
+    char numNormal = 123;
+    double doubleR = 123.4567;
+    Print64int(AritmethicNumberOfDigits((char*)&numNormal,ZERO,CHAR));
+    Print64int(AritmethicNumberOfDigits((double*)&doubleR,4,DOUBLE));
+
     return EXIT_SUCCESS;
 }
 
