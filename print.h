@@ -9,7 +9,7 @@
 
 #define PrintArray(array, sizeArray, typeData) _PrintArray(array, sizeArray, typeData, __FILE__, __FUNCTION__, __LINE__)
 
-void _PrintArray(void *array, int64_t sizeArray, uint8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
+void _PrintArray(void *array, const uint32_t sizeArray, const int8_t typeData, const char *functionName, const char *fileName, const uint32_t lineNumber);
 void PrintChar(char theChar);
 void PrintUchar(unsigned char theUchar);
 void Print8int(int8_t theInt);

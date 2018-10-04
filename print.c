@@ -1,6 +1,6 @@
 #include "print.h"
 
-void _PrintArray(void *array, int64_t sizeArray, uint8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
+void _PrintArray(void *array, const uint32_t sizeArray, const int8_t typeData, const char *functionName, const char *fileName, const uint32_t lineNumber)
 {
     if(sizeArray <= 0)
     {
@@ -9,7 +9,7 @@ void _PrintArray(void *array, int64_t sizeArray, uint8_t typeData, char const *f
 
     if(CHAR == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
+        for(uint32_t i = 0; i < sizeArray; i++)
         {
             printf("%d ", *((char*)array + i));
         }
@@ -17,7 +17,7 @@ void _PrintArray(void *array, int64_t sizeArray, uint8_t typeData, char const *f
     }
     else if(UNSIGNED_CHAR == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
+        for(uint32_t i = 0; i < sizeArray; i++)
         {
             printf("%c", *((unsigned char*)array + i));
         }
@@ -25,7 +25,7 @@ void _PrintArray(void *array, int64_t sizeArray, uint8_t typeData, char const *f
     }
     else if(INT8  == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
+        for(uint32_t i = 0; i < sizeArray; i++)
         {
             printf("%d ", *((int8_t*)array +i) );
         }
@@ -34,7 +34,7 @@ void _PrintArray(void *array, int64_t sizeArray, uint8_t typeData, char const *f
     else if(UNSIGNED_INT8 == typeData)
     {
         uint8_t* auxiliarPointer = (uint8_t*)array;
-        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
+        for(uint32_t i = 0; i < sizeArray; i++)
         {
             printf("%u ", auxiliarPointer[i]);
         }
@@ -42,7 +42,7 @@ void _PrintArray(void *array, int64_t sizeArray, uint8_t typeData, char const *f
     }
     else if(INT16 == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
+        for(uint32_t i = 0; i < sizeArray; i++)
         {
             printf("%d ", *((int16_t*)array + i));
         }
@@ -50,7 +50,7 @@ void _PrintArray(void *array, int64_t sizeArray, uint8_t typeData, char const *f
     }
     else if(UNSIGNED_INT16 == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
+        for(uint32_t i = 0; i < sizeArray; i++)
         {
             printf("%u ", *((uint16_t*)array + i));
         }
@@ -58,7 +58,7 @@ void _PrintArray(void *array, int64_t sizeArray, uint8_t typeData, char const *f
     }
     else if(INT32 == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
+        for(uint32_t i = 0; i < sizeArray; i++)
         {
             printf("%d ", *((int32_t*)array + i));
         }
@@ -66,39 +66,15 @@ void _PrintArray(void *array, int64_t sizeArray, uint8_t typeData, char const *f
     }
     else if(UNSIGNED_INT32 == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
+        for(uint32_t i = 0; i < sizeArray; i++)
         {
             printf("%u ", *((uint32_t*)array + i));
         }
         printf("\n");
     }
-    else if(INT64 == typeData)
-    {
-        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
-        {
-            #ifdef __unix__
-            printf("%ld ", *((int64_t*)array + i));
-            #else //windows
-            printf("%I64d ", *((int64_t*)array + i));
-            #endif
-        }
-        printf("\n");
-    }
-    else if(UNSIGNED_INT64 == typeData)
-    {
-        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
-        {
-            #ifdef __unix__
-            printf("%ld ", *((uint64_t*)array + i));
-            #else //Windows
-            printf("%I64d ", *((uint64_t*)array + i));
-            #endif
-        }
-        printf("\n");
-    }
     else if(FLOAT == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
+        for(uint32_t i = 0; i < sizeArray; i++)
         {
             printf("%f ", *((float*)array + i));
         }
@@ -106,7 +82,7 @@ void _PrintArray(void *array, int64_t sizeArray, uint8_t typeData, char const *f
     }
     else if(DOUBLE == typeData)
     {
-        for(uint64_t i = 0; i < (uint64_t)sizeArray; i++)
+        for(uint32_t i = 0; i < sizeArray; i++)
         {
             printf("%f ", *((double*)array + i));
         }
@@ -157,24 +133,6 @@ void Print32int(int32_t theInt)
 void Print32Uint(uint32_t theInt)
 {
     printf("%u\n",theInt);
-}
-
-void Print64int(int64_t theInt)
-{
-    #ifdef __unix__
-    printf("%ld\n", theInt);
-    #else //Windows
-    printf("%I64d\n", theInt);
-    #endif
-}
-
-void Print64Uint(uint64_t theInt)
-{
-    #ifdef __unix__
-    printf("%ld\n", theInt);
-    #else //Windows
-    printf("%I64d\n", theInt);
-    #endif
 }
 
 void PrintFloat(float theFloat)

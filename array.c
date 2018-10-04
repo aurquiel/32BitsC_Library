@@ -3,7 +3,7 @@
 
 #include "array.h"
 
-void _ArrayInterchange(void* arrayA, int64_t sizeArrayA, void* arrayB, int64_t sizeArrayB, int8_t typeData, char const *functionName, char const *fileName, const int64_t lineNumber)
+void _ArrayInterchange(void* arrayA, const uint32_t sizeArrayA, void* arrayB, const uint32_t sizeArrayB, const int8_t typeData, const char* functionName, const char* fileName, const uint32_t lineNumber)
 {
     if((sizeArrayA <= 0) || (sizeArrayB <= 0) || (sizeArrayA != sizeArrayB))
     {
@@ -18,7 +18,7 @@ void _ArrayInterchange(void* arrayA, int64_t sizeArrayA, void* arrayB, int64_t s
     AllocatorFree(auxiliarArray);
 }
 
-void _ArrayCopy(void* arrayDestiny, int64_t sizeArrayDestiny, void* arraySource, int64_t sizeArraySource, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
+void _ArrayCopy(void* arrayDestiny, const uint32_t sizeArrayDestiny, void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     if( (sizeArrayDestiny <= 0) || (sizeArraySource <= 0) || (sizeArrayDestiny < sizeArraySource) )
     {
@@ -57,14 +57,6 @@ void _ArrayCopy(void* arrayDestiny, int64_t sizeArrayDestiny, void* arraySource,
     {
         memcpy((uint32_t*)arrayDestiny, (uint32_t*)arraySource,  sizeof(uint32_t)*sizeArraySource);
     }
-    else if(typeData == INT64)
-    {
-        memcpy((int64_t*)arrayDestiny, (int64_t*)arraySource,  sizeof(int64_t)*sizeArraySource);
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        memcpy((uint64_t*)arrayDestiny, (uint64_t*)arraySource,  sizeof(uint64_t)*sizeArraySource);
-    }
     else if(typeData == FLOAT)
     {
         memcpy((float*)arrayDestiny, (float*)arraySource,  sizeof(float)*sizeArraySource);
@@ -79,7 +71,7 @@ void _ArrayCopy(void* arrayDestiny, int64_t sizeArrayDestiny, void* arraySource,
     }
 }
 
-void _ArrayConcatenate(void* arrayDestiny, int64_t sizeArrayDestiny, void* arraySource, int64_t sizeArraySource, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
+void _ArrayConcatenate(void* arrayDestiny, const uint32_t sizeArrayDestiny, void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     if( (sizeArrayDestiny <= 0) )
     {
@@ -118,13 +110,13 @@ void _ArrayConcatenate(void* arrayDestiny, int64_t sizeArrayDestiny, void* array
     {
         memcpy((uint32_t*)arrayDestiny + sizeArrayDestiny, (uint32_t*)arraySource, sizeof(uint32_t)*sizeArraySource);
     }
-    else if(typeData == INT64)
+    else if(typeData == FLOAT)
     {
-        memcpy((int64_t*)arrayDestiny + sizeArrayDestiny, (int64_t*)arraySource, sizeof(int64_t)*sizeArraySource);
+        memcpy((float*)arrayDestiny + sizeArrayDestiny, (float*)arraySource, sizeof(float)*sizeArraySource);
     }
-    else if(typeData == UNSIGNED_INT64)
+    else if(typeData == DOUBLE)
     {
-        memcpy((uint64_t*)arrayDestiny + sizeArrayDestiny, (uint64_t*)arraySource, sizeof(uint64_t)*sizeArraySource);
+        memcpy((double*)arrayDestiny + sizeArrayDestiny, (double*)arraySource, sizeof(double)*sizeArraySource);
     }
     else
     {
@@ -132,7 +124,7 @@ void _ArrayConcatenate(void* arrayDestiny, int64_t sizeArrayDestiny, void* array
     }
 }
 
-void _ArrayClear(void* array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
+void _ArrayClear(void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     if(sizeArray <= 0)
     {
@@ -146,9 +138,7 @@ void _ArrayClear(void* array, int64_t sizeArray, int8_t typeData, char const *fi
     {
         ArraySet(array, sizeArray, (void*)(&emptyEscape), typeData);
     }
-    else if( (typeData == INT8) || (typeData == UNSIGNED_INT8) || (typeData == INT16) || (typeData == UNSIGNED_INT16) ||
-        (typeData == INT32) || (typeData == UNSIGNED_INT32) || (typeData == INT64) || (typeData == UNSIGNED_INT64) ||
-        (typeData == FLOAT) || (typeData == DOUBLE) )
+    else if( (typeData >= INT8) && (typeData <= DOUBLE) )
     {
         ArraySet(array, sizeArray, (void*)(&zero), typeData);
     }
@@ -158,7 +148,7 @@ void _ArrayClear(void* array, int64_t sizeArray, int8_t typeData, char const *fi
     }
 }
 
-void _ArraySet(void* array, int64_t sizeArray, void *data, int8_t typeData, char const *functionName, char const *fileName, const int64_t lineNumber)
+void _ArraySet(void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* functionName, const char* fileName, const uint32_t lineNumber)
 {
     if(sizeArray <= 0)
     {
@@ -197,14 +187,6 @@ void _ArraySet(void* array, int64_t sizeArray, void *data, int8_t typeData, char
     {
         memset((uint32_t*)array, *((uint32_t*)data), sizeof(uint32_t)*sizeArray);
     }
-    else if(typeData == INT64)
-    {
-        memset((int64_t*)array, *((int64_t*)data), sizeof(int64_t)*sizeArray);
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        memset((uint64_t*)array, *((uint64_t*)data), sizeof(uint64_t)*sizeArray);
-    }
     else if(typeData == FLOAT)
     {
         memset((float*)array, *((float*)data), sizeof(float)*sizeArray);
@@ -219,7 +201,7 @@ void _ArraySet(void* array, int64_t sizeArray, void *data, int8_t typeData, char
     }
 }
 
-void *_ArrayFind(void* array, int64_t sizeArray, void *data, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
+void* _ArrayFind(const void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     if(sizeArray <= 0)
     {
@@ -228,7 +210,7 @@ void *_ArrayFind(void* array, int64_t sizeArray, void *data, int8_t typeData, ch
 
     if(typeData == CHAR)
     {
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((char*)array + i) == *((char*)data))
             {
@@ -238,7 +220,7 @@ void *_ArrayFind(void* array, int64_t sizeArray, void *data, int8_t typeData, ch
     }
     else if(typeData == UNSIGNED_CHAR)
     {
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((unsigned char*)array + i) == *((unsigned char*)data))
             {
@@ -248,7 +230,7 @@ void *_ArrayFind(void* array, int64_t sizeArray, void *data, int8_t typeData, ch
     }
     else if(typeData == INT8)
     {
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((int8_t*)array + i) == *((int8_t*)data))
             {
@@ -258,7 +240,7 @@ void *_ArrayFind(void* array, int64_t sizeArray, void *data, int8_t typeData, ch
     }
     else if(typeData == UNSIGNED_INT8)
     {
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((uint8_t*)array + i) == *((uint8_t*)data))
             {
@@ -268,7 +250,7 @@ void *_ArrayFind(void* array, int64_t sizeArray, void *data, int8_t typeData, ch
     }
     else if(typeData == INT16)
     {
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((int16_t*)array + i) == *((int16_t*)data))
             {
@@ -278,7 +260,7 @@ void *_ArrayFind(void* array, int64_t sizeArray, void *data, int8_t typeData, ch
     }
     else if(typeData == UNSIGNED_INT16)
     {
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((uint16_t*)array + i) == *((uint16_t*)data))
             {
@@ -288,7 +270,7 @@ void *_ArrayFind(void* array, int64_t sizeArray, void *data, int8_t typeData, ch
     }
     else if(typeData == INT32)
     {
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((int32_t*)array + i) == *((int32_t*)data))
             {
@@ -298,7 +280,7 @@ void *_ArrayFind(void* array, int64_t sizeArray, void *data, int8_t typeData, ch
     }
     else if(typeData == UNSIGNED_INT32)
     {
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((uint32_t*)array + i) == *((uint32_t*)data))
             {
@@ -306,29 +288,9 @@ void *_ArrayFind(void* array, int64_t sizeArray, void *data, int8_t typeData, ch
             }
         }
     }
-    else if(typeData == INT64)
-    {
-        for(int64_t i = 0; i<sizeArray; i++)
-        {
-            if( *((int64_t*)array + i) == *((int64_t*)data))
-            {
-                return ((int64_t*)array + i);
-            }
-        }
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        for(int64_t i = 0; i<sizeArray; i++)
-        {
-            if( *((uint64_t*)array + i) == *((uint64_t*)data))
-            {
-                return ((uint64_t*)array + i);
-            }
-        }
-    }
     else if(typeData == FLOAT)
     {
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((float*)array + i) == *((float*)data))
             {
@@ -338,7 +300,7 @@ void *_ArrayFind(void* array, int64_t sizeArray, void *data, int8_t typeData, ch
     }
     else if(typeData == DOUBLE)
     {
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((double*)array + i) == *((double*)data))
             {
@@ -354,7 +316,7 @@ void *_ArrayFind(void* array, int64_t sizeArray, void *data, int8_t typeData, ch
     return NULL;
 }
 
-void *_ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
+void* _ArrayFindMaxValue(const void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     if(sizeArray <= 0)
     {
@@ -365,7 +327,7 @@ void *_ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData, char c
     {
         char *maxValue = (char*)array;
 
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((char*)array + i) > *maxValue)
             {
@@ -379,7 +341,7 @@ void *_ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData, char c
     {
         unsigned char *maxValue = (unsigned char*)array;
 
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((unsigned char*)array + i) > *maxValue)
             {
@@ -393,7 +355,7 @@ void *_ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData, char c
     {
         int8_t *maxValue = (int8_t*)array;
 
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((int8_t*)array + i) > *maxValue)
             {
@@ -407,7 +369,7 @@ void *_ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData, char c
     {
         uint8_t *maxValue = (uint8_t*)array;
 
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((uint8_t*)array + i) > *maxValue)
             {
@@ -421,7 +383,7 @@ void *_ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData, char c
     {
         int16_t *maxValue = (int16_t*)array;
 
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((int16_t*)array + i) > *maxValue)
             {
@@ -435,7 +397,7 @@ void *_ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData, char c
     {
         uint16_t *maxValue = (uint16_t*)array;
 
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((uint16_t*)array + i) > *maxValue)
             {
@@ -449,7 +411,7 @@ void *_ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData, char c
     {
         int32_t *maxValue = (int32_t*)array;
 
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((int32_t*)array + i) > *maxValue)
             {
@@ -463,7 +425,7 @@ void *_ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData, char c
     {
         uint32_t *maxValue = (uint32_t*)array;
 
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((uint32_t*)array + i) > *maxValue)
             {
@@ -473,39 +435,11 @@ void *_ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData, char c
 
         return maxValue;
     }
-    else if(typeData == INT64)
-    {
-        int64_t *maxValue = (int64_t*)array;
-
-        for(int64_t i = 0; i<sizeArray; i++)
-        {
-            if( *((int64_t*)array + i) > *maxValue)
-            {
-                maxValue = ((int64_t*)array + i);
-            }
-        }
-
-        return maxValue;
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        uint64_t *maxValue = (uint64_t*)array;
-
-        for(int64_t i = 0; i<sizeArray; i++)
-        {
-            if( *((uint64_t*)array + i) > *maxValue)
-            {
-                maxValue = ((uint64_t*)array + i);
-            }
-        }
-
-        return maxValue;
-    }
     else if(typeData == FLOAT)
     {
         float *maxValue = (float*)array;
 
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((float*)array + i) > *maxValue)
             {
@@ -519,7 +453,7 @@ void *_ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData, char c
     {
         double *maxValue = (double*)array;
 
-        for(int64_t i = 0; i<sizeArray; i++)
+        for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((double*)array + i) > *maxValue)
             {
@@ -537,7 +471,7 @@ void *_ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData, char c
     return NULL;
 }
 
-uint64_t _ArrayFindNumberRepetitions(void* array, int64_t sizeArray, void *data, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
+uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* fileName,  const char* functionName, const uint32_t lineNumber)
 {
     if(sizeArray <= 0)
     {
@@ -549,7 +483,7 @@ uint64_t _ArrayFindNumberRepetitions(void* array, int64_t sizeArray, void *data,
     if(typeData == CHAR)
     {
         char *positionFound = (char*)array;
-        int64_t nextSizeArray = sizeArray;
+        uint32_t nextSizeArray = sizeArray;
         while( (nextSizeArray != 0) && (NULL != (positionFound = (char*)ArrayFind((char*)positionFound, nextSizeArray, data, typeData))) )
         {
             positionFound++;
@@ -560,7 +494,7 @@ uint64_t _ArrayFindNumberRepetitions(void* array, int64_t sizeArray, void *data,
     else if (typeData == UNSIGNED_CHAR)
     {
         unsigned char *positionFound = (unsigned char*)array;
-        int64_t nextSizeArray = sizeArray;
+        uint32_t nextSizeArray = sizeArray;
         while( (nextSizeArray != 0) && (NULL != (positionFound = (unsigned char*)ArrayFind((unsigned char*)positionFound, nextSizeArray, data, typeData))) )
         {
             positionFound++;
@@ -571,7 +505,7 @@ uint64_t _ArrayFindNumberRepetitions(void* array, int64_t sizeArray, void *data,
     else if(typeData == INT8)
     {
         int8_t *positionFound = (int8_t*)array;
-        int64_t nextSizeArray = sizeArray;
+        uint32_t nextSizeArray = sizeArray;
         while( (nextSizeArray != 0) && (NULL != (positionFound = (int8_t*)ArrayFind((int8_t*)positionFound, nextSizeArray, data, typeData))) )
         {
             positionFound++;
@@ -582,7 +516,7 @@ uint64_t _ArrayFindNumberRepetitions(void* array, int64_t sizeArray, void *data,
     else if(typeData == UNSIGNED_INT8)
     {
         uint8_t *positionFound = (uint8_t*)array;
-        int64_t nextSizeArray = sizeArray;
+        uint32_t nextSizeArray = sizeArray;
         while( (nextSizeArray != 0) && (NULL != (positionFound = (uint8_t*)ArrayFind((uint8_t*)positionFound, nextSizeArray, data, typeData))) )
         {
             positionFound++;
@@ -593,7 +527,7 @@ uint64_t _ArrayFindNumberRepetitions(void* array, int64_t sizeArray, void *data,
     else if(typeData == INT16)
     {
         int16_t *positionFound = (int16_t*)array;
-        int64_t nextSizeArray = sizeArray;
+        uint32_t nextSizeArray = sizeArray;
         while( (nextSizeArray != 0) && (NULL != (positionFound = (int16_t*)ArrayFind((int16_t*)positionFound, nextSizeArray, data, typeData))) )
         {
             positionFound++;
@@ -604,7 +538,7 @@ uint64_t _ArrayFindNumberRepetitions(void* array, int64_t sizeArray, void *data,
     else if(typeData == UNSIGNED_INT16)
     {
         uint16_t *positionFound = (uint16_t*)array;
-        int64_t nextSizeArray = sizeArray;
+        uint32_t nextSizeArray = sizeArray;
         while( (nextSizeArray != 0) && (NULL != (positionFound = (uint16_t*)ArrayFind((uint16_t*)positionFound, nextSizeArray, data, typeData))) )
         {
             positionFound++;
@@ -615,7 +549,7 @@ uint64_t _ArrayFindNumberRepetitions(void* array, int64_t sizeArray, void *data,
     else if(typeData == INT32)
     {
         int32_t *positionFound = (int32_t*)array;
-        int64_t nextSizeArray = sizeArray;
+        uint32_t nextSizeArray = sizeArray;
         while( (nextSizeArray != 0) && (NULL != (positionFound = (int32_t*)ArrayFind((int32_t*)positionFound, nextSizeArray, data, typeData))) )
         {
             positionFound++;
@@ -626,7 +560,7 @@ uint64_t _ArrayFindNumberRepetitions(void* array, int64_t sizeArray, void *data,
     else if(typeData == UNSIGNED_INT32)
     {
         uint32_t *positionFound = (uint32_t*)array;
-        int64_t nextSizeArray = sizeArray;
+        uint32_t nextSizeArray = sizeArray;
         while( (nextSizeArray != 0) && (NULL != (positionFound = (uint32_t*)ArrayFind((uint32_t*)positionFound, nextSizeArray, data, typeData))) )
         {
             positionFound++;
@@ -634,32 +568,10 @@ uint64_t _ArrayFindNumberRepetitions(void* array, int64_t sizeArray, void *data,
             nextSizeArray = (sizeArray - ((uint32_t*)positionFound - (uint32_t*)array));
         }
     }
-    else if(typeData == INT64)
-    {
-        int64_t *positionFound = (int64_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (int64_t*)ArrayFind((int64_t*)positionFound, nextSizeArray, data, typeData))) )
-        {
-            positionFound++;
-            numberRepetitions++;
-            nextSizeArray = (sizeArray - ((int64_t*)positionFound - (int64_t*)array));
-        }
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        uint64_t *positionFound = (uint64_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint64_t*)ArrayFind((uint64_t*)positionFound, nextSizeArray, data, typeData))) )
-        {
-            positionFound++;
-            numberRepetitions++;
-            nextSizeArray = (sizeArray - ((uint64_t*)positionFound - (uint64_t*)array));
-        }
-    }
     else if(typeData == FLOAT)
     {
         float *positionFound = (float*)array;
-        int64_t nextSizeArray = sizeArray;
+        uint32_t nextSizeArray = sizeArray;
         while( (nextSizeArray != 0) && (NULL != (positionFound = (float*)ArrayFind((float*)positionFound, nextSizeArray, data, typeData))) )
         {
             positionFound++;
@@ -670,7 +582,7 @@ uint64_t _ArrayFindNumberRepetitions(void* array, int64_t sizeArray, void *data,
     else if(typeData == DOUBLE)
     {
         double *positionFound = (double*)array;
-        int64_t nextSizeArray = sizeArray;
+        uint32_t nextSizeArray = sizeArray;
         while( (nextSizeArray != 0) && (NULL != (positionFound = (double*)ArrayFind((double*)positionFound, nextSizeArray, data, typeData))) )
         {
             positionFound++;
@@ -686,21 +598,21 @@ uint64_t _ArrayFindNumberRepetitions(void* array, int64_t sizeArray, void *data,
     return numberRepetitions;
 }
 
-void _ArrayEndChar(void* array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
+void _ArrayEndChar(void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName,  const char* functionName, const uint32_t lineNumber)
 {
     if(sizeArray <= 0)
     {
         ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
     }
 
-    --sizeArray; //position of the \0 character
+
     if(typeData == CHAR)
     {
-        memset(((char*)array + sizeArray), EMPTY_ESCAPE, 1);
+        memset(((char*)array + sizeArray -1), EMPTY_ESCAPE, 1);
     }
     else if (typeData == UNSIGNED_CHAR)
     {
-        memset(((unsigned char*)array + sizeArray), EMPTY_ESCAPE, 1);
+        memset(((unsigned char*)array + sizeArray - 1), EMPTY_ESCAPE, 1);
     }
     else
     {
@@ -708,237 +620,8 @@ void _ArrayEndChar(void* array, int64_t sizeArray, int8_t typeData, char const *
     }
 }
 
-void _ArrayRandomGenerator(void* array, int64_t sizeArray, void* lowerLimit, void* upperLimit, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
-{
-    if(sizeArray <= 0)
-    {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
-    }
 
-    srand(time(NULL));
-
-    if(typeData == CHAR)
-    {
-        if( *((char*)lowerLimit) >= 0)
-        {
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                *((char*)array + i) = *((char*)lowerLimit) + (char)(genrand64_int64()%( *((char*)upperLimit) + 1 - *((char*)lowerLimit) ));
-            }
-        }
-        else if(*((char*)lowerLimit) <  0 && *((char*)upperLimit) >= 0)
-        {
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                if(rand()%2)
-                {
-                    *((char*)array + i) = (char)(genrand64_int64()%( *((char*)upperLimit) + 1 ));
-                }
-                else
-                {
-                    *((char*)array + i) = -(char)(genrand64_int64()%( -(*((char*)lowerLimit)) + 1 ));
-                }
-            }
-        }
-        else if(*((char*)lowerLimit) <  0 && *((char*)upperLimit) < 0)
-        {
-
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                *((char*)array + i) = -(-(*((char*)upperLimit)) + (char)(genrand64_int64()%( -(*((char*)lowerLimit)) + 1 - -(*((char*)upperLimit)) )));
-            }
-        }
-    }
-    else if(typeData == UNSIGNED_CHAR)
-    {
-        for(int64_t i = 0; i < sizeArray; i++)
-        {
-            *((char*)array + i) = *((char*)lowerLimit) + (char)(genrand64_int64()%( *((char*)upperLimit) + 1 - *((char*)lowerLimit) ));
-        }
-    }
-    else if(typeData == INT8)
-    {
-        if( *((int8_t*)lowerLimit) >= 0)
-        {
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                *((int8_t*)array + i) = *((int8_t*)lowerLimit) + (int8_t)(genrand64_int64()%( *((int8_t*)upperLimit) + 1 - *((int8_t*)lowerLimit) ));
-            }
-        }
-        else if(*((int8_t*)lowerLimit) <  0 && *((int8_t*)upperLimit) >= 0)
-        {
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                if(rand()%2)
-                {
-                    *((int8_t*)array + i) = (int8_t)(genrand64_int64()%( *((int8_t*)upperLimit) + 1 ));
-                }
-                else
-                {
-                    *((int8_t*)array + i) = -(int8_t)(genrand64_int64()%( -(*((int8_t*)lowerLimit)) + 1 ));
-                }
-            }
-        }
-        else if(*((int8_t*)lowerLimit) <  0 && *((int8_t*)upperLimit) < 0)
-        {
-
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                *((int8_t*)array + i) = -(-(*((int8_t*)upperLimit)) + (int8_t)(genrand64_int64()%( -(*((int8_t*)lowerLimit)) + 1 - -(*((int8_t*)upperLimit)) )));
-            }
-        }
-    }
-    else if(typeData == UNSIGNED_INT8)
-    {
-        for(int64_t i = 0; i < sizeArray; i++)
-        {
-            *((uint8_t*)array + i) = *((uint8_t*)lowerLimit) + (uint8_t)(genrand64_int64()%( *((uint8_t*)upperLimit) + 1 - *((uint8_t*)lowerLimit) ));
-        }
-    }
-    else if(typeData == INT16)
-    {
-        if( *((int16_t*)lowerLimit) >= 0)
-        {
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                *((int16_t*)array + i) = *((int16_t*)lowerLimit) + (int16_t)(genrand64_int64()%( *((int16_t*)upperLimit) + 1 - *((int16_t*)lowerLimit) ));
-            }
-        }
-        else if(*((int16_t*)lowerLimit) <  0 && *((int16_t*)upperLimit) >= 0)
-        {
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                if(rand()%2)
-                {
-                    *((int16_t*)array + i) = (int16_t)(genrand64_int64()%( *((int16_t*)upperLimit) + 1 ));
-                }
-                else
-                {
-                    *((int16_t*)array + i) = -(int16_t)(genrand64_int64()%( -(*((int16_t*)lowerLimit)) + 1 ));
-                }
-            }
-        }
-        else if(*((int16_t*)lowerLimit) <  0 && *((int16_t*)upperLimit) < 0)
-        {
-
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                *((int16_t*)array + i) = -(-(*((int16_t*)upperLimit)) + (int16_t)(genrand64_int64()%( -(*((int16_t*)lowerLimit)) + 1 - -(*((int16_t*)upperLimit)) )));
-            }
-        }
-    }
-    else if(typeData == UNSIGNED_INT16)
-    {
-        for(int64_t i = 0; i < sizeArray; i++)
-        {
-            *((uint16_t*)array + i) = *((uint16_t*)lowerLimit) + (uint16_t)(genrand64_int64()%( *((uint16_t*)upperLimit) + 1 - *((uint16_t*)lowerLimit) ));
-        }
-    }
-    else if(typeData == INT32)
-    {
-        if( *((int32_t*)lowerLimit) >= 0)
-        {
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                *((int32_t*)array + i) = *((int32_t*)lowerLimit) + (int32_t)(genrand64_int64()%( *((int32_t*)upperLimit) + 1 - *((int32_t*)lowerLimit) ));
-            }
-        }
-        else if(*((int32_t*)lowerLimit) <  0 && *((int32_t*)upperLimit) >= 0)
-        {
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                if(rand()%2)
-                {
-                    *((int32_t*)array + i) = (int32_t)(genrand64_int64()%( *((int32_t*)upperLimit) + 1 ));
-                }
-                else
-                {
-                    *((int32_t*)array + i) = -(int32_t)(genrand64_int64()%( -(*((int32_t*)lowerLimit)) + 1 ));
-                }
-            }
-        }
-        else if(*((int32_t*)lowerLimit) <  0 && *((int32_t*)upperLimit) < 0)
-        {
-
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                *((int32_t*)array + i) = -(-(*((int32_t*)upperLimit)) + (int32_t)(genrand64_int64()%( -(*((int32_t*)lowerLimit)) + 1 - -(*((int32_t*)upperLimit)) )));
-            }
-        }
-    }
-    else if(typeData == UNSIGNED_INT32)
-    {
-        for(int64_t i = 0; i < sizeArray; i++)
-        {
-            *((uint32_t*)array + i) = *((uint32_t*)lowerLimit) + (uint32_t)(genrand64_int64()%( *((uint32_t*)upperLimit) + 1 - *((uint32_t*)lowerLimit) ));
-        }
-    }
-    else if(typeData == INT64)
-    {
-        if( *((int64_t*)lowerLimit) >= 0)
-        {
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                *((int64_t*)array + i) = *((int64_t*)lowerLimit) + (int64_t)(genrand64_int64()%( *((int64_t*)upperLimit) + 1 - *((int64_t*)lowerLimit) ));
-            }
-        }
-        else if(*((int64_t*)lowerLimit) <  0 && *((int64_t*)upperLimit) >= 0)
-        {
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                if(rand()%2)
-                {
-                    *((int64_t*)array + i) = (int64_t)(genrand64_int64()%( *((int64_t*)upperLimit) + 1 ));
-                }
-                else
-                {
-                    *((int64_t*)array + i) = -(int64_t)(genrand64_int64()%( -(*((int64_t*)lowerLimit)) + 1 ));
-                }
-            }
-        }
-        else if(*((int64_t*)lowerLimit) <  0 && *((int64_t*)upperLimit) < 0)
-        {
-
-            for(int64_t i = 0; i < sizeArray; i++)
-            {
-                *((int64_t*)array + i) = -(-(*((int64_t*)upperLimit)) + (int64_t)(genrand64_int64()%( -(*((int64_t*)lowerLimit)) + 1 - -(*((int64_t*)upperLimit)) )));
-            }
-        }
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        for(int64_t i = 0; i < sizeArray; i++)
-        {
-            *((uint64_t*)array + i) = *((uint64_t*)lowerLimit) + (uint64_t)(genrand64_int64()%( *((uint64_t*)upperLimit) + 1 - *((uint64_t*)lowerLimit) ));
-        }
-    }
-    else if(typeData == FLOAT)
-    {
-        float range = *((float*)upperLimit) - *((float*)lowerLimit);
-        float division = RAND_MAX / range;
-
-        for(int64_t i = 0; i < sizeArray; i++)
-        {
-           *((float*)array + i) = *((float*)lowerLimit) + (rand() / division);
-        }
-    }
-    else if(typeData == DOUBLE)
-    {
-        double range = *((double*)upperLimit) - *((double*)lowerLimit);
-        double division = RAND_MAX / range;
-
-        for(int64_t i = 0; i < sizeArray; i++)
-        {
-           *((double*)array + i) = *((double*)lowerLimit) + (rand() / division);
-        }
-    }
-    else
-    {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
-    }
-}
-
-void _ArrayReverse(void *array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
+void _ArrayReverse(void *array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     if( sizeArray <= 0 )
     {
@@ -1002,20 +685,6 @@ void _ArrayReverse(void *array, int64_t sizeArray, int8_t typeData, char const *
             SwapXor(i,j,typeData);
         }
     }
-    else if(typeData == INT64)
-    {
-        for(int64_t *i = (int64_t*)array, *j = (int64_t*)array + sizeArray - 1 ;  i < j ; i++, j--)
-        {
-            SwapXor(i,j,typeData);
-        }
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        for(uint64_t *i = (uint64_t*)array, *j = (uint64_t*)array + sizeArray - 1 ;  i < j ; i++, j--)
-        {
-            SwapXor(i,j,typeData);
-        }
-    }
     else if(typeData == FLOAT)
     {
         for(float *i = (float*)array, *j = (float*)array + sizeArray - 1 ;  i < j ; i++, j--)
@@ -1036,7 +705,7 @@ void _ArrayReverse(void *array, int64_t sizeArray, int8_t typeData, char const *
     }
 }
 
-void _ArrayReverseInterval(void *array, int64_t sizeArray, void* lowerLimit, void* upperLimit, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
+void _ArrayReverseInterval(void *array, const uint32_t sizeArray, void* lowerLimit, void* upperLimit, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     if( sizeArray <= 0 )
     {
@@ -1104,20 +773,6 @@ void _ArrayReverseInterval(void *array, int64_t sizeArray, void* lowerLimit, voi
             SwapXor(i,j,typeData);
         }
     }
-    else if(typeData == INT64)
-    {
-        for(int64_t *i = (int64_t*)lowerLimit, *j = (int64_t*)upperLimit;  i < j ; i++, j--)
-        {
-            SwapXor(i,j,typeData);
-        }
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        for(uint64_t *i = (uint64_t*)lowerLimit, *j = (uint64_t*)upperLimit;  i < j ; i++, j--)
-        {
-            SwapXor(i,j,typeData);
-        }
-    }
     else if(typeData == FLOAT)
     {
         for(float *i = (float*)lowerLimit, *j = (float*)upperLimit;  i < j ; i++, j--)
@@ -1138,7 +793,7 @@ void _ArrayReverseInterval(void *array, int64_t sizeArray, void* lowerLimit, voi
     }
 }
 
-void _ArrayReplaceAll(void *array, int64_t sizeArray, void* data, int8_t typeData, char const *fileName, char const *functionName, long lineNumber)
+void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     if( sizeArray <= 0 )
     {
@@ -1148,120 +803,110 @@ void _ArrayReplaceAll(void *array, int64_t sizeArray, void* data, int8_t typeDat
     if(typeData == CHAR)
     {
         char *positionFound = (char*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (char*)ArrayFind((char*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        char dataAuxiliar = *((char*)data);
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (char*)ArrayFind((char*)positionFound, nextSizeArray, (char*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((char*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((char*)positionFound - (char*)array));
         }
     }
     else if (typeData == UNSIGNED_CHAR)
     {
         unsigned char *positionFound = (unsigned char*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (unsigned char*)ArrayFind((unsigned char*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        unsigned char dataAuxiliar = *((unsigned char*)data);
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (unsigned char*)ArrayFind((unsigned char*)positionFound, nextSizeArray, (unsigned char*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((unsigned char*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((unsigned char*)positionFound - (unsigned char*)array));
         }
     }
     else if(typeData == INT8)
     {
         int8_t *positionFound = (int8_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (int8_t*)ArrayFind((int8_t*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        int8_t dataAuxiliar = *((int8_t*)data);
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (int8_t*)ArrayFind((int8_t*)positionFound, nextSizeArray, (int8_t*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((int8_t*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((int8_t*)positionFound - (int8_t*)array));
         }
     }
     else if(typeData == UNSIGNED_INT8)
     {
         uint8_t *positionFound = (uint8_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint8_t*)ArrayFind((uint8_t*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        uint8_t dataAuxiliar = *((uint8_t*)data);
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint8_t*)ArrayFind((uint8_t*)positionFound, nextSizeArray, (uint8_t*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((uint8_t*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((uint8_t*)positionFound - (uint8_t*)array));
         }
     }
     else if(typeData == INT16)
     {
         int16_t *positionFound = (int16_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (int16_t*)ArrayFind((int16_t*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        int16_t dataAuxiliar = *((int16_t*)data);
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (int16_t*)ArrayFind((int16_t*)positionFound, nextSizeArray, (int16_t*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((int16_t*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((int16_t*)positionFound - (int16_t*)array));
         }
     }
     else if(typeData == UNSIGNED_INT16)
     {
         uint16_t *positionFound = (uint16_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint16_t*)ArrayFind((uint16_t*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        uint16_t dataAuxiliar = *((uint16_t*)data);
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint16_t*)ArrayFind((uint16_t*)positionFound, nextSizeArray, (uint16_t*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((uint16_t*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((uint16_t*)positionFound - (uint16_t*)array));
         }
     }
     else if(typeData == INT32)
     {
         int32_t *positionFound = (int32_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (int32_t*)ArrayFind((int32_t*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        int32_t dataAuxiliar = *((int32_t*)data);
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (int32_t*)ArrayFind((int32_t*)positionFound, nextSizeArray,(int32_t*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((int32_t*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((int32_t*)positionFound - (int32_t*)array));
         }
     }
     else if(typeData == UNSIGNED_INT32)
     {
         uint32_t *positionFound = (uint32_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint32_t*)ArrayFind((uint32_t*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        uint32_t dataAuxiliar = *((uint32_t*)data);
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint32_t*)ArrayFind((uint32_t*)positionFound, nextSizeArray, (uint32_t*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((uint32_t*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((uint32_t*)positionFound - (uint32_t*)array));
-        }
-    }
-    else if(typeData == INT64)
-    {
-        int64_t *positionFound = (int64_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (int64_t*)ArrayFind((int64_t*)positionFound, nextSizeArray, data, typeData))) )
-        {
-            *(positionFound++) = *((int64_t*)data);
-            nextSizeArray = (sizeArray - ((int64_t*)positionFound - (int64_t*)array));
-        }
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        uint64_t *positionFound = (uint64_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint64_t*)ArrayFind((uint64_t*)positionFound, nextSizeArray, data, typeData))) )
-        {
-            *(positionFound++) = *((uint64_t*)data);
-            nextSizeArray = (sizeArray - ((uint64_t*)positionFound - (uint64_t*)array));
         }
     }
     else if(typeData == FLOAT)
     {
         float *positionFound = (float*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (float*)ArrayFind((float*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        float dataAuxiliar = *((float*)data);
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (float*)ArrayFind((float*)positionFound, nextSizeArray, (float*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((float*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((float*)positionFound - (float*)array));
         }
     }
     else if(typeData == DOUBLE)
     {
         double *positionFound = (double*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (double*)ArrayFind((double*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        double dataAuxiliar = *((double*)data);
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (double*)ArrayFind((double*)positionFound, nextSizeArray, (double*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((double*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((double*)positionFound - (double*)array));
         }
     }
@@ -1271,7 +916,7 @@ void _ArrayReplaceAll(void *array, int64_t sizeArray, void* data, int8_t typeDat
     }
 }
 
-void _ArrayReplaceFrequency(void *array, int64_t sizeArray, void* data, int64_t frequency, int8_t typeData, char const *fileName, char const *functionName, long lineNumber)
+void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* data, uint32_t frequency, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     if( sizeArray <= 0 )
     {
@@ -1286,120 +931,110 @@ void _ArrayReplaceFrequency(void *array, int64_t sizeArray, void* data, int64_t 
     if(typeData == CHAR)
     {
         char *positionFound = (char*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (char*)ArrayFind((char*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        char dataAuxiliar = *((char*)data);
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (char*)ArrayFind((char*)positionFound, nextSizeArray, (char*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((char*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((char*)positionFound - (char*)array));
         }
     }
     else if (typeData == UNSIGNED_CHAR)
     {
         unsigned char *positionFound = (unsigned char*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (unsigned char*)ArrayFind((unsigned char*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        unsigned char dataAuxiliar = *((unsigned char*)data);
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (unsigned char*)ArrayFind((unsigned char*)positionFound, nextSizeArray, (unsigned char*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((unsigned char*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((unsigned char*)positionFound - (unsigned char*)array));
         }
     }
     else if(typeData == INT8)
     {
         int8_t *positionFound = (int8_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (int8_t*)ArrayFind((int8_t*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        int8_t dataAuxiliar = *((int8_t*)data);
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (int8_t*)ArrayFind((int8_t*)positionFound, nextSizeArray, (int8_t*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((int8_t*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((int8_t*)positionFound - (int8_t*)array));
         }
     }
     else if(typeData == UNSIGNED_INT8)
     {
         uint8_t *positionFound = (uint8_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (uint8_t*)ArrayFind((uint8_t*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        uint8_t dataAuxiliar = *((uint8_t*)data);
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (uint8_t*)ArrayFind((uint8_t*)positionFound, nextSizeArray, (uint8_t*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((uint8_t*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((uint8_t*)positionFound - (uint8_t*)array));
         }
     }
     else if(typeData == INT16)
     {
         int16_t *positionFound = (int16_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (int16_t*)ArrayFind((int16_t*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        int16_t dataAuxiliar = *((int16_t*)data);
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (int16_t*)ArrayFind((int16_t*)positionFound, nextSizeArray, (int16_t*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((int16_t*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((int16_t*)positionFound - (int16_t*)array));
         }
     }
     else if(typeData == UNSIGNED_INT16)
     {
         uint16_t *positionFound = (uint16_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (uint16_t*)ArrayFind((uint16_t*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        uint16_t dataAuxiliar = *((uint16_t*)data);
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (uint16_t*)ArrayFind((uint16_t*)positionFound, nextSizeArray, (uint16_t*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((uint16_t*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((uint16_t*)positionFound - (uint16_t*)array));
         }
     }
     else if(typeData == INT32)
     {
         int32_t *positionFound = (int32_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (int32_t*)ArrayFind((int32_t*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        int32_t dataAuxiliar = *((int32_t*)data);
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (int32_t*)ArrayFind((int32_t*)positionFound, nextSizeArray, (int32_t*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((int32_t*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((int32_t*)positionFound - (int32_t*)array));
         }
     }
     else if(typeData == UNSIGNED_INT32)
     {
         uint32_t *positionFound = (uint32_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (uint32_t*)ArrayFind((uint32_t*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        uint32_t dataAuxiliar = *((uint32_t*)data);
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (uint32_t*)ArrayFind((uint32_t*)positionFound, nextSizeArray, (uint32_t*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((uint32_t*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((uint32_t*)positionFound - (uint32_t*)array));
-        }
-    }
-    else if(typeData == INT64)
-    {
-        int64_t *positionFound = (int64_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (int64_t*)ArrayFind((int64_t*)positionFound, nextSizeArray, data, typeData))) )
-        {
-            *(positionFound++) = *((int64_t*)data);
-            nextSizeArray = (sizeArray - ((int64_t*)positionFound - (int64_t*)array));
-        }
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        uint64_t *positionFound = (uint64_t*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (uint64_t*)ArrayFind((uint64_t*)positionFound, nextSizeArray, data, typeData))) )
-        {
-            *(positionFound++) = *((uint64_t*)data);
-            nextSizeArray = (sizeArray - ((uint64_t*)positionFound - (uint64_t*)array));
         }
     }
     else if(typeData == FLOAT)
     {
         float *positionFound = (float*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (float*)ArrayFind((float*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        float dataAuxiliar = *((float*)data);
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (float*)ArrayFind((float*)positionFound, nextSizeArray, (float*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((float*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((float*)positionFound - (float*)array));
         }
     }
     else if(typeData == DOUBLE)
     {
         double *positionFound = (double*)array;
-        int64_t nextSizeArray = sizeArray;
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (double*)ArrayFind((double*)positionFound, nextSizeArray, data, typeData))) )
+        uint32_t nextSizeArray = sizeArray;
+        double dataAuxiliar = *((double*)data);
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (double*)ArrayFind((double*)positionFound, nextSizeArray, (double*)&dataAuxiliar, typeData))) )
         {
-            *(positionFound++) = *((double*)data);
+            *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((double*)positionFound - (double*)array));
         }
     }
@@ -1409,121 +1044,7 @@ void _ArrayReplaceFrequency(void *array, int64_t sizeArray, void* data, int64_t 
     }
 }
 
-void _ArrayShuffle(void* array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
-{
-    if( sizeArray <= 0 )
-    {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
-    }
-
-    if( sizeArray >= RAND_MAX)
-    {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
-    }
-
-    if(typeData == CHAR)
-    {
-        for (int64_t i = 0; i < sizeArray - 1; i++)
-        {
-          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
-          Swap(((char*)array+i),((char*)array+j),typeData);
-        }
-    }
-    else if (typeData == UNSIGNED_CHAR)
-    {
-        for (int64_t i = 0; i < sizeArray - 1; i++)
-        {
-          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
-          Swap(((unsigned char*)array+i),((unsigned char*)array+j),typeData);
-        }
-    }
-    else if(typeData == INT8)
-    {
-        for (int64_t i = 0; i < sizeArray - 1; i++)
-        {
-          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
-          Swap(((int8_t*)array+i),((int8_t*)array+j),typeData);
-        }
-    }
-    else if(typeData == UNSIGNED_INT8)
-    {
-        for (int64_t i = 0; i < sizeArray - 1; i++)
-        {
-          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
-          Swap(((uint8_t*)array+i),((uint8_t*)array+j),typeData);
-        }
-    }
-    else if(typeData == INT16)
-    {
-        for (int64_t i = 0; i < sizeArray - 1; i++)
-        {
-          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
-          Swap(((int16_t*)array+i),((int16_t*)array+j),typeData);
-        }
-    }
-    else if(typeData == UNSIGNED_INT16)
-    {
-        for (int64_t i = 0; i < sizeArray - 1; i++)
-        {
-          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
-          Swap(((uint16_t*)array+i),((uint16_t*)array+j),typeData);
-        }
-    }
-    else if(typeData == INT32)
-    {
-        for (int64_t i = 0; i < sizeArray - 1; i++)
-        {
-          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
-          Swap(((int32_t*)array+i),((int32_t*)array+j),typeData);
-        }
-    }
-    else if(typeData == UNSIGNED_INT32)
-    {
-        for (int64_t i = 0; i < sizeArray - 1; i++)
-        {
-          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
-          Swap(((uint32_t*)array+i),((uint32_t*)array+j),typeData);
-        }
-    }
-    else if(typeData == INT64)
-    {
-        for (int64_t i = 0; i < sizeArray - 1; i++)
-        {
-          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
-          Swap(((int64_t*)array+i),((int64_t*)array+j),typeData);
-        }
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        for (int64_t i = 0; i < sizeArray - 1; i++)
-        {
-          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
-          Swap(((uint64_t*)array+i),((uint64_t*)array+j),typeData);
-        }
-    }
-    else if(typeData == FLOAT)
-    {
-        for (int64_t i = 0; i < sizeArray - 1; i++)
-        {
-          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
-          Swap(((float*)array+i),((float*)array+j),typeData);
-        }
-    }
-    else if(typeData == DOUBLE)
-    {
-        for (int64_t i = 0; i < sizeArray - 1; i++)
-        {
-          int64_t j = i + rand() / (RAND_MAX / (sizeArray - i) + 1);
-          Swap(((double*)array+i),((double*)array+j),typeData);
-        }
-    }
-    else
-    {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
-    }
-}
-
-void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* step, int8_t direction, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber)
+void _ArrayFillSequency(void *array, const uint32_t sizeArray, const void* startPoint, const void* step, int8_t direction, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     if( sizeArray <= 0 )
     {
@@ -1532,7 +1053,7 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
 
     if(typeData == CHAR)
     {
-        for (int64_t i = 0; i < sizeArray ; i++)
+        for (uint32_t i = 0; i < sizeArray ; i++)
         {
             if(direction == TRUE)
             {
@@ -1548,7 +1069,7 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
     }
     else if (typeData == UNSIGNED_CHAR)
     {
-        for (int64_t i = 0; i < sizeArray ; i++)
+        for (uint32_t i = 0; i < sizeArray ; i++)
         {
             if(direction == TRUE)
             {
@@ -1564,7 +1085,7 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
     }
     else if(typeData == INT8)
     {
-        for (int64_t i = 0; i < sizeArray ; i++)
+        for (uint32_t i = 0; i < sizeArray ; i++)
         {
             if(direction == TRUE)
             {
@@ -1580,7 +1101,7 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
     }
     else if(typeData == UNSIGNED_INT8)
     {
-        for (int64_t i = 0; i < sizeArray ; i++)
+        for (uint32_t i = 0; i < sizeArray ; i++)
         {
             if(direction == TRUE)
             {
@@ -1596,7 +1117,7 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
     }
     else if(typeData == INT16)
     {
-        for (int64_t i = 0; i < sizeArray ; i++)
+        for (uint32_t i = 0; i < sizeArray ; i++)
         {
             if(direction == TRUE)
             {
@@ -1612,7 +1133,7 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
     }
     else if(typeData == UNSIGNED_INT16)
     {
-        for (int64_t i = 0; i < sizeArray ; i++)
+        for (uint32_t i = 0; i < sizeArray ; i++)
         {
             if(direction == TRUE)
             {
@@ -1628,7 +1149,7 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
     }
     else if(typeData == INT32)
     {
-        for (int64_t i = 0; i < sizeArray ; i++)
+        for (uint32_t i = 0; i < sizeArray ; i++)
         {
             if(direction == TRUE)
             {
@@ -1644,7 +1165,7 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
     }
     else if(typeData == UNSIGNED_INT32)
     {
-        for (int64_t i = 0; i < sizeArray ; i++)
+        for (uint32_t i = 0; i < sizeArray ; i++)
         {
             if(direction == TRUE)
             {
@@ -1658,41 +1179,9 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
             }
         }
     }
-    else if(typeData == INT64)
-    {
-        for (int64_t i = 0; i < sizeArray ; i++)
-        {
-            if(direction == TRUE)
-            {
-                *((int64_t*)array + i) = *((int64_t*)startPoint) + *((int64_t*)step);
-                *((int64_t*)startPoint) += *((int64_t*)step);
-            }
-            else
-            {
-                *((int64_t*)array + i) = *((int64_t*)startPoint) - *((int64_t*)step);
-                *((int64_t*)startPoint) -= *((int64_t*)step);
-            }
-        }
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        for (int64_t i = 0; i < sizeArray ; i++)
-        {
-            if(direction == TRUE)
-            {
-                *((uint64_t*)array + i) = *((uint64_t*)startPoint) + *((uint64_t*)step);
-                *((uint64_t*)startPoint) += *((uint64_t*)step);
-            }
-            else
-            {
-                *((uint64_t*)array + i) = *((uint64_t*)startPoint) - *((uint64_t*)step);
-                *((uint64_t*)startPoint) -= *((uint64_t*)step);
-            }
-        }
-    }
     else if(typeData == FLOAT)
     {
-        for (int64_t i = 0; i < sizeArray ; i++)
+        for (uint32_t i = 0; i < sizeArray ; i++)
         {
             if(direction == TRUE)
             {
@@ -1708,7 +1197,7 @@ void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* 
     }
     else if(typeData == DOUBLE)
     {
-        for (int64_t i = 0; i < sizeArray ; i++)
+        for (uint32_t i = 0; i < sizeArray ; i++)
         {
             if(direction == TRUE)
             {

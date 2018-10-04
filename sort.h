@@ -8,7 +8,9 @@
 #include "radixSort.h"
 #include <stdint.h>
 
-void SortRadix(void *array, int64_t sizeArray, int8_t typeData);
+#define SortRadix(arrayA, sizeArrayA, typeData) _SortRadix(arrayA, sizeArrayA, typeData, __FILE__, __FUNCTION__, __LINE__)
+
+void _SortRadix(void *array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber);
 
 
 #endif // SORT_H_INCLUDED

@@ -62,10 +62,6 @@
 		</Unit>
 		<Unit filename="print.h" />
 		<Unit filename="radixSort.h" />
-		<Unit filename="randomGenerator.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="randomGenerator.h" />
 		<Unit filename="sort.c">
 			<Option compilerVar="CC" />
 		</Unit>

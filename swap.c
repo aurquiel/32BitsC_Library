@@ -1,6 +1,6 @@
 #include "swap.h"
 
-void Swap(void* a, void* b, int8_t typeData)
+void _Swap(void* a, void* b, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     if(typeData == CHAR)
     {
@@ -50,18 +50,6 @@ void Swap(void* a, void* b, int8_t typeData)
         *(uint32_t*)a = *(uint32_t*)b;
         *(uint32_t*)b = temporary;
     }
-    else if(typeData == INT64)
-    {
-        int64_t temporary = *(int64_t*)a;
-        *(int64_t*)a = *(int64_t*)b;
-        *(int64_t*)b = temporary;
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        uint64_t temporary = *(uint64_t*)a;
-        *(uint64_t*)a = *(uint64_t*)b;
-        *(uint64_t*)b = temporary;
-    }
     else if(typeData == FLOAT)
     {
         float temporary = *(float*)a;
@@ -80,7 +68,7 @@ void Swap(void* a, void* b, int8_t typeData)
     }
 }
 
-void SwapXor(void* a, void* b, int8_t typeData)
+void _SwapXor(void* a, void* b, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     if(typeData == CHAR)
     {
@@ -129,18 +117,6 @@ void SwapXor(void* a, void* b, int8_t typeData)
         *(uint32_t*)a = *(uint32_t*)a ^ *(uint32_t*)b;
         *(uint32_t*)b = *(uint32_t*)b ^ *(uint32_t*)a;
         *(uint32_t*)a = *(uint32_t*)a ^ *(uint32_t*)b;
-    }
-    else if(typeData == INT64)
-    {
-        *(int64_t*)a = *(int64_t*)a ^ *(int64_t*)b;
-        *(int64_t*)b = *(int64_t*)b ^ *(int64_t*)a;
-        *(int64_t*)a = *(int64_t*)a ^ *(int64_t*)b;
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        *(uint64_t*)a = *(uint64_t*)a ^ *(uint64_t*)b;
-        *(uint64_t*)b = *(uint64_t*)b ^ *(uint64_t*)a;
-        *(uint64_t*)a = *(uint64_t*)a ^ *(uint64_t*)b;
     }
     else
     {

@@ -3,7 +3,7 @@
 
 #include "error.h"
 
-void ErrorRaise(int64_t messageNumber, const char* fileName, const char* functionName, const int64_t lineNumber)
+void ErrorRaise(const uint32_t messageNumber, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     if(messageNumber == errorSizePrint)
     {

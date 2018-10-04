@@ -1,6 +1,6 @@
 #include "allocator.h"
 
-void *AllocatorMalloc(int64_t numberOfElements, int8_t typeData)
+void* _AllocatorMalloc(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     void* auxiliarMemory = NULL;
 
@@ -40,14 +40,6 @@ void *AllocatorMalloc(int64_t numberOfElements, int8_t typeData)
     {
         auxiliarMemory = (void*)malloc(numberOfElements*sizeof(uint32_t));
     }
-    else if(INT64 == typeData)
-    {
-        auxiliarMemory = (void*)malloc(numberOfElements*sizeof(int64_t));
-    }
-    else if(UNSIGNED_INT64 == typeData)
-    {
-        auxiliarMemory = (void*)malloc(numberOfElements*sizeof(uint64_t));
-    }
     else if(FLOAT == typeData)
     {
         auxiliarMemory = (void*)malloc(numberOfElements*sizeof(float));
@@ -74,7 +66,7 @@ void *AllocatorMalloc(int64_t numberOfElements, int8_t typeData)
     return NULL;
 }
 
-void **AllocatorMallocTwoDimension(int64_t numberOfElements, int8_t typeData)
+void** _AllocatorMallocTwoDimension(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     void* auxiliarMemory = NULL;
 
@@ -115,14 +107,6 @@ void **AllocatorMallocTwoDimension(int64_t numberOfElements, int8_t typeData)
     {
         auxiliarMemory = (void**)malloc(numberOfElements*sizeof(uint32_t*));
     }
-    else if(INT64 == typeData)
-    {
-        auxiliarMemory = (void**)malloc(numberOfElements*sizeof(int64_t*));
-    }
-    else if(UNSIGNED_INT64 == typeData)
-    {
-        auxiliarMemory = (void**)malloc(numberOfElements*sizeof(uint64_t*));
-    }
     else if(FLOAT == typeData)
     {
         auxiliarMemory = (void**)malloc(numberOfElements*sizeof(float*));
@@ -148,7 +132,7 @@ void **AllocatorMallocTwoDimension(int64_t numberOfElements, int8_t typeData)
     return NULL;
 }
 
-void *AllocatorCalloc(int64_t numberOfElements, int8_t typeData)
+void* _AllocatorCalloc(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     void* auxiliarMemory = NULL;
 
@@ -189,14 +173,6 @@ void *AllocatorCalloc(int64_t numberOfElements, int8_t typeData)
     {
         auxiliarMemory = (void*)calloc(numberOfElements,sizeof(uint32_t));
     }
-    else if(INT64 == typeData)
-    {
-        auxiliarMemory = (void*)calloc(numberOfElements,sizeof(int64_t));
-    }
-    else if(UNSIGNED_INT64 == typeData)
-    {
-        auxiliarMemory = (void*)calloc(numberOfElements,sizeof(uint64_t));
-    }
     else if(FLOAT == typeData)
     {
         auxiliarMemory = (void*)calloc(numberOfElements,sizeof(float));
@@ -223,7 +199,7 @@ void *AllocatorCalloc(int64_t numberOfElements, int8_t typeData)
     return NULL;
 }
 
-void **AllocatorCallocTwoDimension(int64_t numberOfElements, int8_t typeData)
+void** _AllocatorCallocTwoDimension(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     void* auxiliarMemory = NULL;
 
@@ -264,14 +240,6 @@ void **AllocatorCallocTwoDimension(int64_t numberOfElements, int8_t typeData)
     {
         auxiliarMemory = (void**)calloc(numberOfElements,sizeof(uint32_t*));
     }
-    else if(INT64 == typeData)
-    {
-        auxiliarMemory = (void**)calloc(numberOfElements,sizeof(int64_t*));
-    }
-    else if(UNSIGNED_INT64 == typeData)
-    {
-        auxiliarMemory = (void**)calloc(numberOfElements,sizeof(uint64_t*));
-    }
     else if(FLOAT == typeData)
     {
         auxiliarMemory = (void**)calloc(numberOfElements,sizeof(float*));
@@ -297,7 +265,7 @@ void **AllocatorCallocTwoDimension(int64_t numberOfElements, int8_t typeData)
     return NULL;
 }
 
-void *ReallocAllocator(void* arrayAllocated, uint64_t numberOfElements, int8_t typeData)
+void* _AllocatorRealloc(void* arrayAllocated, const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     void* auxiliarMemory = NULL;
 
@@ -337,14 +305,6 @@ void *ReallocAllocator(void* arrayAllocated, uint64_t numberOfElements, int8_t t
     else if(UNSIGNED_INT32 == typeData)
     {
         auxiliarMemory = (void*)realloc((uint32_t*)arrayAllocated,numberOfElements*sizeof(uint32_t));
-    }
-    else if(INT64 == typeData)
-    {
-        auxiliarMemory = (void*)realloc((int64_t*)arrayAllocated,numberOfElements*sizeof(int64_t));
-    }
-    else if(UNSIGNED_INT64 == typeData)
-    {
-        auxiliarMemory = (void*)realloc((uint64_t*)arrayAllocated,numberOfElements*sizeof(uint64_t));
     }
     else if(FLOAT == typeData)
     {

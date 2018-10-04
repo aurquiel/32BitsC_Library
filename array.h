@@ -28,20 +28,19 @@
 #define ArrayShuffle(array, sizeArray, typeData) _ArrayShuffle(array, sizeArray, typeData, __FILE__, __FUNCTION__, __LINE__)
 #define ArrayFillSequency(array, sizeArray, startPoint, step, direction, typeData) _ArrayFillSequency(array, sizeArray, startPoint, step, direction, typeData, __FILE__, __FUNCTION__, __LINE__)
 
-void _ArrayInterchange(void* arrayA, int64_t sizeArrayA, void* arrayB, int64_t sizeArrayB, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
-void _ArrayCopy(void* arrayDestiny, int64_t sizeArrayDestiny, void* arraySource, int64_t sizeArraySource, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
-void _ArrayConcatenate(void* arrayDestiny, int64_t sizeArrayDestiny, void* arraySource, int64_t sizeArraySource, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
-void _ArrayClear(void* array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
-void _ArraySet(void* array, int64_t sizeArray, void *data, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
-void *_ArrayFind(void* array, int64_t sizeArray, void *data, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
-void *_ArrayFindMaxValue(void* array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
-uint64_t _ArrayFindNumberRepetitions(void* array, int64_t sizeArray, void *data, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
-void _ArrayEndChar(void* array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
-void _ArrayRandomGenerator(void* array, int64_t sizeArray, void* lowerLimit, void* upperLimit, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
-void _ArrayReverse(void *array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
-void _ArrayReverseInterval(void *array, int64_t sizeArray, void* lowerLimit, void* upperLimit, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
-void _ArrayReplaceAll(void *array, int64_t sizeArray, void* data, int8_t typeData, char const *fileName, char const *functionName, long lineNumber);
-void _ArrayReplaceFrequency(void *array, int64_t sizeArray, void* data, int64_t frequency, int8_t typeData, char const *fileName, char const *functionName, long lineNumber);
-void _ArrayShuffle(void* array, int64_t sizeArray, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
-void _ArrayFillSequency(void *array, int64_t sizeArray, void* startPoint, void* step, int8_t direction, int8_t typeData, char const *fileName, char const *functionName, const int64_t lineNumber);
+void _ArrayInterchange(void* arrayA, const uint32_t sizeArrayA, void* arrayB, const uint32_t sizeArrayB, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber);
+void _ArrayCopy(void* arrayDestiny, const uint32_t sizeArrayDestiny, void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber);
+void _ArrayConcatenate(void* arrayDestiny, const uint32_t sizeArrayDestiny, void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber);
+void _ArrayClear(void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber);
+void _ArraySet(void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* functionName, const char* fileName, const uint32_t lineNumber);
+void* _ArrayFind(const void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber);
+void* _ArrayFindMaxValue(const void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber);
+uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* fileName,  const char* functionName, const uint32_t lineNumber);
+void _ArrayEndChar(void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName,  const char* functionName, const uint32_t lineNumber);
+void _ArrayReverse(void *array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber);
+void _ArrayReverseInterval(void *array, const uint32_t sizeArray, void* lowerLimit, void* upperLimit, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber);
+void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber);
+void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* data, uint32_t frequency, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber);
+void _ArrayFillSequency(void *array, const uint32_t sizeArray, const void* startPoint, const void* step, int8_t direction, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber);
+
 #endif // ARRAY_H_INCLUDED

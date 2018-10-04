@@ -3,7 +3,7 @@
 
 #include "sort.h"
 
-void SortRadix(void *array, int64_t sizeArray, int8_t typeData)
+void _SortRadix(void *array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
 {
     if( (sizeArray <= 0) )
     {
@@ -41,14 +41,6 @@ void SortRadix(void *array, int64_t sizeArray, int8_t typeData)
     else if(typeData == UNSIGNED_INT32)
     {
         RADIX_SORT_OPERATIONS(array,sizeArray,uint32_t,typeData);
-    }
-    else if(typeData == INT64)
-    {
-        RADIX_SORT_OPERATIONS(array,sizeArray,int64_t,typeData);
-    }
-    else if(typeData == UNSIGNED_INT64)
-    {
-        RADIX_SORT_OPERATIONS(array,sizeArray,uint64_t,typeData);
     }
     else if(typeData == FLOAT)
     {
