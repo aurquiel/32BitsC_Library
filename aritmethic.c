@@ -1,6 +1,6 @@
 #include "aritmethic.h"
 
-uint32_t _AritmethicGetIntegerString(void *number, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+uint32_t _AritmethicGetIntegerString(void *number, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     uint32_t integerPart = 0;
 
@@ -16,13 +16,13 @@ uint32_t _AritmethicGetIntegerString(void *number, const int8_t typeData, const 
     }
     else
     {
-        ErrorRaise(errorTypeAritmethic, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeAritmethic, fileName, lineNumber, functionName);
     }
 
     return integerPart;
 }
 
-uint32_t _AritmethicGetDecimalString(void *number, const int32_t precision, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+uint32_t _AritmethicGetDecimalString(void *number, const int32_t precision, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     uint32_t decimalPart = 0;
 
@@ -43,13 +43,13 @@ uint32_t _AritmethicGetDecimalString(void *number, const int32_t precision, cons
     }
     else
     {
-        ErrorRaise(errorTypeAritmethic, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeAritmethic, fileName, lineNumber, functionName);
     }
 
     return decimalPart;
 }
 
-uint32_t _AritmethicNumberOfDigits(const void* number, const int8_t precision, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+uint32_t _AritmethicNumberOfDigits(const void* number, const int8_t precision, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     uint32_t digitNumbers = 0;
 
@@ -64,13 +64,13 @@ uint32_t _AritmethicNumberOfDigits(const void* number, const int8_t precision, c
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 
     return digitNumbers;
 }
 
-uint32_t _AritmethicNumberOfDigitsString(const void* number, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+uint32_t _AritmethicNumberOfDigitsString(const void* number, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     uint32_t digitNumbers = 0;
 
@@ -87,13 +87,13 @@ uint32_t _AritmethicNumberOfDigitsString(const void* number, const int8_t typeDa
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 
     return digitNumbers;
 }
 
-int8_t _AritmethicGetIndividualDigit(const void* number, const uint32_t positionDigit, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+int8_t _AritmethicGetIndividualDigit(const void* number, const uint32_t positionDigit, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(typeData >= CHAR && typeData <= UNSIGNED_INT32)
     {
@@ -109,9 +109,8 @@ int8_t _AritmethicGetIndividualDigit(const void* number, const uint32_t position
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
-
 
     return 1;
 }

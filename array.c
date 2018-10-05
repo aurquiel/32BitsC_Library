@@ -3,26 +3,26 @@
 
 #include "array.h"
 
-void _ArrayInterchange(void* arrayA, const uint32_t sizeArrayA, void* arrayB, const uint32_t sizeArrayB, const int8_t typeData, const char* functionName, const char* fileName, const uint32_t lineNumber)
+void _ArrayInterchange(void* arrayA, const uint32_t sizeArrayA, void* arrayB, const uint32_t sizeArrayB, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if((sizeArrayA <= 0) || (sizeArrayB <= 0) || (sizeArrayA != sizeArrayB))
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
-    void *auxiliarArray = AllocatorCalloc(sizeArrayA, typeData);
+    void *auxiliarArray = _AllocatorCalloc(sizeArrayA, typeData, fileName, lineNumber, functionName);
 
-    ArrayCopy(auxiliarArray, sizeArrayA, arrayA, sizeArrayA, typeData);
-    ArrayCopy(arrayA, sizeArrayA, arrayB, sizeArrayB, typeData);
-    ArrayCopy(arrayB, sizeArrayB, auxiliarArray, sizeArrayA, typeData);
+    _ArrayCopy(auxiliarArray, sizeArrayA, arrayA, sizeArrayA, typeData, fileName, lineNumber, functionName);
+    _ArrayCopy(arrayA, sizeArrayA, arrayB, sizeArrayB, typeData, fileName, lineNumber, functionName);
+    _ArrayCopy(arrayB, sizeArrayB, auxiliarArray, sizeArrayA, typeData, fileName, lineNumber, functionName);
     AllocatorFree(auxiliarArray);
 }
 
-void _ArrayCopy(void* arrayDestiny, const uint32_t sizeArrayDestiny, void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void _ArrayCopy(void* arrayDestiny, const uint32_t sizeArrayDestiny, void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if( (sizeArrayDestiny <= 0) || (sizeArraySource <= 0) || (sizeArrayDestiny < sizeArraySource) )
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
     if(typeData == CHAR)
@@ -67,15 +67,15 @@ void _ArrayCopy(void* arrayDestiny, const uint32_t sizeArrayDestiny, void* array
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 }
 
-void _ArrayConcatenate(void* arrayDestiny, const uint32_t sizeArrayDestiny, void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void _ArrayConcatenate(void* arrayDestiny, const uint32_t sizeArrayDestiny, void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if( (sizeArrayDestiny <= 0) )
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
     if(typeData == CHAR)
@@ -120,15 +120,15 @@ void _ArrayConcatenate(void* arrayDestiny, const uint32_t sizeArrayDestiny, void
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 }
 
-void _ArrayClear(void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void _ArrayClear(void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
     const char emptyEscape = EMPTY_ESCAPE;
@@ -136,23 +136,23 @@ void _ArrayClear(void* array, const uint32_t sizeArray, const int8_t typeData, c
 
     if( (typeData == CHAR) || (typeData == UNSIGNED_CHAR))
     {
-        ArraySet(array, sizeArray, (void*)(&emptyEscape), typeData);
+        _ArraySet(array, sizeArray, (void*)(&emptyEscape), typeData, fileName, lineNumber, functionName);
     }
     else if( (typeData >= INT8) && (typeData <= DOUBLE) )
     {
-        ArraySet(array, sizeArray, (void*)(&zero), typeData);
+        _ArraySet(array, sizeArray, (void*)(&zero), typeData, fileName, lineNumber, functionName);
     }
     else
     {
-         ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+         ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 }
 
-void _ArraySet(void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* functionName, const char* fileName, const uint32_t lineNumber)
+void _ArraySet(void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
     if(typeData == CHAR)
@@ -197,15 +197,15 @@ void _ArraySet(void* array, const uint32_t sizeArray, void *data, const int8_t t
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 }
 
-void* _ArrayFind(const void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void* _ArrayFind(const void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
     if(typeData == CHAR)
@@ -310,17 +310,17 @@ void* _ArrayFind(const void* array, const uint32_t sizeArray, void *data, const 
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 
     return NULL;
 }
 
-void* _ArrayFindMaxValue(const void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void* _ArrayFindMaxValue(const void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
     if(typeData == CHAR)
@@ -465,17 +465,17 @@ void* _ArrayFindMaxValue(const void* array, const uint32_t sizeArray, const int8
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 
     return NULL;
 }
 
-void* _ArrayFindMInimumValue(const void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void* _ArrayFindMinimumValue(const void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
     if(typeData == CHAR)
@@ -579,7 +579,6 @@ void* _ArrayFindMInimumValue(const void* array, const uint32_t sizeArray, const 
     else if(typeData == UNSIGNED_INT32)
     {
         uint32_t *minimumValue = (uint32_t*)array;
-
         for(uint32_t i = 0; i<sizeArray; i++)
         {
             if( *((uint32_t*)array + i) < *minimumValue)
@@ -620,17 +619,17 @@ void* _ArrayFindMInimumValue(const void* array, const uint32_t sizeArray, const 
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 
     return NULL;
 }
 
-uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* fileName,  const char* functionName, const uint32_t lineNumber)
+uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
     uint64_t numberRepetitions = 0;
@@ -639,7 +638,7 @@ uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray
     {
         char *positionFound = (char*)array;
         uint32_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (char*)ArrayFind((char*)positionFound, nextSizeArray, data, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (char*)_ArrayFind((char*)positionFound, nextSizeArray, data, typeData, fileName, lineNumber, functionName))) )
         {
             positionFound++;
             numberRepetitions++;
@@ -650,7 +649,7 @@ uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray
     {
         unsigned char *positionFound = (unsigned char*)array;
         uint32_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (unsigned char*)ArrayFind((unsigned char*)positionFound, nextSizeArray, data, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (unsigned char*)_ArrayFind((unsigned char*)positionFound, nextSizeArray, data, typeData, fileName, lineNumber, functionName))) )
         {
             positionFound++;
             numberRepetitions++;
@@ -661,7 +660,7 @@ uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray
     {
         int8_t *positionFound = (int8_t*)array;
         uint32_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (int8_t*)ArrayFind((int8_t*)positionFound, nextSizeArray, data, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (int8_t*)_ArrayFind((int8_t*)positionFound, nextSizeArray, data, typeData, fileName, lineNumber, functionName))) )
         {
             positionFound++;
             numberRepetitions++;
@@ -672,7 +671,7 @@ uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray
     {
         uint8_t *positionFound = (uint8_t*)array;
         uint32_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint8_t*)ArrayFind((uint8_t*)positionFound, nextSizeArray, data, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint8_t*)_ArrayFind((uint8_t*)positionFound, nextSizeArray, data, typeData, fileName, lineNumber, functionName))) )
         {
             positionFound++;
             numberRepetitions++;
@@ -683,7 +682,7 @@ uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray
     {
         int16_t *positionFound = (int16_t*)array;
         uint32_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (int16_t*)ArrayFind((int16_t*)positionFound, nextSizeArray, data, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (int16_t*)_ArrayFind((int16_t*)positionFound, nextSizeArray, data, typeData, fileName, lineNumber, functionName))) )
         {
             positionFound++;
             numberRepetitions++;
@@ -694,7 +693,7 @@ uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray
     {
         uint16_t *positionFound = (uint16_t*)array;
         uint32_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint16_t*)ArrayFind((uint16_t*)positionFound, nextSizeArray, data, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint16_t*)_ArrayFind((uint16_t*)positionFound, nextSizeArray, data, typeData, fileName, lineNumber, functionName))) )
         {
             positionFound++;
             numberRepetitions++;
@@ -705,7 +704,7 @@ uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray
     {
         int32_t *positionFound = (int32_t*)array;
         uint32_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (int32_t*)ArrayFind((int32_t*)positionFound, nextSizeArray, data, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (int32_t*)_ArrayFind((int32_t*)positionFound, nextSizeArray, data, typeData, fileName, lineNumber, functionName))) )
         {
             positionFound++;
             numberRepetitions++;
@@ -716,7 +715,7 @@ uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray
     {
         uint32_t *positionFound = (uint32_t*)array;
         uint32_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint32_t*)ArrayFind((uint32_t*)positionFound, nextSizeArray, data, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint32_t*)_ArrayFind((uint32_t*)positionFound, nextSizeArray, data, typeData, fileName, lineNumber, functionName))) )
         {
             positionFound++;
             numberRepetitions++;
@@ -727,7 +726,7 @@ uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray
     {
         float *positionFound = (float*)array;
         uint32_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (float*)ArrayFind((float*)positionFound, nextSizeArray, data, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (float*)_ArrayFind((float*)positionFound, nextSizeArray, data, typeData, fileName, lineNumber, functionName))) )
         {
             positionFound++;
             numberRepetitions++;
@@ -738,7 +737,7 @@ uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray
     {
         double *positionFound = (double*)array;
         uint32_t nextSizeArray = sizeArray;
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (double*)ArrayFind((double*)positionFound, nextSizeArray, data, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (double*)_ArrayFind((double*)positionFound, nextSizeArray, data, typeData, fileName, lineNumber, functionName))) )
         {
             positionFound++;
             numberRepetitions++;
@@ -747,17 +746,17 @@ uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 
     return numberRepetitions;
 }
 
-void _ArrayEndChar(void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName,  const char* functionName, const uint32_t lineNumber)
+void _ArrayEndChar(void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
 
@@ -771,23 +770,23 @@ void _ArrayEndChar(void* array, const uint32_t sizeArray, const int8_t typeData,
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 }
 
 
-void _ArrayReverse(void *array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void _ArrayReverse(void *array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if( sizeArray <= 0 )
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
     if(typeData == CHAR)
     {
         for(char *i = (char*)array, *j = (char*)array + sizeArray - 2 ;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
 
     }
@@ -795,76 +794,76 @@ void _ArrayReverse(void *array, const uint32_t sizeArray, const int8_t typeData,
     {
         for(unsigned char *i = (unsigned char*)array, *j = (unsigned char*)array + sizeArray - 2 ;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == INT8)
     {
         for(int8_t *i = (int8_t*)array, *j = (int8_t*)array + sizeArray - 1 ;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == UNSIGNED_INT8)
     {
         for(uint8_t *i = (uint8_t*)array, *j = (uint8_t*)array + sizeArray - 1 ;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == INT16)
     {
         for(int16_t *i = (int16_t*)array, *j = (int16_t*)array + sizeArray - 1 ;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == UNSIGNED_INT16)
     {
         for(uint16_t *i = (uint16_t*)array, *j = (uint16_t*)array + sizeArray - 1 ;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == INT32)
     {
         for(int32_t *i = (int32_t*)array, *j = (int32_t*)array + sizeArray - 1 ;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == UNSIGNED_INT32)
     {
         for(uint32_t *i = (uint32_t*)array, *j = (uint32_t*)array + sizeArray - 1 ;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == FLOAT)
     {
         for(float *i = (float*)array, *j = (float*)array + sizeArray - 1 ;  i < j ; i++, j--)
         {
-            Swap(i,j,typeData);
+            _Swap(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == DOUBLE)
     {
         for(double *i = (double*)array, *j = (double*)array + sizeArray - 1 ;  i < j ; i++, j--)
         {
-            Swap(i,j,typeData);
+            _Swap(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 }
 
-void _ArrayReverseInterval(void *array, const uint32_t sizeArray, void* lowerLimit, void* upperLimit, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void _ArrayReverseInterval(void *array, const uint32_t sizeArray, void* lowerLimit, void* upperLimit, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if( sizeArray <= 0 )
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
     else if( (lowerLimit < array) || upperLimit < lowerLimit )
     {
@@ -875,7 +874,7 @@ void _ArrayReverseInterval(void *array, const uint32_t sizeArray, void* lowerLim
     {
         for(char *i = (char*)lowerLimit, *j = (char*)upperLimit;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
 
     }
@@ -883,76 +882,76 @@ void _ArrayReverseInterval(void *array, const uint32_t sizeArray, void* lowerLim
     {
         for(unsigned char *i = (unsigned char*)lowerLimit, *j = (unsigned char*)upperLimit;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == INT8)
     {
         for(int8_t *i = (int8_t*)lowerLimit, *j = (int8_t*)upperLimit;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == UNSIGNED_INT8)
     {
         for(uint8_t *i = (uint8_t*)lowerLimit, *j = (uint8_t*)upperLimit;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == INT16)
     {
         for(int16_t *i = (int16_t*)lowerLimit, *j = (int16_t*)upperLimit;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == UNSIGNED_INT16)
     {
         for(uint16_t *i = (uint16_t*)lowerLimit, *j = (uint16_t*)upperLimit;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == INT32)
     {
         for(int32_t *i = (int32_t*)lowerLimit, *j = (int32_t*)upperLimit;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == UNSIGNED_INT32)
     {
         for(uint32_t *i = (uint32_t*)lowerLimit, *j = (uint32_t*)upperLimit;  i < j ; i++, j--)
         {
-            SwapXor(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == FLOAT)
     {
         for(float *i = (float*)lowerLimit, *j = (float*)upperLimit;  i < j ; i++, j--)
         {
-            Swap(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else if(typeData == DOUBLE)
     {
         for(double *i = (double*)lowerLimit, *j = (double*)upperLimit;  i < j ; i++, j--)
         {
-            Swap(i,j,typeData);
+            _SwapXor(i,j,typeData, fileName, lineNumber, functionName);
         }
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 }
 
-void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if( sizeArray <= 0 )
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
     if(typeData == CHAR)
@@ -960,7 +959,7 @@ void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, c
         char *positionFound = (char*)array;
         uint32_t nextSizeArray = sizeArray;
         char dataAuxiliar = *((char*)data);
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (char*)ArrayFind((char*)positionFound, nextSizeArray, (char*)&dataAuxiliar, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (char*)_ArrayFind((char*)positionFound, nextSizeArray, (char*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((char*)positionFound - (char*)array));
@@ -971,7 +970,7 @@ void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, c
         unsigned char *positionFound = (unsigned char*)array;
         uint32_t nextSizeArray = sizeArray;
         unsigned char dataAuxiliar = *((unsigned char*)data);
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (unsigned char*)ArrayFind((unsigned char*)positionFound, nextSizeArray, (unsigned char*)&dataAuxiliar, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (unsigned char*)_ArrayFind((unsigned char*)positionFound, nextSizeArray, (unsigned char*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((unsigned char*)positionFound - (unsigned char*)array));
@@ -982,7 +981,7 @@ void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, c
         int8_t *positionFound = (int8_t*)array;
         uint32_t nextSizeArray = sizeArray;
         int8_t dataAuxiliar = *((int8_t*)data);
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (int8_t*)ArrayFind((int8_t*)positionFound, nextSizeArray, (int8_t*)&dataAuxiliar, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (int8_t*)_ArrayFind((int8_t*)positionFound, nextSizeArray, (int8_t*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((int8_t*)positionFound - (int8_t*)array));
@@ -993,7 +992,7 @@ void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, c
         uint8_t *positionFound = (uint8_t*)array;
         uint32_t nextSizeArray = sizeArray;
         uint8_t dataAuxiliar = *((uint8_t*)data);
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint8_t*)ArrayFind((uint8_t*)positionFound, nextSizeArray, (uint8_t*)&dataAuxiliar, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint8_t*)_ArrayFind((uint8_t*)positionFound, nextSizeArray, (uint8_t*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((uint8_t*)positionFound - (uint8_t*)array));
@@ -1004,7 +1003,7 @@ void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, c
         int16_t *positionFound = (int16_t*)array;
         uint32_t nextSizeArray = sizeArray;
         int16_t dataAuxiliar = *((int16_t*)data);
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (int16_t*)ArrayFind((int16_t*)positionFound, nextSizeArray, (int16_t*)&dataAuxiliar, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (int16_t*)_ArrayFind((int16_t*)positionFound, nextSizeArray, (int16_t*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((int16_t*)positionFound - (int16_t*)array));
@@ -1015,7 +1014,7 @@ void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, c
         uint16_t *positionFound = (uint16_t*)array;
         uint32_t nextSizeArray = sizeArray;
         uint16_t dataAuxiliar = *((uint16_t*)data);
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint16_t*)ArrayFind((uint16_t*)positionFound, nextSizeArray, (uint16_t*)&dataAuxiliar, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint16_t*)_ArrayFind((uint16_t*)positionFound, nextSizeArray, (uint16_t*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((uint16_t*)positionFound - (uint16_t*)array));
@@ -1026,7 +1025,7 @@ void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, c
         int32_t *positionFound = (int32_t*)array;
         uint32_t nextSizeArray = sizeArray;
         int32_t dataAuxiliar = *((int32_t*)data);
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (int32_t*)ArrayFind((int32_t*)positionFound, nextSizeArray,(int32_t*)&dataAuxiliar, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (int32_t*)_ArrayFind((int32_t*)positionFound, nextSizeArray,(int32_t*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((int32_t*)positionFound - (int32_t*)array));
@@ -1037,7 +1036,7 @@ void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, c
         uint32_t *positionFound = (uint32_t*)array;
         uint32_t nextSizeArray = sizeArray;
         uint32_t dataAuxiliar = *((uint32_t*)data);
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint32_t*)ArrayFind((uint32_t*)positionFound, nextSizeArray, (uint32_t*)&dataAuxiliar, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (uint32_t*)_ArrayFind((uint32_t*)positionFound, nextSizeArray, (uint32_t*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((uint32_t*)positionFound - (uint32_t*)array));
@@ -1048,7 +1047,7 @@ void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, c
         float *positionFound = (float*)array;
         uint32_t nextSizeArray = sizeArray;
         float dataAuxiliar = *((float*)data);
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (float*)ArrayFind((float*)positionFound, nextSizeArray, (float*)&dataAuxiliar, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (float*)_ArrayFind((float*)positionFound, nextSizeArray, (float*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((float*)positionFound - (float*)array));
@@ -1059,7 +1058,7 @@ void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, c
         double *positionFound = (double*)array;
         uint32_t nextSizeArray = sizeArray;
         double dataAuxiliar = *((double*)data);
-        while( (nextSizeArray != 0) && (NULL != (positionFound = (double*)ArrayFind((double*)positionFound, nextSizeArray, (double*)&dataAuxiliar, typeData))) )
+        while( (nextSizeArray != 0) && (NULL != (positionFound = (double*)_ArrayFind((double*)positionFound, nextSizeArray, (double*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((double*)positionFound - (double*)array));
@@ -1067,15 +1066,15 @@ void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, c
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 }
 
-void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* data, uint32_t frequency, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* data, uint32_t frequency, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if( sizeArray <= 0 )
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
     if(frequency <= 0)
@@ -1088,7 +1087,7 @@ void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* d
         char *positionFound = (char*)array;
         uint32_t nextSizeArray = sizeArray;
         char dataAuxiliar = *((char*)data);
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (char*)ArrayFind((char*)positionFound, nextSizeArray, (char*)&dataAuxiliar, typeData))) )
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (char*)_ArrayFind((char*)positionFound, nextSizeArray, (char*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((char*)positionFound - (char*)array));
@@ -1099,7 +1098,7 @@ void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* d
         unsigned char *positionFound = (unsigned char*)array;
         uint32_t nextSizeArray = sizeArray;
         unsigned char dataAuxiliar = *((unsigned char*)data);
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (unsigned char*)ArrayFind((unsigned char*)positionFound, nextSizeArray, (unsigned char*)&dataAuxiliar, typeData))) )
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (unsigned char*)_ArrayFind((unsigned char*)positionFound, nextSizeArray, (unsigned char*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((unsigned char*)positionFound - (unsigned char*)array));
@@ -1110,7 +1109,7 @@ void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* d
         int8_t *positionFound = (int8_t*)array;
         uint32_t nextSizeArray = sizeArray;
         int8_t dataAuxiliar = *((int8_t*)data);
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (int8_t*)ArrayFind((int8_t*)positionFound, nextSizeArray, (int8_t*)&dataAuxiliar, typeData))) )
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (int8_t*)_ArrayFind((int8_t*)positionFound, nextSizeArray, (int8_t*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((int8_t*)positionFound - (int8_t*)array));
@@ -1121,7 +1120,7 @@ void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* d
         uint8_t *positionFound = (uint8_t*)array;
         uint32_t nextSizeArray = sizeArray;
         uint8_t dataAuxiliar = *((uint8_t*)data);
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (uint8_t*)ArrayFind((uint8_t*)positionFound, nextSizeArray, (uint8_t*)&dataAuxiliar, typeData))) )
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (uint8_t*)_ArrayFind((uint8_t*)positionFound, nextSizeArray, (uint8_t*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((uint8_t*)positionFound - (uint8_t*)array));
@@ -1132,7 +1131,7 @@ void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* d
         int16_t *positionFound = (int16_t*)array;
         uint32_t nextSizeArray = sizeArray;
         int16_t dataAuxiliar = *((int16_t*)data);
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (int16_t*)ArrayFind((int16_t*)positionFound, nextSizeArray, (int16_t*)&dataAuxiliar, typeData))) )
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (int16_t*)_ArrayFind((int16_t*)positionFound, nextSizeArray, (int16_t*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((int16_t*)positionFound - (int16_t*)array));
@@ -1143,7 +1142,7 @@ void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* d
         uint16_t *positionFound = (uint16_t*)array;
         uint32_t nextSizeArray = sizeArray;
         uint16_t dataAuxiliar = *((uint16_t*)data);
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (uint16_t*)ArrayFind((uint16_t*)positionFound, nextSizeArray, (uint16_t*)&dataAuxiliar, typeData))) )
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (uint16_t*)_ArrayFind((uint16_t*)positionFound, nextSizeArray, (uint16_t*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((uint16_t*)positionFound - (uint16_t*)array));
@@ -1154,7 +1153,7 @@ void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* d
         int32_t *positionFound = (int32_t*)array;
         uint32_t nextSizeArray = sizeArray;
         int32_t dataAuxiliar = *((int32_t*)data);
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (int32_t*)ArrayFind((int32_t*)positionFound, nextSizeArray, (int32_t*)&dataAuxiliar, typeData))) )
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (int32_t*)_ArrayFind((int32_t*)positionFound, nextSizeArray, (int32_t*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((int32_t*)positionFound - (int32_t*)array));
@@ -1165,7 +1164,7 @@ void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* d
         uint32_t *positionFound = (uint32_t*)array;
         uint32_t nextSizeArray = sizeArray;
         uint32_t dataAuxiliar = *((uint32_t*)data);
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (uint32_t*)ArrayFind((uint32_t*)positionFound, nextSizeArray, (uint32_t*)&dataAuxiliar, typeData))) )
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (uint32_t*)_ArrayFind((uint32_t*)positionFound, nextSizeArray, (uint32_t*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((uint32_t*)positionFound - (uint32_t*)array));
@@ -1176,7 +1175,7 @@ void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* d
         float *positionFound = (float*)array;
         uint32_t nextSizeArray = sizeArray;
         float dataAuxiliar = *((float*)data);
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (float*)ArrayFind((float*)positionFound, nextSizeArray, (float*)&dataAuxiliar, typeData))) )
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (float*)_ArrayFind((float*)positionFound, nextSizeArray, (float*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((float*)positionFound - (float*)array));
@@ -1187,7 +1186,7 @@ void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* d
         double *positionFound = (double*)array;
         uint32_t nextSizeArray = sizeArray;
         double dataAuxiliar = *((double*)data);
-        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (double*)ArrayFind((double*)positionFound, nextSizeArray, (double*)&dataAuxiliar, typeData))) )
+        while( (frequency-- != 0) && (nextSizeArray != 0) && (NULL != (positionFound = (double*)_ArrayFind((double*)positionFound, nextSizeArray, (double*)&dataAuxiliar, typeData, fileName, lineNumber, functionName))) )
         {
             *(positionFound++) = dataAuxiliar;
             nextSizeArray = (sizeArray - ((double*)positionFound - (double*)array));
@@ -1195,15 +1194,15 @@ void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* d
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 }
 
-void _ArrayFillSequency(void *array, const uint32_t sizeArray, const void* startPoint, const void* step, int8_t direction, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void _ArrayFillSequency(void *array, const uint32_t sizeArray, const void* startPoint, const void* step, int8_t direction, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if( sizeArray <= 0 )
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
     if(typeData == CHAR)
@@ -1368,15 +1367,15 @@ void _ArrayFillSequency(void *array, const uint32_t sizeArray, const void* start
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 }
 
-void _ArrayMultiplied(void* array, const uint32_t sizeArray, const void* multipe, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void _ArrayMultiplied(void* array, const uint32_t sizeArray, const void* multipe, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
     if(typeData == CHAR)
@@ -1451,15 +1450,15 @@ void _ArrayMultiplied(void* array, const uint32_t sizeArray, const void* multipe
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 }
 
-uint32_t _ArrayCountSign(const void* array, const uint32_t sizeArray, const int8_t sign, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+uint32_t _ArrayCountSign(const void* array, const uint32_t sizeArray, const int8_t sign, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
     uint32_t negatives = 0;
@@ -1607,10 +1606,10 @@ uint32_t _ArrayCountSign(const void* array, const uint32_t sizeArray, const int8
     }
     else
     {
-        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 
-    if(sign == TRUE)
+    if(sign == POSITIVE)
     {
         return positives;
     }

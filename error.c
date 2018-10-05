@@ -3,27 +3,23 @@
 
 #include "error.h"
 
-void ErrorRaise(const uint32_t messageNumber, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void ErrorRaise(const int32_t messageNumber, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(messageNumber == errorSizePrint)
     {
-        fprintf(stderr,"Error: -101 Print Size Array.\n File: %s Function: %s, Line: %d", fileName, functionName, lineNumber);
-        exit(messageNumber);
+        fprintf(stderr,"%s\nError Number: %d.\nError Description: Print Size Array.\nFile: %s\nFile Line: %d\nFunction: %s\n%s\n", ERROR_HEADER_LIINE, messageNumber, fileName, lineNumber, functionName, ERROR_HEADER_LIINE);
     }
     else if(messageNumber == errorTypePrint)
     {
-        fprintf(stderr,"Error: -102 Print Data Type.\n File: %s Function: %s, Line: %d", fileName, functionName, lineNumber);
-        exit(messageNumber);
+        fprintf(stderr,"%s\nError Number: %d.\nError Description: Print Data Type.\nFile: %s\nFile Line: %d\nFunction: %s\n%s\n", ERROR_HEADER_LIINE, messageNumber, fileName, lineNumber, functionName, ERROR_HEADER_LIINE);
     }
     else if(messageNumber == errorSizeArray)
     {
-        fprintf(stderr,"Error: -201 Array Size Array.\n File: %s Function: %s, Line: %d", fileName, functionName, lineNumber);
-        exit(messageNumber);
+        fprintf(stderr,"%s\nError Number: %d.\nError Description: Array Size Array.\nFile: %s\nFile Line: %d\nFunction: %s\n%s\n", ERROR_HEADER_LIINE, messageNumber, fileName, lineNumber, functionName, ERROR_HEADER_LIINE);
     }
     else if(messageNumber == errorTypeArray)
     {
-        fprintf(stderr,"Error: -202 Array Type Array.\n File: %s Function: %s, Line: %d", fileName, functionName, lineNumber);
-        exit(messageNumber);
+        fprintf(stderr,"%s\nError Number: %d.\nError Description: Array Type Array.\nFile: %s\nFile Line: %d\nFunction: %s\n%s\n", ERROR_HEADER_LIINE, messageNumber, fileName, lineNumber, functionName, ERROR_HEADER_LIINE);
     }
     else if(messageNumber == errorBoundaryLimits)
     {
@@ -39,7 +35,7 @@ void ErrorRaise(const uint32_t messageNumber, const char* fileName, const char* 
     }
     else if(messageNumber == errorTypeAllocator)
     {
-
+        fprintf(stderr,"%s\nError Number: %d.\nError Description: Allocator Data Type.\nFile: %s\nFile Line: %d\nFunction: %s\n%s\n", ERROR_HEADER_LIINE, messageNumber, fileName, lineNumber, functionName, ERROR_HEADER_LIINE);
     }
     else if(messageNumber == errorNoAllocate)
     {

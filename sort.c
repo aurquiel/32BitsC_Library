@@ -3,11 +3,11 @@
 
 #include "sort.h"
 
-void _SortRadix(void *array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void _SortRadix(void *array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if( (sizeArray <= 0) )
     {
-        exit(errorSizeArraySort);
+        ErrorRaise(errorSizeArraySort, fileName, lineNumber, functionName);
     }
 
     if(typeData == CHAR)
@@ -52,7 +52,7 @@ void _SortRadix(void *array, const uint32_t sizeArray, const int8_t typeData, co
     }
     else
     {
-        exit(errorTypeSort);
+        ErrorRaise(errorTypeSort, fileName, lineNumber, functionName);
     }
 
 }

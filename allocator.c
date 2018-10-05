@@ -1,13 +1,14 @@
 #include "allocator.h"
 
-void* _AllocatorMalloc(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void* _AllocatorMalloc(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     void* auxiliarMemory = NULL;
 
     if(numberOfElements <= 0)
     {
-        exit(errorSizeAllocator);
+        ErrorRaise(errorSizeAllocator, fileName, lineNumber, functionName);
     }
+
     if(CHAR == typeData)
     {
         auxiliarMemory = (void*)malloc(numberOfElements*sizeof(char));
@@ -50,13 +51,12 @@ void* _AllocatorMalloc(const uint32_t numberOfElements, const int8_t typeData, c
     }
     else
     {
-        exit(errorTypeAllocator);
+        ErrorRaise(errorTypeAllocator, fileName, lineNumber, functionName);
     }
-
 
     if(auxiliarMemory == NULL)
     {
-        exit(errorNoAllocate);
+        ErrorRaise(errorNoAllocate, fileName, lineNumber, functionName);
     }
     else
     {
@@ -66,13 +66,13 @@ void* _AllocatorMalloc(const uint32_t numberOfElements, const int8_t typeData, c
     return NULL;
 }
 
-void** _AllocatorMallocTwoDimension(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void** _AllocatorMallocTwoDimension(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     void* auxiliarMemory = NULL;
 
     if(numberOfElements <= 0)
     {
-        exit(errorSizeAllocator);
+        ErrorRaise(errorSizeAllocator, fileName, lineNumber, functionName);
     }
 
     if(CHAR == typeData)
@@ -117,12 +117,12 @@ void** _AllocatorMallocTwoDimension(const uint32_t numberOfElements, const int8_
     }
     else
     {
-        exit(errorTypeAllocator);
+        ErrorRaise(errorTypeAllocator, fileName, lineNumber, functionName);
     }
 
     if(auxiliarMemory == NULL)
     {
-        exit(errorNoAllocate);
+        ErrorRaise(errorNoAllocate, fileName, lineNumber, functionName);
     }
     else
     {
@@ -132,13 +132,13 @@ void** _AllocatorMallocTwoDimension(const uint32_t numberOfElements, const int8_
     return NULL;
 }
 
-void* _AllocatorCalloc(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void* _AllocatorCalloc(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     void* auxiliarMemory = NULL;
 
     if(numberOfElements <= 0)
     {
-        exit(errorSizeAllocator);
+        ErrorRaise(errorSizeAllocator, fileName, lineNumber, functionName);
     }
 
     if(CHAR == typeData)
@@ -183,13 +183,13 @@ void* _AllocatorCalloc(const uint32_t numberOfElements, const int8_t typeData, c
     }
     else
     {
-        exit(errorTypeAllocator);
+        ErrorRaise(errorTypeAllocator, fileName, lineNumber, functionName);
     }
 
 
     if(auxiliarMemory == NULL)
     {
-        exit(errorNoAllocate);
+        ErrorRaise(errorNoAllocate, fileName, lineNumber, functionName);
     }
     else
     {
@@ -199,13 +199,13 @@ void* _AllocatorCalloc(const uint32_t numberOfElements, const int8_t typeData, c
     return NULL;
 }
 
-void** _AllocatorCallocTwoDimension(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void** _AllocatorCallocTwoDimension(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     void* auxiliarMemory = NULL;
 
     if(numberOfElements <= 0)
     {
-        exit(errorSizeAllocator);
+        ErrorRaise(errorSizeAllocator, fileName, lineNumber, functionName);
     }
 
     if(CHAR == typeData)
@@ -250,12 +250,12 @@ void** _AllocatorCallocTwoDimension(const uint32_t numberOfElements, const int8_
     }
     else
     {
-        exit(errorTypeAllocator);
+        ErrorRaise(errorTypeAllocator, fileName, lineNumber, functionName);
     }
 
     if(auxiliarMemory == NULL)
     {
-        exit(errorNoAllocate);
+        ErrorRaise(errorNoAllocate, fileName, lineNumber, functionName);
     }
     else
     {
@@ -265,13 +265,13 @@ void** _AllocatorCallocTwoDimension(const uint32_t numberOfElements, const int8_
     return NULL;
 }
 
-void* _AllocatorRealloc(void* arrayAllocated, const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void* _AllocatorRealloc(void* arrayAllocated, const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     void* auxiliarMemory = NULL;
 
     if(numberOfElements <= 0)
     {
-        exit(errorSizeAllocator);
+        ErrorRaise(errorSizeAllocator, fileName, lineNumber, functionName);
     }
 
     if(CHAR == typeData)
@@ -316,13 +316,13 @@ void* _AllocatorRealloc(void* arrayAllocated, const uint32_t numberOfElements, c
     }
     else
     {
-        exit(errorTypeAllocator);
+        ErrorRaise(errorTypeAllocator, fileName, lineNumber, functionName);
     }
 
 
     if(auxiliarMemory == NULL)
     {
-        exit(errorNoAllocate);
+        ErrorRaise(errorNoAllocate, fileName, lineNumber, functionName);
     }
     else
     {

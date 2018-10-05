@@ -1,10 +1,10 @@
 #include "print.h"
 
-void _PrintArray(void *array, const uint32_t sizeArray, const int8_t typeData, const char *functionName, const char *fileName, const uint32_t lineNumber)
+void _PrintArray(void *array, const uint32_t sizeArray, const int8_t typeData, const char *fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(sizeArray <= 0)
     {
-        ErrorRaise(errorSizePrint, fileName, functionName, lineNumber);
+        ErrorRaise(errorSizePrint, fileName, lineNumber, functionName);
     }
 
     if(CHAR == typeData)
@@ -19,7 +19,7 @@ void _PrintArray(void *array, const uint32_t sizeArray, const int8_t typeData, c
     {
         for(uint32_t i = 0; i < sizeArray; i++)
         {
-            printf("%c", *((unsigned char*)array + i));
+            printf("%d ", *((unsigned char*)array + i));
         }
         printf("\n");
     }
@@ -90,7 +90,7 @@ void _PrintArray(void *array, const uint32_t sizeArray, const int8_t typeData, c
     }
     else
     {
-        ErrorRaise(errorTypePrint, fileName, functionName, lineNumber);
+        ErrorRaise(errorTypePrint, fileName, lineNumber, functionName);
     }
 }
 

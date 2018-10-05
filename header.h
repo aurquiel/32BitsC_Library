@@ -4,6 +4,9 @@
 #define FALSE 0
 #define TRUE 1
 
+#define NEGATIVE 0
+#define POSITIVE 1
+
 #define EMPTY_ESCAPE '\0'
 
 #define ZERO 0

@@ -1,6 +1,6 @@
 #include "swap.h"
 
-void _Swap(void* a, void* b, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void _Swap(void* a, void* b, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(typeData == CHAR)
     {
@@ -64,11 +64,11 @@ void _Swap(void* a, void* b, const int8_t typeData, const char* fileName, const 
     }
     else
     {
-        exit(errorTypeSwap);
+        ErrorRaise(errorTypeSwap, fileName, lineNumber, functionName);
     }
 }
 
-void _SwapXor(void* a, void* b, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+void _SwapXor(void* a, void* b, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(typeData == CHAR)
     {
@@ -120,6 +120,6 @@ void _SwapXor(void* a, void* b, const int8_t typeData, const char* fileName, con
     }
     else
     {
-        exit(errorTypeSwap);
+        ErrorRaise(errorTypeSwapXor, fileName, lineNumber, functionName);
     }
 }
