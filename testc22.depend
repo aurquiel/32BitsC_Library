@@ -247,3 +247,101 @@
 1538598190 source:c:\users\egomez\desktop\repos\templatec\randomgenerator.c
 	"randomGenerator.h"
 
+1538706267 source:/home/void/Desktop/templateC/allocator.c
+	"allocator.h"
+
+1538706267 /home/void/Desktop/templateC/allocator.h
+	<stdlib.h>
+	<stdint.h>
+	"header.h"
+	"error.h"
+
+1538706267 /home/void/Desktop/templateC/header.h
+
+1538706267 /home/void/Desktop/templateC/error.h
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1538713288 source:/home/void/Desktop/templateC/aritmethic.c
+	"aritmethic.h"
+
+1538713288 /home/void/Desktop/templateC/aritmethic.h
+	"error.h"
+	"header.h"
+	<stdint.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+
+1538714253 source:/home/void/Desktop/templateC/array.c
+	"array.h"
+
+1538714302 /home/void/Desktop/templateC/array.h
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<time.h>
+	<stdio.h>
+	"allocator.h"
+	"swap.h"
+	"aritmethic.h"
+	"print.h"
+	"randomGenerator.h"
+
+1538706267 /home/void/Desktop/templateC/swap.h
+	<stdint.h>
+	<stdlib.h>
+	"header.h"
+	"error.h"
+
+1538706267 /home/void/Desktop/templateC/print.h
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	"header.h"
+	"error.h"
+
+1538706267 /home/void/Desktop/templateC/randomGenerator.h
+	<stdio.h>
+	<stdint.h>
+
+1538706267 source:/home/void/Desktop/templateC/error.c
+	"error.h"
+
+1538706248 source:/home/void/Desktop/templateC/file.c
+	"file.h"
+
+1538706248 /home/void/Desktop/templateC/file.h
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	"error.h"
+
+1538706267 source:/home/void/Desktop/templateC/print.c
+	"print.h"
+
+1538706267 source:/home/void/Desktop/templateC/sort.c
+	"sort.h"
+
+1538706267 /home/void/Desktop/templateC/sort.h
+	"error.h"
+	"header.h"
+	"allocator.h"
+	"array.h"
+	"radixSort.h"
+	<stdint.h>
+
+1538706248 /home/void/Desktop/templateC/radixSort.h
+
+1538706267 source:/home/void/Desktop/templateC/swap.c
+	"swap.h"
+
+1538710990 source:/home/void/Desktop/templateC/main.c
+	"print.h"
+	"array.h"
+	"allocator.h"
+	"sort.h"
+	"aritmethic.h"
+

@@ -471,6 +471,161 @@ void* _ArrayFindMaxValue(const void* array, const uint32_t sizeArray, const int8
     return NULL;
 }
 
+void* _ArrayFindMInimumValue(const void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+{
+    if(sizeArray <= 0)
+    {
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+    }
+
+    if(typeData == CHAR)
+    {
+        char *minimumValue = (char*)array;
+
+        for(uint32_t i = 0; i<sizeArray; i++)
+        {
+            if( *((char*)array + i) < *minimumValue)
+            {
+                minimumValue = ((char*)array + i);
+            }
+        }
+
+        return minimumValue;
+    }
+    else if(typeData == UNSIGNED_CHAR)
+    {
+        unsigned char *minimumValue= (unsigned char*)array;
+
+        for(uint32_t i = 0; i<sizeArray; i++)
+        {
+            if( *((unsigned char*)array + i) < *minimumValue)
+            {
+                minimumValue = ((unsigned char*)array + i);
+            }
+        }
+
+        return minimumValue;
+    }
+    else if(typeData == INT8)
+    {
+        int8_t *minimumValue = (int8_t*)array;
+
+        for(uint32_t i = 0; i<sizeArray; i++)
+        {
+            if( *((int8_t*)array + i) < *minimumValue)
+            {
+                minimumValue = ((int8_t*)array + i);
+            }
+        }
+
+        return minimumValue;
+    }
+    else if(typeData == UNSIGNED_INT8)
+    {
+        uint8_t *minimumValue = (uint8_t*)array;
+
+        for(uint32_t i = 0; i<sizeArray; i++)
+        {
+            if( *((uint8_t*)array + i) < *minimumValue)
+            {
+                minimumValue = ((uint8_t*)array + i);
+            }
+        }
+
+        return minimumValue;
+    }
+    else if(typeData == INT16)
+    {
+        int16_t *minimumValue = (int16_t*)array;
+
+        for(uint32_t i = 0; i<sizeArray; i++)
+        {
+            if( *((int16_t*)array + i) < *minimumValue)
+            {
+                minimumValue= ((int16_t*)array + i);
+            }
+        }
+
+        return minimumValue;
+    }
+    else if(typeData == UNSIGNED_INT16)
+    {
+        uint16_t *minimumValue = (uint16_t*)array;
+
+        for(uint32_t i = 0; i<sizeArray; i++)
+        {
+            if( *((uint16_t*)array + i) < *minimumValue)
+            {
+                minimumValue = ((uint16_t*)array + i);
+            }
+        }
+
+        return minimumValue;
+    }
+    else if(typeData == INT32)
+    {
+        int32_t *minimumValue = (int32_t*)array;
+
+        for(uint32_t i = 0; i<sizeArray; i++)
+        {
+            if( *((int32_t*)array + i) < *minimumValue)
+            {
+                minimumValue = ((int32_t*)array + i);
+            }
+        }
+
+        return minimumValue;
+    }
+    else if(typeData == UNSIGNED_INT32)
+    {
+        uint32_t *minimumValue = (uint32_t*)array;
+
+        for(uint32_t i = 0; i<sizeArray; i++)
+        {
+            if( *((uint32_t*)array + i) < *minimumValue)
+            {
+                minimumValue = ((uint32_t*)array + i);
+            }
+        }
+
+        return minimumValue;
+    }
+    else if(typeData == FLOAT)
+    {
+        float *minimumValue = (float*)array;
+
+        for(uint32_t i = 0; i<sizeArray; i++)
+        {
+            if( *((float*)array + i) < *minimumValue)
+            {
+                minimumValue = ((float*)array + i);
+            }
+        }
+
+        return minimumValue;
+    }
+    else if(typeData == DOUBLE)
+    {
+        double *minimumValue = (double*)array;
+
+        for(uint32_t i = 0; i<sizeArray; i++)
+        {
+            if( *((double*)array + i) < *minimumValue)
+            {
+                minimumValue = ((double*)array + i);
+            }
+        }
+
+        return minimumValue;
+    }
+    else
+    {
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+    }
+
+    return NULL;
+}
+
 uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* fileName,  const char* functionName, const uint32_t lineNumber)
 {
     if(sizeArray <= 0)
@@ -1214,6 +1369,254 @@ void _ArrayFillSequency(void *array, const uint32_t sizeArray, const void* start
     else
     {
         ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+    }
+}
+
+void _ArrayMultiplied(void* array, const uint32_t sizeArray, const void* multipe, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+{
+    if(sizeArray <= 0)
+    {
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+    }
+
+    if(typeData == CHAR)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((char*)array + i) *= *((char*)multipe);
+        }
+    }
+    else if (typeData == UNSIGNED_CHAR)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((unsigned char*)array + i) *= *((unsigned char*)multipe);
+        }
+    }
+    else if(typeData == INT8)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((int8_t*)array + i) *= *((int8_t*)multipe);
+        }
+    }
+    else if(typeData == UNSIGNED_INT8)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((uint8_t*)array + i) *= *((uint8_t*)multipe);
+        }
+    }
+    else if(typeData == INT16)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((int16_t*)array + i) *= *((int16_t*)multipe);
+        }
+    }
+    else if(typeData == UNSIGNED_INT16)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((uint16_t*)array + i) *= *((uint16_t*)multipe);
+        }
+    }
+    else if(typeData == INT32)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((int32_t*)array + i) *= *((int32_t*)multipe);
+        }
+    }
+    else if(typeData == UNSIGNED_INT32)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((uint32_t*)array + i) *= *((uint32_t*)multipe);
+        }
+    }
+    else if(typeData == FLOAT)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((float*)array + i) *= *((float*)multipe);
+        }
+    }
+    else if(typeData == DOUBLE)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((double*)array + i) *= *((double*)multipe);
+        }
+    }
+    else
+    {
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+    }
+}
+
+uint32_t _ArrayCountSign(const void* array, const uint32_t sizeArray, const int8_t sign, const int8_t typeData, const char* fileName, const char* functionName, const uint32_t lineNumber)
+{
+    if(sizeArray <= 0)
+    {
+        ErrorRaise(errorSizeArray, fileName, functionName, lineNumber);
+    }
+
+    uint32_t negatives = 0;
+    uint32_t positives = 0;
+
+    if(typeData == CHAR)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            if(*((char*)array + i) >= 0)
+            {
+                positives++;
+            }
+            else
+            {
+                negatives++;
+            }
+        }
+    }
+    else if (typeData == UNSIGNED_CHAR)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            if(*((unsigned char*)array + i) >= 0)
+            {
+                positives++;
+            }
+            else
+            {
+                negatives++;
+            }
+        }
+    }
+    else if(typeData == INT8)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            if(*((int8_t*)array + i) >= 0)
+            {
+                positives++;
+            }
+            else
+            {
+                negatives++;
+            }
+        }
+    }
+    else if(typeData == UNSIGNED_INT8)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            if(*((uint8_t*)array + i) >= 0)
+            {
+                positives++;
+            }
+            else
+            {
+                negatives++;
+            }
+        }
+    }
+    else if(typeData == INT16)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            if(*((int16_t*)array + i) >= 0)
+            {
+                positives++;
+            }
+            else
+            {
+                negatives++;
+            }
+        }
+    }
+    else if(typeData == UNSIGNED_INT16)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            if(*((uint16_t*)array + i) >= 0)
+            {
+                positives++;
+            }
+            else
+            {
+                negatives++;
+            }
+        }
+    }
+    else if(typeData == INT32)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            if(*((int32_t*)array + i) >= 0)
+            {
+                positives++;
+            }
+            else
+            {
+                negatives++;
+            }
+        }
+    }
+    else if(typeData == UNSIGNED_INT32)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            if(*((uint32_t*)array + i) >= 0)
+            {
+                positives++;
+            }
+            else
+            {
+                negatives++;
+            }
+        }
+    }
+    else if(typeData == FLOAT)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            if(*((float*)array + i) >= 0)
+            {
+                positives++;
+            }
+            else
+            {
+                negatives++;
+            }
+        }
+    }
+    else if(typeData == DOUBLE)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            if(*((double*)array + i) >= 0)
+            {
+                positives++;
+            }
+            else
+            {
+                negatives++;
+            }
+        }
+    }
+    else
+    {
+        ErrorRaise(errorTypeArray, fileName, functionName, lineNumber);
+    }
+
+    if(sign == TRUE)
+    {
+        return positives;
+    }
+    else
+    {
+        return negatives;
     }
 }
 #endif // ARRAY_C_INCLUDED
