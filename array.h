@@ -27,14 +27,15 @@
 #define ArrayReplaceAll(array, sizeArray, data, typeData) _ArrayReplaceAll(array, sizeArray, data, typeData, __FILE__, __LINE__, __FUNCTION__)
 #define ArrayReplaceFrequency(array, sizeArray, data, frequency, typeData) _ArrayReplaceFrequency(array, sizeArray, data, frequency, typeData, __FILE__, __LINE__, __FUNCTION__)
 #define ArrayFillSequency(array, sizeArray, startPoint, step, direction, typeData) _ArrayFillSequency(array, sizeArray, startPoint, step, direction, typeData, __FILE__, __LINE__, __FUNCTION__)
-#define ArrayMultiplied(array, sizeArray, multiple, typeData) _ArrayMultiplied(array, multiple, typeData, __FILE__, __LINE__, __FUNCTION__)
+#define ArrayMultiplyValue(array, sizeArray, multiple, typeData) _ArrayMultiplyValue(array, multiple, typeData, __FILE__, __LINE__, __FUNCTION__)
+#define ArrayAddValue(array, sizeArray, value, typeData) _ArrayAddValue(array, value, typeData, __FILE__, __LINE__, __FUNCTION__)
 #define ArrayCountSign(array, sizeArray, sign, typeData) _ArrayCountSign(array, sing, typeData, __FILE__, __LINE__, __FUNCTION__)
 
 void _ArrayInterchange(void* arrayA, const uint32_t sizeArrayA, void* arrayB, const uint32_t sizeArrayB, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
-void _ArrayCopy(void* arrayDestiny, const uint32_t sizeArrayDestiny, void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
+void _ArrayCopy(void* arrayDestiny, const uint32_t sizeArrayDestiny, const void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void _ArrayConcatenate(void* arrayDestiny, const uint32_t sizeArrayDestiny, void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void _ArrayClear(void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
-void _ArraySet(void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
+void _ArraySet(void* array, const uint32_t sizeArray, const void *data, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void* _ArrayFind(const void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void* _ArrayFindMaxValue(const void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void* _ArrayFindMinimumValue(const void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
@@ -45,6 +46,8 @@ void _ArrayReverseInterval(void *array, const uint32_t sizeArray, void* lowerLim
 void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* data, uint32_t frequency, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void _ArrayFillSequency(void *array, const uint32_t sizeArray, const void* startPoint, const void* step, int8_t direction, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
-void _ArrayMultiplied(void* array, const uint32_t sizeArray, const void* multipe, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
+void _ArrayMultiplyValue(void* array, const uint32_t sizeArray, const void* multipe, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
+void _ArrayAddValue(void* array, const uint32_t sizeArray, const void* value, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 uint32_t _ArrayCountSign(const void* array, const uint32_t sizeArray, const int8_t sign, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 #endif // ARRAY_H_INCLUDED
+

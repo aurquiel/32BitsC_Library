@@ -25,6 +25,6 @@
 #define DOUBLE 10
 #define STRUCT 11
 
-#define NumberOfArrayElements(x) (sizeof (x) / sizeof (*x))
+#define SizeOfArray(x) (sizeof (x) / sizeof (*x))
 
 #endif // HEADER_H_INCLUDED

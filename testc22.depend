@@ -345,3 +345,101 @@
 	"sort.h"
 	"aritmethic.h"
 
+1538748674 source:c:\users\egomez\desktop\repos\templatec32bit\allocator.c
+	"allocator.h"
+
+1538748501 c:\users\egomez\desktop\repos\templatec32bit\allocator.h
+	<stdlib.h>
+	<stdint.h>
+	"header.h"
+	"error.h"
+
+1539200128 c:\users\egomez\desktop\repos\templatec32bit\header.h
+
+1538747689 c:\users\egomez\desktop\repos\templatec32bit\error.h
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1538749038 source:c:\users\egomez\desktop\repos\templatec32bit\error.c
+	"error.h"
+
+1538742060 source:c:\users\egomez\desktop\repos\templatec32bit\file.c
+	"file.h"
+
+1538742060 c:\users\egomez\desktop\repos\templatec32bit\file.h
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	"error.h"
+
+1539203165 source:c:\users\egomez\desktop\repos\templatec32bit\main.c
+	"print.h"
+	"array.h"
+	"allocator.h"
+	"sort.h"
+	"aritmethic.h"
+
+1538746885 c:\users\egomez\desktop\repos\templatec32bit\print.h
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	"header.h"
+	"error.h"
+
+1539202402 c:\users\egomez\desktop\repos\templatec32bit\array.h
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<time.h>
+	<stdio.h>
+	"allocator.h"
+	"swap.h"
+	"aritmethic.h"
+	"print.h"
+	"randomGenerator.h"
+
+1538747689 c:\users\egomez\desktop\repos\templatec32bit\swap.h
+	<stdint.h>
+	<stdlib.h>
+	"header.h"
+	"error.h"
+
+1539111679 c:\users\egomez\desktop\repos\templatec32bit\aritmethic.h
+	"error.h"
+	"header.h"
+	<stdint.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+
+1538742078 c:\users\egomez\desktop\repos\templatec32bit\randomgenerator.h
+	<stdio.h>
+	<stdint.h>
+
+1538747484 c:\users\egomez\desktop\repos\templatec32bit\sort.h
+	"error.h"
+	"header.h"
+	"allocator.h"
+	"array.h"
+	"radixSort.h"
+	<stdint.h>
+
+1538742060 c:\users\egomez\desktop\repos\templatec32bit\radixsort.h
+
+1538746287 source:c:\users\egomez\desktop\repos\templatec32bit\print.c
+	"print.h"
+
+1539202671 source:c:\users\egomez\desktop\repos\templatec32bit\sort.c
+	"sort.h"
+
+1538746885 source:c:\users\egomez\desktop\repos\templatec32bit\swap.c
+	"swap.h"
+
+1539202770 source:c:\users\egomez\desktop\repos\templatec32bit\array.c
+	"array.h"
+
+1539111623 source:c:\users\egomez\desktop\repos\templatec32bit\aritmethic.c
+	"aritmethic.h"
+

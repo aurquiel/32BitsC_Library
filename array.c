@@ -18,7 +18,7 @@ void _ArrayInterchange(void* arrayA, const uint32_t sizeArrayA, void* arrayB, co
     AllocatorFree(auxiliarArray);
 }
 
-void _ArrayCopy(void* arrayDestiny, const uint32_t sizeArrayDestiny, void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
+void _ArrayCopy(void* arrayDestiny, const uint32_t sizeArrayDestiny, const void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if( (sizeArrayDestiny <= 0) || (sizeArraySource <= 0) || (sizeArrayDestiny < sizeArraySource) )
     {
@@ -148,7 +148,7 @@ void _ArrayClear(void* array, const uint32_t sizeArray, const int8_t typeData, c
     }
 }
 
-void _ArraySet(void* array, const uint32_t sizeArray, void *data, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
+void _ArraySet(void* array, const uint32_t sizeArray, const void *data, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(sizeArray <= 0)
     {
@@ -1371,7 +1371,7 @@ void _ArrayFillSequency(void *array, const uint32_t sizeArray, const void* start
     }
 }
 
-void _ArrayMultiplied(void* array, const uint32_t sizeArray, const void* multipe, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
+void _ArrayMultiplyValue(void* array, const uint32_t sizeArray, const void* multipe, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(sizeArray <= 0)
     {
@@ -1446,6 +1446,89 @@ void _ArrayMultiplied(void* array, const uint32_t sizeArray, const void* multipe
         for(uint32_t i = 0; i < sizeArray; i++)
         {
             *((double*)array + i) *= *((double*)multipe);
+        }
+    }
+    else
+    {
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
+    }
+}
+
+void _ArrayAddValue(void* array, const uint32_t sizeArray, const void* value, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
+{
+    if(sizeArray <= 0)
+    {
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
+    }
+
+    if(typeData == CHAR)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((char*)array + i) += *((char*)value);
+        }
+    }
+    else if (typeData == UNSIGNED_CHAR)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((unsigned char*)array + i) += *((unsigned char*)value);
+        }
+    }
+    else if(typeData == INT8)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((int8_t*)array + i) += *((int8_t*)value);
+        }
+    }
+    else if(typeData == UNSIGNED_INT8)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((uint8_t*)array + i) += *((uint8_t*)value);
+        }
+    }
+    else if(typeData == INT16)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((int16_t*)array + i) += *((int16_t*)value);
+        }
+    }
+    else if(typeData == UNSIGNED_INT16)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((uint16_t*)array + i) += *((uint16_t*)value);
+        }
+    }
+    else if(typeData == INT32)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((int32_t*)array + i) += *((int32_t*)value);
+        }
+    }
+    else if(typeData == UNSIGNED_INT32)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((uint32_t*)array + i) += *((uint32_t*)value);
+        }
+    }
+    else if(typeData == FLOAT)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((float*)array + i) += *((float*)value);
+        }
+    }
+    else if(typeData == DOUBLE)
+    {
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((double*)array + i) += *((double*)value);
         }
     }
     else
@@ -1616,6 +1699,119 @@ uint32_t _ArrayCountSign(const void* array, const uint32_t sizeArray, const int8
     else
     {
         return negatives;
+    }
+}
+
+void _ArrayCopySignedNumbers(void* arrayDestiny, const uint32_t sizeArrayDestiny, const void* arraySource, const uint32_t sizeArraySource, const int8_t sign, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
+{
+    if( (sizeArrayDestiny <= 0) || (sizeArraySource <= 0) || (sizeArrayDestiny < sizeArraySource) )
+    {
+        ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
+    }
+
+    if(typeData == CHAR)
+    {
+        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        {
+            if(sign == POSITIVE && *((char*)arraySource + i) >= 0 )
+            {
+                *((char*)arrayDestiny + j++) = *((char*)arraySource + i);
+            }
+            else if(sign == NEGATIVE && *((char*)arraySource + i) < 0 )
+            {
+                *((char*)arrayDestiny + j++) = *((char*)arraySource + i);
+            }
+        }
+    }
+    else if (typeData == UNSIGNED_CHAR)
+    {
+        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        {
+            if(sign == POSITIVE && *((unsigned char*)arraySource + i) >= 0 )
+            {
+                *((unsigned char*)arrayDestiny + j++) = *((unsigned char*)arraySource + i);
+            }
+            else if(sign == NEGATIVE && *((unsigned char*)arraySource + i) < 0 )
+            {
+                *((unsigned char*)arrayDestiny + j++) = *((unsigned char*)arraySource + i);
+            }
+        }
+    }
+    else if(typeData == INT8)
+    {
+        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        {
+            if(sign == POSITIVE && *((int8_t*)arraySource + i) >= 0 )
+            {
+                *((int8_t*)arrayDestiny + j++) = *((int8_t*)arraySource + i);
+            }
+            else if(sign == NEGATIVE && *((int8_t*)arraySource + i) < 0 )
+            {
+                *((int8_t*)arrayDestiny + j++) = *((int8_t*)arraySource + i);
+            }
+        }
+    }
+    else if(typeData == UNSIGNED_INT8)
+    {
+        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        {
+            if(sign == POSITIVE && *((uint8_t*)arraySource + i) >= 0 )
+            {
+                *((int8_t*)arrayDestiny + j++) = *((uint8_t*)arraySource + i);
+            }
+            else if(sign == NEGATIVE && *((uint8_t*)arraySource + i) < 0 )
+            {
+                *((uint8_t*)arrayDestiny + j++) = *((uint8_t*)arraySource + i);
+            }
+        }
+    }
+    else if(typeData == INT16)
+    {
+        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        {
+            if(sign == POSITIVE && *((int16_t*)arraySource + i) >= 0 )
+            {
+                *((int16_t*)arrayDestiny + j++) = *((int16_t*)arraySource + i);
+            }
+            else if(sign == NEGATIVE && *((int16_t*)arraySource + i) < 0 )
+            {
+                *((int16_t*)arrayDestiny + j++) = *((int16_t*)arraySource + i);
+            }
+        }
+    }
+    else if(typeData == UNSIGNED_INT16)
+    {
+        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        {
+            if(sign == POSITIVE && *((uint16_t*)arraySource + i) >= 0 )
+            {
+                *((uint16_t*)arrayDestiny + j++) = *((uint16_t*)arraySource + i);
+            }
+            else if(sign == NEGATIVE && *((uint16_t*)arraySource + i) < 0 )
+            {
+                *((uint16_t*)arrayDestiny + j++) = *((uint16_t*)arraySource + i);
+            }
+        }
+    }
+    else if(typeData == INT32)
+    {
+
+    }
+    else if(typeData == UNSIGNED_INT32)
+    {
+
+    }
+    else if(typeData == FLOAT)
+    {
+
+    }
+    else if(typeData == DOUBLE)
+    {
+
+    }
+    else
+    {
+        ErrorRaise(errorTypeArray, fileName, lineNumber, functionName);
     }
 }
 #endif // ARRAY_C_INCLUDED

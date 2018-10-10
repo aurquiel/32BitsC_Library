@@ -12,6 +12,11 @@ void _SortRadix(void *array, const uint32_t sizeArray, const int8_t typeData, co
 
     if(typeData == CHAR)
     {
+      //  uint32_t negativeNumbers = _ArrayCountSign(array,sizeArray,NEGATIVE,typeData,fileName,lineNumber,functionName);
+       // uint32_t positiveNumbers = sizeArray - negativeNumbers;
+        //char* ArrayNegatives = _AllocatorCalloc(negativeNumbers,typeData,fileName,lineNumber,functionName);
+//        char* ArrayPositives = _AllocatorCalloc(positiveNumbers,typeData,fileName,lineNumber,functionName);
+        //_ArrayCopySignNumbers()
         RADIX_SORT_OPERATIONS(array,sizeArray,char,typeData);
     }
     else if(typeData == UNSIGNED_CHAR)

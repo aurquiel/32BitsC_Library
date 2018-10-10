@@ -93,11 +93,24 @@ uint32_t _AritmethicNumberOfDigitsString(const void* number, const int8_t typeDa
     return digitNumbers;
 }
 
-int8_t _AritmethicGetIndividualDigit(const void* number, const uint32_t positionDigit, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
+int8_t _AritmethicGetIndividualDigit(const void* number, const uint32_t precision, const uint32_t positionDigit, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
+    uint32_t multiplyer = 10;
+    int32_t numberOperations = *((int32_t*)number);
+
     if(typeData >= CHAR && typeData <= UNSIGNED_INT32)
     {
+        for(uint32_t i = 0; i < positionDigit - 1; i++)
+        {
+            multiplyer *= 10;
+        }
 
+        numberOperations -= ((int32_t)(numberOperations/multiplyer))*multiplyer;
+        if(multiplyer != 10)
+        {
+            multiplyer /= 10;
+            numberOperations = ((int32_t)(numberOperations/multiplyer));
+        }
     }
     else if(typeData == FLOAT)
     {
