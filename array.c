@@ -1825,19 +1825,59 @@ void _ArrayCopySignedNumbers(void* arrayDestiny, const uint32_t sizeArrayDestiny
     }
     else if(typeData == INT32)
     {
-
+        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        {
+            if(sign == POSITIVE && *((int32_t*)arraySource + i) >= 0 )
+            {
+                *((int32_t*)arrayDestiny + j++) = *((int32_t*)arraySource + i);
+            }
+            else if(sign == NEGATIVE && *((int32_t*)arraySource + i) < 0 )
+            {
+                *((int32_t*)arrayDestiny + j++) = *((int32_t*)arraySource + i);
+            }
+        }
     }
     else if(typeData == UNSIGNED_INT32)
     {
-
+        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        {
+            if(sign == POSITIVE && *((uint32_t*)arraySource + i) >= 0 )
+            {
+                *((uint32_t*)arrayDestiny + j++) = *((uint32_t*)arraySource + i);
+            }
+            else if(sign == NEGATIVE && *((uint32_t*)arraySource + i) < 0 )
+            {
+                *((uint32_t*)arrayDestiny + j++) = *((uint32_t*)arraySource + i);
+            }
+        }
     }
     else if(typeData == FLOAT)
     {
-
+        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        {
+            if(sign == POSITIVE && *((float*)arraySource + i) >= 0 )
+            {
+                *((float*)arrayDestiny + j++) = *((float*)arraySource + i);
+            }
+            else if(sign == NEGATIVE && *((float*)arraySource + i) < 0 )
+            {
+                *((float*)arrayDestiny + j++) = *((float*)arraySource + i);
+            }
+        }
     }
     else if(typeData == DOUBLE)
     {
-
+        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        {
+            if(sign == POSITIVE && *((double*)arraySource + i) >= 0 )
+            {
+                *((double*)arrayDestiny + j++) = *((double*)arraySource + i);
+            }
+            else if(sign == NEGATIVE && *((double*)arraySource + i) < 0 )
+            {
+                *((double*)arrayDestiny + j++) = *((double*)arraySource + i);
+            }
+        }
     }
     else
     {

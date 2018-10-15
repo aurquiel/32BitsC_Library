@@ -374,7 +374,7 @@
 	<stdlib.h>
 	"error.h"
 
-1539203165 source:c:\users\egomez\desktop\repos\templatec32bit\main.c
+1539636539 source:c:\users\egomez\desktop\repos\templatec32bit\main.c
 	"print.h"
 	"array.h"
 	"allocator.h"
@@ -388,7 +388,7 @@
 	"header.h"
 	"error.h"
 
-1539202402 c:\users\egomez\desktop\repos\templatec32bit\array.h
+1539636871 c:\users\egomez\desktop\repos\templatec32bit\array.h
 	<string.h>
 	<stdlib.h>
 	<stdint.h>
@@ -437,7 +437,7 @@
 1538746885 source:c:\users\egomez\desktop\repos\templatec32bit\swap.c
 	"swap.h"
 
-1539260054 source:c:\users\egomez\desktop\repos\templatec32bit\array.c
+1539636770 source:c:\users\egomez\desktop\repos\templatec32bit\array.c
 	"array.h"
 
 1539111623 source:c:\users\egomez\desktop\repos\templatec32bit\aritmethic.c

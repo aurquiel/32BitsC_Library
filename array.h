@@ -30,6 +30,7 @@
 #define ArrayMultiplyValue(array, sizeArray, multiple, typeData) _ArrayMultiplyValue(array, multiple, typeData, __FILE__, __LINE__, __FUNCTION__)
 #define ArrayAddValue(array, sizeArray, value, typeData) _ArrayAddValue(array, value, typeData, __FILE__, __LINE__, __FUNCTION__)
 #define ArrayCountSign(array, sizeArray, sign, typeData) _ArrayCountSign(array, sing, typeData, __FILE__, __LINE__, __FUNCTION__)
+#define ArrayCopySignedNumbers(arrayDestiny, sizeArrayDestiny, arraySource, sizeArraySource, sign, typeData) _ArrayCopySignedNumbers(arrayDestiny, sizeArrayDestiny, arraySource, sizeArraySource, sign, typeData, __FILE__, __LINE__, __FUNCTION__)
 
 void _ArrayInterchange(void* arrayA, const uint32_t sizeArrayA, void* arrayB, const uint32_t sizeArrayB, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void _ArrayCopy(void* arrayDestiny, const uint32_t sizeArrayDestiny, const void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
@@ -49,5 +50,6 @@ void _ArrayFillSequency(void *array, const uint32_t sizeArray, const void* start
 void _ArrayMultiplyValue(void* array, const uint32_t sizeArray, const void* multipe, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void _ArrayAddValue(void* array, const uint32_t sizeArray, const void* value, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 uint32_t _ArrayCountSign(const void* array, const uint32_t sizeArray, const int8_t sign, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
+void _ArrayCopySignedNumbers(void* arrayDestiny, const uint32_t sizeArrayDestiny, const void* arraySource, const uint32_t sizeArraySource, const int8_t sign, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 #endif // ARRAY_H_INCLUDED
 
