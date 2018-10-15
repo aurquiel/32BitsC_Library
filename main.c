@@ -36,7 +36,7 @@ void TestArrayInterchange(void)
     double Array1DOUBLE[10] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,6.3,-7.2,8.1,-9.0};
     double Array2DOUBLE[10] = {10.0,-11.1,12.2,-13.3,14.4,-15.5,16.6,-17.7,18.8,-19.9};
 
-    printf("-----TEST ArrayIntercange()-----\n");
+    printf("-----TEST ArrayInterchange()-----\n");
     printf("\n");
     printf("CHAR ARRAY\n");
     printf("Array 1:\n");
@@ -191,7 +191,7 @@ void TestArrayCopy(void)
     double Array1DOUBLE[10] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,6.3,-7.2,8.1,-9.0};
     double Array2DOUBLE[10] = {10.0,-11.1,12.2,-13.3,14.4,-15.5,16.6,-17.7,18.8,-19.9};
 
-    printf("-----TEST ArrayCopy-----()\n");
+    printf("-----TEST ArrayCopy()-----\n");
     printf("\n");
     printf("CHAR ARRAY\n");
     printf("Array 1:\n");
@@ -346,7 +346,7 @@ void TestArrayConcatenate(void)
     double Array1DOUBLE[20] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,6.3,-7.2,8.1,-9.0};
     double Array2DOUBLE[10] = {10.0,-11.1,12.2,-13.3,14.4,-15.5,16.6,-17.7,18.8,-19.9};
 
-    printf("-----TEST ArrayConcatenate-----()\n");
+    printf("-----TEST ArrayConcatenate()-----\n");
     printf("\n");
     printf("CHAR ARRAY\n");
     printf("Array 1:\n");
@@ -491,7 +491,7 @@ void TestArrayClear(void)
 
     double Array1DOUBLE[10] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,6.3,-7.2,8.1,-9.0};
 
-    printf("-----TEST ArrayClear-----()\n");
+    printf("-----TEST ArrayClear()-----\n");
     printf("\n");
     printf("CHAR ARRAY\n");
     printf("Array 1:\n");
@@ -606,7 +606,7 @@ void TestArraySet(void)
     double Array1DOUBLE[10] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,6.3,-7.2,8.1,-9.0};
     double dataDOUBLE = 546.356745;
 
-    printf("-----TEST ArraySet-----()\n");
+    printf("-----TEST ArraySet()-----\n");
     printf("\n");
     printf("CHAR ARRAY\n");
     printf("Array 1:\n");

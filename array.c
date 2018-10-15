@@ -157,43 +157,73 @@ void _ArraySet(void* array, const uint32_t sizeArray, const void *data, const in
 
     if(typeData == CHAR)
     {
-        memset( (char*)array, *((char*)data), sizeof(char)*sizeArray);
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((char*)array + i) = *((char*)data);
+        }
     }
     else if (typeData == UNSIGNED_CHAR)
     {
-        memset((unsigned char*)array, *((unsigned char*)data), sizeof(unsigned char)*sizeArray);
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((unsigned char*)array + i) = *((unsigned char*)data);
+        }
     }
     else if(typeData == INT8)
     {
-        memset((int8_t*)array, *((int8_t*)data), sizeof(int8_t)*sizeArray);
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((int8_t*)array + i) = *((int8_t*)data);
+        }
     }
     else if(typeData == UNSIGNED_INT8)
     {
-        memset((uint8_t*)array, *((uint8_t*)data), sizeof(uint8_t)*sizeArray);
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((uint8_t*)array + i) = *((uint8_t*)data);
+        }
     }
     else if(typeData == INT16)
     {
-        memset((int16_t*)array, *((int16_t*)data), sizeof(int16_t)*sizeArray);
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((int16_t*)array + i) = *((int16_t*)data);
+        }
     }
     else if(typeData == UNSIGNED_INT16)
     {
-        memset((uint16_t*)array, *((uint16_t*)data), sizeof(uint16_t)*sizeArray);
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((uint16_t*)array + i) = *((uint16_t*)data);
+        }
     }
     else if(typeData == INT32)
     {
-        memset((int32_t*)array, *((int32_t*)data), sizeof(int32_t)*sizeArray);
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((int32_t*)array + i) = *((int32_t*)data);
+        }
     }
     else if(typeData == UNSIGNED_INT32)
     {
-        memset((uint32_t*)array, *((uint32_t*)data), sizeof(uint32_t)*sizeArray);
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((uint32_t*)array + i) = *((uint32_t*)data);
+        }
     }
     else if(typeData == FLOAT)
     {
-        memset((float*)array, *((float*)data), sizeof(float)*sizeArray);
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((float*)array + i) = *((float*)data);
+        }
     }
     else if(typeData == DOUBLE)
     {
-        memset((double*)array, *((double*)data), sizeof(double)*sizeArray);
+        for(uint32_t i = 0; i < sizeArray; i++)
+        {
+            *((double*)array + i) = *((double*)data);
+        }
     }
     else
     {
