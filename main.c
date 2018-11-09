@@ -689,6 +689,521 @@ void TestArraySet(void)
     printf("\n");
 }
 
+void TestArrayFind(void)
+{
+    char Array1CHAR[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+    char dataCHAR = -7;
+
+    unsigned char Array1UCHAR[10] = {0,1,2,3,4,5,6,7,8,9};
+    unsigned char dataUCHAR = 8;
+
+    int8_t Array1INT8[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+    int8_t dataINT8 = -9;
+
+    uint8_t Array1UINT8[10] = {0,1,2,3,4,5,6,7,8,9};
+    uint8_t dataUINT8 = 5;
+
+    int16_t Array1INT16[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+    int16_t dataINT16 = -3;
+
+    uint16_t Array1UINT16[10] = {0,1,2,3,4,5,6,7,8,9};
+    uint16_t dataUINT16 = 4;
+
+    int32_t Array1INT32[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+    int32_t dataINT32 = 8;
+
+    uint32_t Array1UINT32[10] = {0,1,2,3,4,5,6,7,8,9};
+    uint32_t dataUINT32 = 5;
+
+    float Array1FLOAT[10] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,6.3,-7.2,8.1,-9.0};
+    float dataFLOAT = -7.2;
+
+    double Array1DOUBLE[10] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,6.3,-7.2,8.1,-9.0};
+    double dataDOUBLE = -9.0;
+
+    printf("-----TEST ArrayFind()-----\n");
+    printf("\n");
+
+    printf("CHAR ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1CHAR,SizeOfArray(Array1CHAR),CHAR);
+    printf("Data to search: %d\n", dataCHAR);
+    printf("Data Founded: %d\n", *((char*)ArrayFind(Array1CHAR,SizeOfArray(Array1CHAR),(char*)&dataCHAR,CHAR)));
+    printf("\n");
+
+    printf("UNSIGNED CHAR ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UCHAR,SizeOfArray(Array1UCHAR),UNSIGNED_CHAR);
+    printf("Data to search: %d\n", dataUCHAR);
+    printf("Data Founded: %d\n", *((unsigned char*)ArrayFind(Array1UCHAR,SizeOfArray(Array1UCHAR),(unsigned char*)&dataUCHAR,UNSIGNED_CHAR)));
+    printf("\n");
+
+    printf("INT8 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT8,SizeOfArray(Array1INT8),INT8);
+    printf("Data to search: %d\n", dataINT8);
+    printf("Data Founded: %d\n", *((int8_t*)ArrayFind(Array1INT8,SizeOfArray(Array1INT8),(int8_t*)&dataINT8,INT8)));
+    printf("\n");
+
+    printf("UNSIGNED INT8 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT8,SizeOfArray(Array1UINT8),UNSIGNED_INT8);
+    printf("Data to search: %d\n", dataUINT8);
+    printf("Data Founded: %d\n", *((uint8_t*)ArrayFind(Array1UINT8,SizeOfArray(Array1UINT8),(uint8_t*)&dataUINT8,UNSIGNED_INT8)));
+    printf("\n");
+
+    printf("INT16 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT16,SizeOfArray(Array1INT16),INT16);
+    printf("Data to search: %d\n", dataINT16);
+    printf("Data Founded: %d\n", *((int16_t*)ArrayFind(Array1INT16,SizeOfArray(Array1INT16),(int16_t*)&dataINT16,INT16)));
+    printf("\n");
+
+    printf("UNSIGNED INT16 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT16,SizeOfArray(Array1UINT16),UNSIGNED_INT16);
+    printf("Data to search: %d\n", dataUINT16);
+    printf("Data Founded: %d\n", *((int16_t*)ArrayFind(Array1UINT16,SizeOfArray(Array1UINT16),(int16_t*)&dataUINT16,UNSIGNED_INT16)));
+    printf("\n");
+
+    printf("INT32 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT32,SizeOfArray(Array1INT32),INT32);
+    printf("Data to search: %d\n", dataINT32);
+    printf("Data Founded: %d\n", *((int32_t*)ArrayFind(Array1INT32,SizeOfArray(Array1INT32),(int32_t*)&dataINT32,INT32)));
+    printf("\n");
+
+    printf("UNSIGNED INT32 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT32,SizeOfArray(Array1UINT32),UNSIGNED_INT32);
+    printf("Data to search: %d\n", dataUINT32);
+    printf("Data Founded: %d\n", *((uint32_t*)ArrayFind(Array1UINT32,SizeOfArray(Array1UINT32),(uint32_t*)&dataUINT32,UNSIGNED_INT32)));
+    printf("\n");
+
+    printf("FLOAT ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1FLOAT,SizeOfArray(Array1FLOAT),FLOAT);
+    printf("Data to search: %f\n", dataFLOAT);
+    printf("Data Founded: %f\n", *((float*)ArrayFind(Array1FLOAT,SizeOfArray(Array1FLOAT),(float*)&dataFLOAT,FLOAT)));
+    printf("\n");
+
+    printf("DOUBLE ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1DOUBLE,SizeOfArray(Array1DOUBLE),DOUBLE);
+    printf("Data to search: %f\n", dataDOUBLE);
+    printf("Data Founded: %f\n", *((double*)ArrayFind(Array1DOUBLE,SizeOfArray(Array1DOUBLE),(double*)&dataDOUBLE,DOUBLE)));
+    printf("\n");
+}
+
+void TestArrayFindMaximumValue(void)
+{
+    char Array1CHAR[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+
+    unsigned char Array1UCHAR[10] = {0,1,2,3,4,5,6,7,8,9};
+
+    int8_t Array1INT8[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+
+    uint8_t Array1UINT8[10] = {0,1,2,3,4,5,6,7,8,9};
+
+    int16_t Array1INT16[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+
+    uint16_t Array1UINT16[10] = {0,1,2,3,4,5,6,7,8,9};
+
+    int32_t Array1INT32[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+
+    uint32_t Array1UINT32[10] = {0,1,2,3,4,5,6,7,8,9};
+
+    float Array1FLOAT[10] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,6.3,-7.2,8.1,-9.0};
+
+    double Array1DOUBLE[10] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,6.3,-7.2,8.1,-9.0};
+
+    printf("-----TEST ArrayFindMaximumValue()-----\n");
+    printf("\n");
+
+    printf("CHAR ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1CHAR,SizeOfArray(Array1CHAR),CHAR);
+    printf("Maximum Value: %d\n", *((char*)ArrayFindMaximumValue(Array1CHAR,SizeOfArray(Array1CHAR),CHAR)));
+    printf("\n");
+
+    printf("UNSIGNED CHAR ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UCHAR,SizeOfArray(Array1UCHAR),UNSIGNED_CHAR);
+    printf("Maximum Value: %d\n", *((unsigned char*)ArrayFindMaximumValue(Array1UCHAR,SizeOfArray(Array1UCHAR),UNSIGNED_CHAR)));
+    printf("\n");
+
+    printf("INT8 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT8,SizeOfArray(Array1INT8),INT8);
+    printf("Maximum Value: %d\n", *((int8_t*)ArrayFindMaximumValue(Array1INT8,SizeOfArray(Array1INT8),INT8)));
+    printf("\n");
+
+    printf("UNSIGNED INT8 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT8,SizeOfArray(Array1UINT8),UNSIGNED_INT8);
+    printf("Maximum Value: %d\n", *((uint8_t*)ArrayFindMaximumValue(Array1UINT8,SizeOfArray(Array1UINT8),UNSIGNED_INT8)));
+    printf("\n");
+
+    printf("INT16 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT16,SizeOfArray(Array1INT16),INT16);
+    printf("Maximum Value: %d\n", *((int16_t*)ArrayFindMaximumValue(Array1INT16,SizeOfArray(Array1INT16),INT16)));
+    printf("\n");
+
+    printf("UNSIGNED INT16 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT16,SizeOfArray(Array1UINT16),UNSIGNED_INT16);;
+    printf("Maximum Value: %d\n", *((int16_t*)ArrayFindMaximumValue(Array1UINT16,SizeOfArray(Array1UINT16),UNSIGNED_INT16)));
+    printf("\n");
+
+    printf("INT32 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT32,SizeOfArray(Array1INT32),INT32);
+    printf("Maximum Value: %d\n", *((int32_t*)ArrayFindMaximumValue(Array1INT32,SizeOfArray(Array1INT32),INT32)));
+    printf("\n");
+
+    printf("UNSIGNED INT32 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT32,SizeOfArray(Array1UINT32),UNSIGNED_INT32);
+    printf("Maximum Value: %d\n", *((uint32_t*)ArrayFindMaximumValue(Array1UINT32,SizeOfArray(Array1UINT32),UNSIGNED_INT32)));
+    printf("\n");
+
+    printf("FLOAT ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1FLOAT,SizeOfArray(Array1FLOAT),FLOAT);
+    printf("Maximum Value: %f\n", *((float*)ArrayFindMaximumValue(Array1FLOAT,SizeOfArray(Array1FLOAT),FLOAT)));
+    printf("\n");
+
+    printf("DOUBLE ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1DOUBLE,SizeOfArray(Array1DOUBLE),DOUBLE);
+    printf("Maximum Value: %f\n", *((double*)ArrayFindMaximumValue(Array1DOUBLE,SizeOfArray(Array1DOUBLE),DOUBLE)));
+    printf("\n");
+}
+
+void TestArrayFindMinimumValue(void)
+{
+    char Array1CHAR[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+
+    unsigned char Array1UCHAR[10] = {0,1,2,3,4,5,6,7,8,9};
+
+    int8_t Array1INT8[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+
+    uint8_t Array1UINT8[10] = {0,1,2,3,4,5,6,7,8,9};
+
+    int16_t Array1INT16[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+
+    uint16_t Array1UINT16[10] = {0,1,2,3,4,5,6,7,8,9};
+
+    int32_t Array1INT32[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+
+    uint32_t Array1UINT32[10] = {0,1,2,3,4,5,6,7,8,9};
+
+    float Array1FLOAT[10] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,6.3,-7.2,8.1,-9.0};
+
+    double Array1DOUBLE[10] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,6.3,-7.2,8.1,-9.0};
+
+    printf("-----TEST ArrayFindMinimumValue()-----\n");
+    printf("\n");
+
+    printf("CHAR ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1CHAR,SizeOfArray(Array1CHAR),CHAR);
+    printf("Minimum Value: %d\n", *((char*)ArrayFindMinimumValue(Array1CHAR,SizeOfArray(Array1CHAR),CHAR)));
+    printf("\n");
+
+    printf("UNSIGNED CHAR ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UCHAR,SizeOfArray(Array1UCHAR),UNSIGNED_CHAR);
+    printf("Minimum Value: %d\n", *((unsigned char*)ArrayFindMinimumValue(Array1UCHAR,SizeOfArray(Array1UCHAR),UNSIGNED_CHAR)));
+    printf("\n");
+
+    printf("INT8 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT8,SizeOfArray(Array1INT8),INT8);
+    printf("Minimum Value: %d\n", *((int8_t*)ArrayFindMinimumValue(Array1INT8,SizeOfArray(Array1INT8),INT8)));
+    printf("\n");
+
+    printf("UNSIGNED INT8 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT8,SizeOfArray(Array1UINT8),UNSIGNED_INT8);
+    printf("Minimum Value: %d\n", *((uint8_t*)ArrayFindMinimumValue(Array1UINT8,SizeOfArray(Array1UINT8),UNSIGNED_INT8)));
+    printf("\n");
+
+    printf("INT16 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT16,SizeOfArray(Array1INT16),INT16);
+    printf("Minimum Value: %d\n", *((int16_t*)ArrayFindMinimumValue(Array1INT16,SizeOfArray(Array1INT16),INT16)));
+    printf("\n");
+
+    printf("UNSIGNED INT16 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT16,SizeOfArray(Array1UINT16),UNSIGNED_INT16);;
+    printf("Minimum Value: %d\n", *((int16_t*)ArrayFindMinimumValue(Array1UINT16,SizeOfArray(Array1UINT16),UNSIGNED_INT16)));
+    printf("\n");
+
+    printf("INT32 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT32,SizeOfArray(Array1INT32),INT32);
+    printf("Minimum Value: %d\n", *((int32_t*)ArrayFindMinimumValue(Array1INT32,SizeOfArray(Array1INT32),INT32)));
+    printf("\n");
+
+    printf("UNSIGNED INT32 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT32,SizeOfArray(Array1UINT32),UNSIGNED_INT32);
+    printf("Minimum Value: %d\n", *((uint32_t*)ArrayFindMinimumValue(Array1UINT32,SizeOfArray(Array1UINT32),UNSIGNED_INT32)));
+    printf("\n");
+
+    printf("FLOAT ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1FLOAT,SizeOfArray(Array1FLOAT),FLOAT);
+    printf("Minimum Value: %f\n", *((float*)ArrayFindMinimumValue(Array1FLOAT,SizeOfArray(Array1FLOAT),FLOAT)));
+    printf("\n");
+
+    printf("DOUBLE ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1DOUBLE,SizeOfArray(Array1DOUBLE),DOUBLE);
+    printf("Minimum Value: %f\n", *((double*)ArrayFindMinimumValue(Array1DOUBLE,SizeOfArray(Array1DOUBLE),DOUBLE)));
+    printf("\n");
+}
+
+void TestArrayFindNumberRepetitions(void)
+{
+    char Array1CHAR[10] = {-7,-1,2,-7,4,-5,6,-7,8,-9};
+    char dataCHAR = -7;
+
+    unsigned char Array1UCHAR[10] = {0,1,2,8,4,5,8,7,8,9};
+    unsigned char dataUCHAR = 8;
+
+    int8_t Array1INT8[10] = {0,-1,2,-3,4,-5,6,-7,8,-10};
+    int8_t dataINT8 = -9;
+
+    uint8_t Array1UINT8[10] = {0,1,5,3,4,5,6,7,8,9};
+    uint8_t dataUINT8 = 5;
+
+    int16_t Array1INT16[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+    int16_t dataINT16 = -3;
+
+    uint16_t Array1UINT16[10] = {4,4,4,3,4,5,6,4,8,9};
+    uint16_t dataUINT16 = 4;
+
+    int32_t Array1INT32[10] = {0,-1,2,-3,4,-5,6,-7,56,-9};
+    int32_t dataINT32 = 8;
+
+    uint32_t Array1UINT32[10] = {5,1,2,3,4,5,6,5,8,5};
+    uint32_t dataUINT32 = 5;
+
+    float Array1FLOAT[10] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,6.3,-7.2,8.1,-9.0};
+    float dataFLOAT = -7.2;
+
+    double Array1DOUBLE[10] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,-9.0,-7.2,8.1,-9.0};
+    double dataDOUBLE = -9.0;
+
+    printf("-----TEST ArrayFindNumberRepetitions()-----\n");
+    printf("\n");
+
+    printf("CHAR ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1CHAR,SizeOfArray(Array1CHAR),CHAR);
+    printf("Data to search: %d\n", dataCHAR);
+    printf("Data Repetitions in Array: %d\n", ArrayFindNumberRepetitions(Array1CHAR,SizeOfArray(Array1CHAR),(char*)&dataCHAR,CHAR));
+    printf("\n");
+
+    printf("UNSIGNED CHAR ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UCHAR,SizeOfArray(Array1UCHAR),UNSIGNED_CHAR);
+    printf("Data to search: %d\n", dataUCHAR);
+    printf("Data Repetitions in Array: %d\n", ArrayFindNumberRepetitions(Array1UCHAR,SizeOfArray(Array1UCHAR),(unsigned char*)&dataUCHAR,UNSIGNED_CHAR));
+    printf("\n");
+
+    printf("INT8 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT8,SizeOfArray(Array1INT8),INT8);
+    printf("Data to search: %d\n", dataINT8);
+    printf("Data Repetitions in Array: %d\n", ArrayFindNumberRepetitions(Array1INT8,SizeOfArray(Array1INT8),(int8_t*)&dataINT8,INT8));
+    printf("\n");
+
+    printf("UNSIGNED INT8 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT8,SizeOfArray(Array1UINT8),UNSIGNED_INT8);
+    printf("Data to search: %d\n", dataUINT8);
+    printf("Data Repetitions in Array: %d\n", ArrayFindNumberRepetitions(Array1UINT8,SizeOfArray(Array1UINT8),(uint8_t*)&dataUINT8,UNSIGNED_INT8));
+    printf("\n");
+
+    printf("INT16 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT16,SizeOfArray(Array1INT16),INT16);
+    printf("Data to search: %d\n", dataINT16);
+    printf("Data Repetitions in Array: %d\n", ArrayFindNumberRepetitions(Array1INT16,SizeOfArray(Array1INT16),(int16_t*)&dataINT16,INT16));
+    printf("\n");
+
+    printf("UNSIGNED INT16 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT16,SizeOfArray(Array1UINT16),UNSIGNED_INT16);
+    printf("Data to search: %d\n", dataUINT16);
+    printf("Data Repetitions in Array: %d\n", ArrayFindNumberRepetitions(Array1UINT16,SizeOfArray(Array1UINT16),(int16_t*)&dataUINT16,UNSIGNED_INT16));
+    printf("\n");
+
+    printf("INT32 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT32,SizeOfArray(Array1INT32),INT32);
+    printf("Data to search: %d\n", dataINT32);
+    printf("Data Repetitions in Array: %d\n", ArrayFindNumberRepetitions(Array1INT32,SizeOfArray(Array1INT32),(int32_t*)&dataINT32,INT32));
+    printf("\n");
+
+    printf("UNSIGNED INT32 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT32,SizeOfArray(Array1UINT32),UNSIGNED_INT32);
+    printf("Data to search: %d\n", dataUINT32);
+    printf("Data Repetitions in Array: %d\n", ArrayFindNumberRepetitions(Array1UINT32,SizeOfArray(Array1UINT32),(uint32_t*)&dataUINT32,UNSIGNED_INT32));
+    printf("\n");
+
+    printf("FLOAT ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1FLOAT,SizeOfArray(Array1FLOAT),FLOAT);
+    printf("Data to search: %f\n", dataFLOAT);
+    printf("Data Repetitions in Array: %d\n", ArrayFindNumberRepetitions(Array1FLOAT,SizeOfArray(Array1FLOAT),(float*)&dataFLOAT,FLOAT));
+    printf("\n");
+
+    printf("DOUBLE ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1DOUBLE,SizeOfArray(Array1DOUBLE),DOUBLE);
+    printf("Data to search: %f\n", dataDOUBLE);
+    printf("Data Repetitions in Array: %d\n", ArrayFindNumberRepetitions(Array1DOUBLE,SizeOfArray(Array1DOUBLE),(double*)&dataDOUBLE,DOUBLE));
+    printf("\n");
+}
+
+void TestArrayEndChar()
+{
+    char Array1CHAR[3] = {'a','b'};
+
+    unsigned char Array1UCHAR[3] = {'a','b'};
+
+    printf("-----TEST ArrayEndChar()-----\n");
+    printf("\n");
+
+    printf("CHAR ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1CHAR,SizeOfArray(Array1CHAR),CHAR);
+    ArrayEndChar(Array1CHAR,SizeOfArray(Array1CHAR),CHAR);
+    PrintArray(Array1CHAR,SizeOfArray(Array1CHAR),CHAR);
+    printf("\n");
+
+    printf("UNSIGNED CHAR ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UCHAR,SizeOfArray(Array1UCHAR),UNSIGNED_CHAR);
+    ArrayEndChar(Array1UCHAR,SizeOfArray(Array1UCHAR),UNSIGNED_CHAR);
+    PrintArray(Array1UCHAR,SizeOfArray(Array1UCHAR),UNSIGNED_CHAR);
+    printf("\n");
+
+}
+
+void TestArrayReverse(void)
+{
+    char Array1CHAR[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+
+    unsigned char Array1UCHAR[10] = {0,1,2,3,4,5,6,7,8,9};
+
+    int8_t Array1INT8[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+
+    uint8_t Array1UINT8[10] = {0,1,2,3,4,5,6,7,8,9};
+
+    int16_t Array1INT16[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+
+    uint16_t Array1UINT16[10] = {0,1,2,3,4,5,6,7,8,9};
+
+    int32_t Array1INT32[10] = {0,-1,2,-3,4,-5,6,-7,8,-9};
+
+    uint32_t Array1UINT32[10] = {0,1,2,3,4,5,6,7,8,9};
+
+    float Array1FLOAT[10] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,6.3,-7.2,8.1,-9.0};
+
+    double Array1DOUBLE[10] = {0.9,-1.8,2.7,-3.6,4.5,-5.4,6.3,-7.2,8.1,-9.0};
+
+    printf("-----TEST ArrayFindMinimumValue()-----\n");
+    printf("\n");
+
+    printf("CHAR ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1CHAR,SizeOfArray(Array1CHAR),CHAR);
+    ArrayReverse(Array1CHAR,SizeOfArray(Array1CHAR),CHAR);
+    printf("Array Reverse: ");
+    PrintArray(Array1CHAR,SizeOfArray(Array1CHAR),CHAR);
+    printf("\n");
+
+    printf("UNSIGNED CHAR ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UCHAR,SizeOfArray(Array1UCHAR),UNSIGNED_CHAR);
+    ArrayReverse(Array1UCHAR,SizeOfArray(Array1UCHAR),UNSIGNED_CHAR);
+    printf("Array Reverse: ");
+    PrintArray(Array1UCHAR,SizeOfArray(Array1UCHAR),UNSIGNED_CHAR);
+    printf("\n");
+
+    printf("INT8 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT8,SizeOfArray(Array1INT8),INT8);
+    ArrayReverse(Array1INT8,SizeOfArray(Array1INT8),INT8);
+    printf("Array Reverse: ");
+    PrintArray(Array1INT8,SizeOfArray(Array1INT8),INT8);
+    printf("\n");
+
+    printf("UNSIGNED INT8 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT8,SizeOfArray(Array1UINT8),UNSIGNED_INT8);
+    ArrayReverse(Array1UINT8,SizeOfArray(Array1UINT8),UNSIGNED_INT8);
+    printf("Array Reverse: ");
+    PrintArray(Array1UINT8,SizeOfArray(Array1UINT8),UNSIGNED_INT8);
+    printf("\n");
+
+    printf("INT16 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT16,SizeOfArray(Array1INT16),INT16);
+    ArrayReverse(Array1INT16,SizeOfArray(Array1INT16),INT16);
+    printf("Array Reverse: ");
+    PrintArray(Array1INT16,SizeOfArray(Array1INT16),INT16);
+    printf("\n");
+
+    printf("UNSIGNED INT16 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT16,SizeOfArray(Array1UINT16),UNSIGNED_INT16);
+    ArrayReverse(Array1UINT16,SizeOfArray(Array1UINT16),UNSIGNED_INT16);
+    printf("Array Reverse: ");
+    PrintArray(Array1UINT16,SizeOfArray(Array1UINT16),UNSIGNED_INT16);
+    printf("\n");
+
+    printf("INT32 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1INT32,SizeOfArray(Array1INT32),INT32);
+    ArrayReverse(Array1INT32,SizeOfArray(Array1INT32),INT32);
+    printf("Array Reverse: ");
+    PrintArray(Array1INT32,SizeOfArray(Array1INT32),INT32);
+    printf("\n");
+
+    printf("UNSIGNED INT32 ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1UINT32,SizeOfArray(Array1UINT32),UNSIGNED_INT32);
+    ArrayReverse(Array1UINT32,SizeOfArray(Array1UINT32),UNSIGNED_INT32);
+    printf("Array Reverse: ");
+    PrintArray(Array1UINT32,SizeOfArray(Array1UINT32),UNSIGNED_INT32);
+    printf("\n");
+
+    printf("FLOAT ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1FLOAT,SizeOfArray(Array1FLOAT),FLOAT);
+    ArrayReverse(Array1FLOAT,SizeOfArray(Array1FLOAT),FLOAT);
+    printf("Array Reverse: ");
+    PrintArray(Array1FLOAT,SizeOfArray(Array1FLOAT),FLOAT);
+    printf("\n");
+
+    printf("DOUBLE ARRAY\n");
+    printf("Array: ");
+    PrintArray(Array1DOUBLE,SizeOfArray(Array1DOUBLE),DOUBLE);
+    ArrayReverse(Array1DOUBLE,SizeOfArray(Array1DOUBLE),DOUBLE);
+    printf("Array Reverse: ");
+    PrintArray(Array1DOUBLE,SizeOfArray(Array1DOUBLE),DOUBLE);
+    printf("\n");
+}
+
 int main()
 {
     TestArrayInterchange();
@@ -696,6 +1211,20 @@ int main()
     TestArrayConcatenate();
     TestArrayClear();
     TestArraySet();
+    TestArrayFind();
+    TestArrayFindMaximumValue();
+    TestArrayFindMinimumValue();
+    TestArrayFindNumberRepetitions();
+    TestArrayEndChar();
+    TestArrayReverse();
+    //TestArrayReverseInterval();
+ //   TestArrayReplaceAll();
+   // TestArrayReplaceFrequency();
+   // TestArrayFillSequency();
+   // TestArrayMultiplyValue();
+   // TestArrayAddValue();
+   // TestArrayCountSign();
+   // TestArrayCopySignedNumbers();
 
     return EXIT_SUCCESS;
 }

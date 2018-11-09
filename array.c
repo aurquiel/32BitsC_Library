@@ -346,7 +346,7 @@ void* _ArrayFind(const void* array, const uint32_t sizeArray, void *data, const 
     return NULL;
 }
 
-void* _ArrayFindMaxValue(const void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
+void* _ArrayFindMaximumValue(const void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
     if(sizeArray <= 0)
     {
@@ -662,7 +662,7 @@ uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray
         ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
-    uint64_t numberRepetitions = 0;
+    uint32_t numberRepetitions = 0;
 
     if(typeData == CHAR)
     {
