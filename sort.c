@@ -10,7 +10,7 @@ void _SortRadix(void *array, const uint32_t sizeArray, const int8_t typeData, co
         ErrorRaise(errorSizeArraySort, fileName, lineNumber, functionName);
     }
 
-    if(typeData == CHAR)
+    if(CHAR == typeData)
     {
       //  uint32_t negativeNumbers = _ArrayCountSign(array,sizeArray,NEGATIVE,typeData,fileName,lineNumber,functionName);
        // uint32_t positiveNumbers = sizeArray - negativeNumbers;
@@ -19,39 +19,39 @@ void _SortRadix(void *array, const uint32_t sizeArray, const int8_t typeData, co
         //_ArrayCopySignNumbers()
         RADIX_SORT_OPERATIONS(array,sizeArray,char,typeData);
     }
-    else if(typeData == UNSIGNED_CHAR)
+    else if(UNSIGNED_CHAR == typeData)
     {
         RADIX_SORT_OPERATIONS(array,sizeArray,unsigned char,typeData);
     }
-    else if(typeData == INT8)
+    else if(INT8 == typeData)
     {
         RADIX_SORT_OPERATIONS(array,sizeArray,int8_t,typeData);
     }
-    else if(typeData == UNSIGNED_INT8)
+    else if(UNSIGNED_INT8 == typeData)
     {
         RADIX_SORT_OPERATIONS(array,sizeArray,uint8_t,typeData);
     }
-    else if(typeData == INT16)
+    else if(INT16 == typeData)
     {
         RADIX_SORT_OPERATIONS(array,sizeArray,int16_t,typeData);
     }
-    else if(typeData == UNSIGNED_INT16)
+    else if(UNSIGNED_INT16 == typeData)
     {
         RADIX_SORT_OPERATIONS(array,sizeArray,uint16_t,typeData);
     }
-    else if(typeData == INT32)
+    else if(INT32 == typeData)
     {
         RADIX_SORT_OPERATIONS(array,sizeArray,int32_t,typeData);
     }
-    else if(typeData == UNSIGNED_INT32)
+    else if(UNSIGNED_INT32 == typeData)
     {
         RADIX_SORT_OPERATIONS(array,sizeArray,uint32_t,typeData);
     }
-    else if(typeData == FLOAT)
+    else if(FLOAT == typeData)
     {
         RADIX_SORT_OPERATIONS(array,sizeArray,float,typeData);
     }
-    else if(typeData == DOUBLE)
+    else if(DOUBLE == typeData)
     {
         RADIX_SORT_OPERATIONS(array,sizeArray,double,typeData);
     }

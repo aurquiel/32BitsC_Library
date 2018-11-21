@@ -25,12 +25,12 @@
 #define ArrayRandomGenerator(array, sizeArray, lowerLimit, upperLimit, typeData) _ArrayRandomGenerator(array, sizeArray, lowerLimit, upperLimit, typeData, __FILE__, __LINE__, __FUNCTION__)
 #define ArrayReverse(array, sizeArray, typeData) _ArrayReverse(array, sizeArray, typeData, __FILE__, __LINE__, __FUNCTION__)
 #define ArrayReverseInterval(array, sizeArray, lowerLimit, upperLimit, typeData) _ArrayReverseInterval(array, sizeArray,  lowerLimit, upperLimit, typeData, __FILE__, __LINE__, __FUNCTION__)
-#define ArrayReplaceAll(array, sizeArray, data, typeData) _ArrayReplaceAll(array, sizeArray, data, typeData, __FILE__, __LINE__, __FUNCTION__)
-#define ArrayReplaceFrequency(array, sizeArray, data, frequency, typeData) _ArrayReplaceFrequency(array, sizeArray, data, frequency, typeData, __FILE__, __LINE__, __FUNCTION__)
-#define ArrayFillSequency(array, sizeArray, startPoint, step, direction, typeData) _ArrayFillSequency(array, sizeArray, startPoint, step, direction, typeData, __FILE__, __LINE__, __FUNCTION__)
-#define ArrayMultiplyValue(array, sizeArray, multiple, typeData) _ArrayMultiplyValue(array, multiple, typeData, __FILE__, __LINE__, __FUNCTION__)
-#define ArrayAddValue(array, sizeArray, value, typeData) _ArrayAddValue(array, value, typeData, __FILE__, __LINE__, __FUNCTION__)
-#define ArrayCountSign(array, sizeArray, sign, typeData) _ArrayCountSign(array, sing, typeData, __FILE__, __LINE__, __FUNCTION__)
+#define ArrayReplaceData(array, sizeArray, dataFind, dataReplace, typeData) _ArrayReplaceData(array, sizeArray, dataFind, dataReplace, typeData, __FILE__, __LINE__, __FUNCTION__)
+#define ArrayReplaceDataFrequency(array, sizeArray, dataFind, dataReplace, frequency, typeData) _ArrayReplaceDataFrequency(array, sizeArray, dataFind, dataReplace, frequency, typeData, __FILE__, __LINE__, __FUNCTION__)
+#define ArrayFillSequence(array, sizeArray, startPoint, step, typeData) _ArrayFillSequence(array, sizeArray, startPoint, step, typeData, __FILE__, __LINE__, __FUNCTION__)
+#define ArrayMultiplyValue(array, sizeArray, multiple, typeData) _ArrayMultiplyValue(array, sizeArray, multiple, typeData, __FILE__, __LINE__, __FUNCTION__)
+#define ArrayAddValue(array, sizeArray, value, typeData) _ArrayAddValue(array, sizeArray, value, typeData, __FILE__, __LINE__, __FUNCTION__)
+#define ArrayCountSign(array, sizeArray, sign, typeData) _ArrayCountSign(array, sizeArray, sign, typeData, __FILE__, __LINE__, __FUNCTION__)
 #define ArrayCopySignedNumbers(arrayDestiny, sizeArrayDestiny, arraySource, sizeArraySource, sign, typeData) _ArrayCopySignedNumbers(arrayDestiny, sizeArrayDestiny, arraySource, sizeArraySource, sign, typeData, __FILE__, __LINE__, __FUNCTION__)
 
 void _ArrayInterchange(void* arrayA, const uint32_t sizeArrayA, void* arrayB, const uint32_t sizeArrayB, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
@@ -45,9 +45,9 @@ uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray
 void _ArrayEndChar(void* array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void _ArrayReverse(void *array, const uint32_t sizeArray, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void _ArrayReverseInterval(void *array, const uint32_t sizeArray, void* lowerLimit, void* upperLimit, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
-void _ArrayReplaceAll(void *array, const uint32_t sizeArray, const void* data, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
-void _ArrayReplaceFrequency(void *array, const uint32_t sizeArray, const void* data, uint32_t frequency, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
-void _ArrayFillSequency(void *array, const uint32_t sizeArray, const void* startPoint, const void* step, int8_t direction, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
+void _ArrayReplaceData(void *array, const uint32_t sizeArray, const void* dataFind, const void* dataReplace, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
+void _ArrayReplaceDataFrequency(void *array, const uint32_t sizeArray, const void* dataFind, const void* dataReplace, uint32_t frequency, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
+void _ArrayFillSequence(void *array, const uint32_t sizeArray, void* const startPoint, void* const step, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void _ArrayMultiplyValue(void* array, const uint32_t sizeArray, const void* multipe, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void _ArrayAddValue(void* array, const uint32_t sizeArray, const void* value, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 uint32_t _ArrayCountSign(const void* array, const uint32_t sizeArray, const int8_t sign, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);

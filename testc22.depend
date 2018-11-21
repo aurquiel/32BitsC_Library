@@ -443,3 +443,110 @@
 1539111623 source:c:\users\egomez\desktop\repos\templatec32bit\aritmethic.c
 	"aritmethic.h"
 
+1542132607 source:c:\users\egomez\desktop\repos\32bitsc_library\allocator.c
+	"allocator.h"
+
+1542132607 c:\users\egomez\desktop\repos\32bitsc_library\allocator.h
+	<stdlib.h>
+	<stdint.h>
+	"header.h"
+	"error.h"
+
+1542380884 c:\users\egomez\desktop\repos\32bitsc_library\header.h
+
+1542132607 c:\users\egomez\desktop\repos\32bitsc_library\error.h
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1542828943 source:c:\users\egomez\desktop\repos\32bitsc_library\aritmethic.c
+	"aritmethic.h"
+
+1542132607 c:\users\egomez\desktop\repos\32bitsc_library\aritmethic.h
+	"error.h"
+	"header.h"
+	<stdint.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+
+1542828684 source:c:\users\egomez\desktop\repos\32bitsc_library\array.c
+	"array.h"
+
+1542825239 c:\users\egomez\desktop\repos\32bitsc_library\array.h
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<time.h>
+	<stdio.h>
+	"allocator.h"
+	"swap.h"
+	"aritmethic.h"
+	"print.h"
+	"randomGenerator.h"
+
+1542132607 c:\users\egomez\desktop\repos\32bitsc_library\swap.h
+	<stdint.h>
+	<stdlib.h>
+	"header.h"
+	"error.h"
+
+1542132607 c:\users\egomez\desktop\repos\32bitsc_library\print.h
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	"header.h"
+	"error.h"
+
+1542132607 c:\users\egomez\desktop\repos\32bitsc_library\randomgenerator.h
+	<stdio.h>
+	<stdint.h>
+
+1542134357 source:c:\users\egomez\desktop\repos\32bitsc_library\error.c
+	"error.h"
+
+1542132607 source:c:\users\egomez\desktop\repos\32bitsc_library\file.c
+	"file.h"
+
+1542132607 c:\users\egomez\desktop\repos\32bitsc_library\file.h
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	"error.h"
+
+1542829127 source:c:\users\egomez\desktop\repos\32bitsc_library\main.c
+	"testArray.h"
+
+1542132607 c:\users\egomez\desktop\repos\32bitsc_library\sort.h
+	"error.h"
+	"header.h"
+	"allocator.h"
+	"array.h"
+	"radixSort.h"
+	<stdint.h>
+
+1542827997 c:\users\egomez\desktop\repos\32bitsc_library\radixsort.h
+
+1542132607 source:c:\users\egomez\desktop\repos\32bitsc_library\print.c
+	"print.h"
+
+1542828861 source:c:\users\egomez\desktop\repos\32bitsc_library\sort.c
+	"sort.h"
+
+1542828784 source:c:\users\egomez\desktop\repos\32bitsc_library\swap.c
+	"swap.h"
+
+1542829122 source:c:\users\egomez\desktop\repos\32bitsc_library\test.c
+
+1542135234 c:\users\egomez\desktop\repos\32bitsc_library\test.h
+	<stdint.h>
+	"array.h"
+
+1542829122 c:\users\egomez\desktop\repos\32bitsc_library\testarray.h
+	<stdint.h>
+	"array.h"
+
+1542829152 source:c:\users\egomez\desktop\repos\32bitsc_library\testarray.c
+	"testArray.h"
+

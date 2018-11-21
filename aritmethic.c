@@ -4,7 +4,7 @@ uint32_t _AritmethicGetIntegerString(void *number, const int8_t typeData, const 
 {
     uint32_t integerPart = 0;
 
-    if(typeData == CHAR || typeData == UNSIGNED_CHAR)
+    if(CHAR  == typeData || UNSIGNED_CHAR == typeData)
     {
         char *separator = strstr((char*)number,".");
         uint32_t numberOfNumbers = separator - (char*)number;
@@ -26,7 +26,7 @@ uint32_t _AritmethicGetDecimalString(void *number, const int32_t precision, cons
 {
     uint32_t decimalPart = 0;
 
-    if(typeData == CHAR || typeData == UNSIGNED_CHAR)
+    if(CHAR  == typeData || UNSIGNED_CHAR == typeData)
     {
         char *separator = strstr((char*)number,".");
         uint32_t longDecimalPart = strlen(++separator);
@@ -74,7 +74,7 @@ uint32_t _AritmethicNumberOfDigitsString(const void* number, const int8_t typeDa
 {
     uint32_t digitNumbers = 0;
 
-    if(typeData == CHAR || typeData == UNSIGNED_CHAR)
+    if(CHAR  == typeData || UNSIGNED_CHAR == typeData)
     {
         if(strstr((char*)number,"."))
         {
@@ -112,11 +112,11 @@ int8_t _AritmethicGetIndividualDigit(const void* number, const uint32_t precisio
             numberOperations = ((int32_t)(numberOperations/multiplyer));
         }
     }
-    else if(typeData == FLOAT)
+    else if(FLOAT == typeData)
     {
 
     }
-    else if(typeData == DOUBLE)
+    else if(DOUBLE == typeData)
     {
 
     }

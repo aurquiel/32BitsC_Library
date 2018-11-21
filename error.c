@@ -1,6 +1,3 @@
-#ifndef ERROR_C_INCLUDED
-#define ERROR_C_INCLUDED
-
 #include "error.h"
 
 void ErrorRaise(const int32_t messageNumber, const char* fileName, const uint32_t lineNumber, const char* functionName)
@@ -51,4 +48,3 @@ void ErrorRaise(const int32_t messageNumber, const char* fileName, const uint32_
     }
 
 }
-#endif // ERROR_C_INCLUDED

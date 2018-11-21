@@ -7,9 +7,10 @@
 #define NEGATIVE 0
 #define POSITIVE 1
 
-#define EMPTY_ESCAPE '\0'
+#define DECREASING 0
+#define INCREASING 1
 
-#define ZERO 0
+#define EMPTY_ESCAPE '\0'
 
 #define NATURAL_NUMBERS 10
 

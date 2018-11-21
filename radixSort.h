@@ -5,7 +5,7 @@
 {                                                                                           \
     TYPE *repetitionsArray = (TYPE*)AllocatorCalloc(NATURAL_NUMBERS,TYPE_DATA);             \
     TYPE *temporaryArray = (TYPE*)AllocatorCalloc(SIZE_ARRAY,TYPE_DATA);                    \
-    TYPE maxValue = *((TYPE*)ArrayFindMaximumValue(ARRAY,SIZE_ARRAY,TYPE_DATA));                \
+    TYPE maxValue = *((TYPE*)ArrayFindMaximumValue(ARRAY,SIZE_ARRAY,TYPE_DATA));            \
     int32_t divisor = 1;                                                                    \
                                                                                             \
     while( (maxValue/divisor) > 0)                                                          \
