@@ -443,16 +443,16 @@
 1539111623 source:c:\users\egomez\desktop\repos\templatec32bit\aritmethic.c
 	"aritmethic.h"
 
-1542132607 source:c:\users\egomez\desktop\repos\32bitsc_library\allocator.c
+1542910591 source:c:\users\egomez\desktop\repos\32bitsc_library\allocator.c
 	"allocator.h"
 
-1542132607 c:\users\egomez\desktop\repos\32bitsc_library\allocator.h
+1542910591 c:\users\egomez\desktop\repos\32bitsc_library\allocator.h
 	<stdlib.h>
 	<stdint.h>
 	"header.h"
 	"error.h"
 
-1542380884 c:\users\egomez\desktop\repos\32bitsc_library\header.h
+1542910282 c:\users\egomez\desktop\repos\32bitsc_library\header.h
 
 1542132607 c:\users\egomez\desktop\repos\32bitsc_library\error.h
 	<stdint.h>
@@ -471,7 +471,7 @@
 	<math.h>
 	<string.h>
 
-1542828684 source:c:\users\egomez\desktop\repos\32bitsc_library\array.c
+1542829451 source:c:\users\egomez\desktop\repos\32bitsc_library\array.c
 	"array.h"
 
 1542825239 c:\users\egomez\desktop\repos\32bitsc_library\array.h
@@ -515,8 +515,9 @@
 	<stdlib.h>
 	"error.h"
 
-1542829127 source:c:\users\egomez\desktop\repos\32bitsc_library\main.c
+1542976789 source:c:\users\egomez\desktop\repos\32bitsc_library\main.c
 	"testArray.h"
+	"queue.h"
 
 1542132607 c:\users\egomez\desktop\repos\32bitsc_library\sort.h
 	"error.h"
@@ -549,4 +550,11 @@
 
 1542829152 source:c:\users\egomez\desktop\repos\32bitsc_library\testarray.c
 	"testArray.h"
+
+1542978698 source:c:\users\egomez\desktop\repos\32bitsc_library\queue.c
+	"queue.h"
+
+1542977883 c:\users\egomez\desktop\repos\32bitsc_library\queue.h
+	<stdlib.h>
+	<stdint.h>
 

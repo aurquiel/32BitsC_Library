@@ -24,7 +24,7 @@
 #define UNSIGNED_INT32 8
 #define FLOAT 9
 #define DOUBLE 10
-#define STRUCT 11
+#define STRUCT_TYPE 11
 
 #define SizeOfArray(x) (sizeof (x) / sizeof (*x))
 

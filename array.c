@@ -29,7 +29,7 @@ void _ArrayCopy(void* arrayDestiny, const uint32_t sizeArrayDestiny, const void*
     {
         memcpy((char*)arrayDestiny, (char*)arraySource, sizeof(char)*sizeArraySource);
     }
-    else if (UNSIGNED_CHAR == typeData)
+    else if(UNSIGNED_CHAR == typeData)
     {
         memcpy((unsigned char*)arrayDestiny, (unsigned char*)arraySource, sizeof(unsigned char)*sizeArraySource);
     }
@@ -162,7 +162,7 @@ void _ArraySet(void* array, const uint32_t sizeArray, const void *data, const in
             *((char*)array + i) = *((char*)data);
         }
     }
-    else if (UNSIGNED_CHAR == typeData)
+    else if(UNSIGNED_CHAR == typeData)
     {
         for(uint32_t i = 0; i < sizeArray; i++)
         {
@@ -675,7 +675,7 @@ uint32_t _ArrayFindNumberRepetitions(const void* array, const uint32_t sizeArray
             nextSizeArray = (sizeArray - ((char*)positionFound - (char*)array));
         }
     }
-    else if (UNSIGNED_CHAR == typeData)
+    else if(UNSIGNED_CHAR == typeData)
     {
         unsigned char *positionFound = (unsigned char*)array;
         uint32_t nextSizeArray = sizeArray;
@@ -794,7 +794,7 @@ void _ArrayEndChar(void* array, const uint32_t sizeArray, const int8_t typeData,
     {
         memset(((char*)array + sizeArray -1), EMPTY_ESCAPE, 1);
     }
-    else if (UNSIGNED_CHAR == typeData)
+    else if(UNSIGNED_CHAR == typeData)
     {
         memset(((unsigned char*)array + sizeArray - 1), EMPTY_ESCAPE, 1);
     }
@@ -994,7 +994,7 @@ void _ArrayReplaceData(void *array, const uint32_t sizeArray, const void* dataFi
             nextSizeArray = (sizeArray - ((char*)positionFound - (char*)array));
         }
     }
-    else if (UNSIGNED_CHAR == typeData)
+    else if(UNSIGNED_CHAR == typeData)
     {
         unsigned char *positionFound = (unsigned char*)array;
         uint32_t nextSizeArray = sizeArray;
@@ -1223,7 +1223,7 @@ void _ArrayFillSequence(void *array, const uint32_t sizeArray, void* const start
             *((char*)array + i) = *((char*)array + i -1) + *((char*)step);
         }
     }
-    else if (UNSIGNED_CHAR == typeData)
+    else if(UNSIGNED_CHAR == typeData)
     {
         *((unsigned char*)array) = *((unsigned char*)startPoint);
         for (uint32_t i = 1; i < sizeArray ; i++)
@@ -1315,7 +1315,7 @@ void _ArrayMultiplyValue(void* array, const uint32_t sizeArray, const void* mult
             *((char*)array + i) *= *((char*)multipe);
         }
     }
-    else if (UNSIGNED_CHAR == typeData)
+    else if(UNSIGNED_CHAR == typeData)
     {
         for(uint32_t i = 0; i < sizeArray; i++)
         {
@@ -1398,7 +1398,7 @@ void _ArrayAddValue(void* array, const uint32_t sizeArray, const void* value, co
             *((char*)array + i) += *((char*)value);
         }
     }
-    else if (UNSIGNED_CHAR == typeData)
+    else if(UNSIGNED_CHAR == typeData)
     {
         for(uint32_t i = 0; i < sizeArray; i++)
         {
