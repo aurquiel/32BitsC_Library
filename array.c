@@ -132,7 +132,7 @@ void _ArrayClear(void* array, const uint32_t sizeArray, const int8_t typeData, c
     }
 
     const char emptyEscape = EMPTY_ESCAPE;
-    const int8_t zero = FALSE;
+    const int32_t zero = FALSE;
 
     if( (CHAR == typeData) || (UNSIGNED_CHAR == typeData))
     {
@@ -1641,7 +1641,7 @@ void _ArrayCopySignedNumbers(void* arrayDestiny, const uint32_t sizeArrayDestiny
 
     if(CHAR == typeData)
     {
-        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        for(uint32_t i = 0, j = 0; i < sizeArrayDestiny && i < sizeArraySource ; i++)
         {
             if(sign == POSITIVE && *((char*)arraySource + i) >= 0 )
             {
@@ -1655,7 +1655,7 @@ void _ArrayCopySignedNumbers(void* arrayDestiny, const uint32_t sizeArrayDestiny
     }
     else if(UNSIGNED_CHAR == typeData)
     {
-        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        for(uint32_t i = 0, j = 0 ; i < sizeArrayDestiny && i<sizeArraySource; i++)
         {
             if(sign == POSITIVE && *((unsigned char*)arraySource + i) >= 0 )
             {
@@ -1669,7 +1669,7 @@ void _ArrayCopySignedNumbers(void* arrayDestiny, const uint32_t sizeArrayDestiny
     }
     else if(INT8 == typeData)
     {
-        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        for(uint32_t i = 0, j = 0 ; i < sizeArrayDestiny && i<sizeArraySource; i++)
         {
             if(sign == POSITIVE && *((int8_t*)arraySource + i) >= 0 )
             {
@@ -1683,7 +1683,7 @@ void _ArrayCopySignedNumbers(void* arrayDestiny, const uint32_t sizeArrayDestiny
     }
     else if(UNSIGNED_INT8 == typeData)
     {
-        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        for(uint32_t i = 0, j = 0 ; i < sizeArrayDestiny && i<sizeArraySource; i++)
         {
             if(sign == POSITIVE && *((uint8_t*)arraySource + i) >= 0 )
             {
@@ -1697,7 +1697,7 @@ void _ArrayCopySignedNumbers(void* arrayDestiny, const uint32_t sizeArrayDestiny
     }
     else if(INT16 == typeData)
     {
-        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        for(uint32_t i = 0, j = 0 ; i < sizeArrayDestiny && i<sizeArraySource; i++)
         {
             if(sign == POSITIVE && *((int16_t*)arraySource + i) >= 0 )
             {
@@ -1711,7 +1711,7 @@ void _ArrayCopySignedNumbers(void* arrayDestiny, const uint32_t sizeArrayDestiny
     }
     else if(UNSIGNED_INT16 == typeData)
     {
-        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        for(uint32_t i = 0, j = 0 ; i < sizeArrayDestiny && i<sizeArraySource; i++)
         {
             if(sign == POSITIVE && *((uint16_t*)arraySource + i) >= 0 )
             {
@@ -1725,7 +1725,7 @@ void _ArrayCopySignedNumbers(void* arrayDestiny, const uint32_t sizeArrayDestiny
     }
     else if(INT32 == typeData)
     {
-        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        for(uint32_t i = 0, j = 0 ; i < sizeArrayDestiny && i<sizeArraySource; i++)
         {
             if(sign == POSITIVE && *((int32_t*)arraySource + i) >= 0 )
             {
@@ -1739,7 +1739,7 @@ void _ArrayCopySignedNumbers(void* arrayDestiny, const uint32_t sizeArrayDestiny
     }
     else if(UNSIGNED_INT32 == typeData)
     {
-        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        for(uint32_t i = 0, j = 0 ; i < sizeArrayDestiny && i<sizeArraySource; i++)
         {
             if(sign == POSITIVE && *((uint32_t*)arraySource + i) >= 0 )
             {
@@ -1753,7 +1753,7 @@ void _ArrayCopySignedNumbers(void* arrayDestiny, const uint32_t sizeArrayDestiny
     }
     else if(FLOAT == typeData)
     {
-        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        for(uint32_t i = 0, j = 0 ; i < sizeArrayDestiny && i<sizeArraySource; i++)
         {
             if(sign == POSITIVE && *((float*)arraySource + i) >= 0 )
             {
@@ -1767,7 +1767,7 @@ void _ArrayCopySignedNumbers(void* arrayDestiny, const uint32_t sizeArrayDestiny
     }
     else if(DOUBLE == typeData)
     {
-        for(uint32_t i = 0, j = 0 ; i<sizeArraySource; i++)
+        for(uint32_t i = 0, j = 0 ; i < sizeArrayDestiny && i<sizeArraySource; i++)
         {
             if(sign == POSITIVE && *((double*)arraySource + i) >= 0 )
             {
