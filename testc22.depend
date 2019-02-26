@@ -460,10 +460,10 @@
 	<stdlib.h>
 	<errno.h>
 
-1542828943 source:c:\users\egomez\desktop\repos\32bitsc_library\aritmethic.c
+1545407279 source:c:\users\egomez\desktop\repos\32bitsc_library\aritmethic.c
 	"aritmethic.h"
 
-1542132607 c:\users\egomez\desktop\repos\32bitsc_library\aritmethic.h
+1544799763 c:\users\egomez\desktop\repos\32bitsc_library\aritmethic.h
 	"error.h"
 	"header.h"
 	<stdint.h>
@@ -471,7 +471,7 @@
 	<math.h>
 	<string.h>
 
-1544474849 source:c:\users\egomez\desktop\repos\32bitsc_library\array.c
+1546954647 source:c:\users\egomez\desktop\repos\32bitsc_library\array.c
 	"array.h"
 
 1542825239 c:\users\egomez\desktop\repos\32bitsc_library\array.h
@@ -515,9 +515,8 @@
 	<stdlib.h>
 	"error.h"
 
-1544128515 source:c:\users\egomez\desktop\repos\32bitsc_library\main.c
+1546954481 source:c:\users\egomez\desktop\repos\32bitsc_library\main.c
 	"testArray.h"
-	"queue.h"
 
 1542132607 c:\users\egomez\desktop\repos\32bitsc_library\sort.h
 	"error.h"
@@ -548,13 +547,13 @@
 	<stdint.h>
 	"array.h"
 
-1544475256 source:c:\users\egomez\desktop\repos\32bitsc_library\testarray.c
+1549570145 source:c:\users\egomez\desktop\repos\32bitsc_library\testarray.c
 	"testArray.h"
 
-1544128515 source:c:\users\egomez\desktop\repos\32bitsc_library\queue.c
+1545425357 source:c:\users\egomez\desktop\repos\32bitsc_library\queue.c
 	"queue.h"
 
-1542977883 c:\users\egomez\desktop\repos\32bitsc_library\queue.h
+1545425045 c:\users\egomez\desktop\repos\32bitsc_library\queue.h
 	<stdlib.h>
 	<stdint.h>
 

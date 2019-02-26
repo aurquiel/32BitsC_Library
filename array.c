@@ -25,7 +25,7 @@ void _ArrayCopy(void* arrayDestiny, const uint32_t sizeArrayDestiny, const void*
         ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
 
-    if(typeData == CHAR)
+    if(CHAR == typeData)
     {
         memcpy((char*)arrayDestiny, (char*)arraySource, sizeof(char)*sizeArraySource);
     }
@@ -73,7 +73,7 @@ void _ArrayCopy(void* arrayDestiny, const uint32_t sizeArrayDestiny, const void*
 
 void _ArrayConcatenate(void* arrayDestiny, const uint32_t sizeArrayDestiny, void* arraySource, const uint32_t sizeArraySource, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName)
 {
-    if( (sizeArrayDestiny <= 0) )
+    if(sizeArrayDestiny <= 0)
     {
         ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
@@ -788,7 +788,6 @@ void _ArrayEndChar(void* array, const uint32_t sizeArray, const int8_t typeData,
     {
         ErrorRaise(errorSizeArray, fileName, lineNumber, functionName);
     }
-
 
     if(CHAR == typeData)
     {
