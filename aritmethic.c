@@ -88,7 +88,7 @@ uint32_t _AritmethicNumberOfDigitsFromArray(const void* number, const int8_t typ
 
     if(CHAR  == typeData || UNSIGNED_CHAR == typeData)
     {
-        if(strstr((char*)number,"."))
+        if(strstr((char*)number, "."))
         {
             numberOfDigits = strlen((char*)number) - 1;
         }

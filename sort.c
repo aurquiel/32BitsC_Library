@@ -17,43 +17,43 @@ void _SortRadix(void *array, const uint32_t sizeArray, const int8_t typeData, co
         //char* ArrayNegatives = _AllocatorCalloc(negativeNumbers,typeData,fileName,lineNumber,functionName);
 //        char* ArrayPositives = _AllocatorCalloc(positiveNumbers,typeData,fileName,lineNumber,functionName);
         //_ArrayCopySignNumbers()
-        RADIX_SORT_OPERATIONS(array,sizeArray,char,typeData);
+        RADIX_SORT_OPERATIONS(array, sizeArray, char, typeData);
     }
     else if(UNSIGNED_CHAR == typeData)
     {
-        RADIX_SORT_OPERATIONS(array,sizeArray,unsigned char,typeData);
+        RADIX_SORT_OPERATIONS(array, sizeArray, unsigned char, typeData);
     }
     else if(INT8 == typeData)
     {
-        RADIX_SORT_OPERATIONS(array,sizeArray,int8_t,typeData);
+        RADIX_SORT_OPERATIONS(array, sizeArray, int8_t, typeData);
     }
     else if(UNSIGNED_INT8 == typeData)
     {
-        RADIX_SORT_OPERATIONS(array,sizeArray,uint8_t,typeData);
+        RADIX_SORT_OPERATIONS(array, sizeArray, uint8_t, typeData);
     }
     else if(INT16 == typeData)
     {
-        RADIX_SORT_OPERATIONS(array,sizeArray,int16_t,typeData);
+        RADIX_SORT_OPERATIONS(array, sizeArray, int16_t, typeData);
     }
     else if(UNSIGNED_INT16 == typeData)
     {
-        RADIX_SORT_OPERATIONS(array,sizeArray,uint16_t,typeData);
+        RADIX_SORT_OPERATIONS(array, sizeArray, uint16_t, typeData);
     }
     else if(INT32 == typeData)
     {
-        RADIX_SORT_OPERATIONS(array,sizeArray,int32_t,typeData);
+        RADIX_SORT_OPERATIONS(array, sizeArray, int32_t, typeData);
     }
     else if(UNSIGNED_INT32 == typeData)
     {
-        RADIX_SORT_OPERATIONS(array,sizeArray,uint32_t,typeData);
+        RADIX_SORT_OPERATIONS(array, sizeArray, uint32_t, typeData);
     }
     else if(FLOAT == typeData)
     {
-        RADIX_SORT_OPERATIONS(array,sizeArray,float,typeData);
+        RADIX_SORT_OPERATIONS(array, sizeArray, float, typeData);
     }
     else if(DOUBLE == typeData)
     {
-        RADIX_SORT_OPERATIONS(array,sizeArray,double,typeData);
+        RADIX_SORT_OPERATIONS(array, sizeArray, double, typeData);
     }
     else
     {

@@ -18,7 +18,6 @@ typedef enum {
     errorNegativeNumberArray = -204  /*!< -501 indicating error negative number */
 } errorArray;
 
-
 typedef enum {
     errorSizeAllocator = -301,  /*!< -301 indicating error of array size */
     errorTypeAllocator = -302,  /*!< -302 indicating error of type of array */

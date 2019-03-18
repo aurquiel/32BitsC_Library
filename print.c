@@ -97,42 +97,42 @@ void _PrintArray(void *array, const uint32_t sizeArray, const int8_t typeData, c
 
 void PrintChar(char theChar)
 {
-    printf("%c\n",theChar);
+    printf("%c\n", theChar);
 }
 
 void PrintUchar(unsigned char theUchar)
 {
-    printf("%c\n",theUchar);
+    printf("%c\n", theUchar);
 }
 
 void Print8int(int8_t theInt)
 {
-    printf("%d\n",theInt);
+    printf("%d\n", theInt);
 }
 
 void Print8Uint(uint8_t theInt)
 {
-    printf("%u\n",theInt);
+    printf("%u\n", theInt);
 }
 
 void Print16int(int16_t theInt)
 {
-    printf("%d\n",theInt);
+    printf("%d\n", theInt);
 }
 
 void Print16Uint(uint16_t theInt)
 {
-    printf("%u\n",theInt);
+    printf("%u\n", theInt);
 }
 
 void Print32int(int32_t theInt)
 {
-    printf("%d\n",theInt);
+    printf("%d\n", theInt);
 }
 
 void Print32Uint(uint32_t theInt)
 {
-    printf("%u\n",theInt);
+    printf("%u\n", theInt);
 }
 
 void PrintFloat(float theFloat)

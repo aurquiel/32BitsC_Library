@@ -3,7 +3,7 @@
 FILE *FileOpen(char* routeFile, char* modeFile)
 {
     FILE* theFile = NULL;
-    theFile = fopen(routeFile,modeFile);
+    theFile = fopen(routeFile, modeFile);
 
     if(NULL == theFile)
     {
