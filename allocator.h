@@ -13,7 +13,6 @@
 #define AllocatorCallocTwoDimension(numberOfElements, typeData) _AllocatorCallocTwoDimension(numberOfElements, typeData, __FILE__, __LINE__, __FUNCTION__)
 #define AllocatorRealloc(arrayAllocated, numberOfElements, typeData) _AllocatorRealloc(arrayAllocated, numberOfElements, typeData, __FILE__, __LINE__, __FUNCTION__)
 
-
 void* _AllocatorMalloc(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void** _AllocatorMallocTwoDimension(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);
 void* _AllocatorCalloc(const uint32_t numberOfElements, const int8_t typeData, const char* fileName, const uint32_t lineNumber, const char* functionName);

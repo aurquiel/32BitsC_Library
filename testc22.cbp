@@ -60,9 +60,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="print.h" />
-		<Unit filename="queue.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="queue.h" />
 		<Unit filename="radixSort.h" />
 		<Unit filename="sort.c">
@@ -73,10 +70,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="swap.h" />
-		<Unit filename="testArray.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="testArray.h" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -557,3 +557,100 @@
 	<stdlib.h>
 	<stdint.h>
 
+1566919842 source:c:\users\egomez\source\repos\32bitsc_library\aritmethic.c
+	"aritmethic.h"
+
+1566919843 c:\users\egomez\source\repos\32bitsc_library\aritmethic.h
+	"error.h"
+	"header.h"
+	<stdint.h>
+	<stdlib.h>
+	<math.h>
+	<string.h>
+
+1566917575 c:\users\egomez\source\repos\32bitsc_library\error.h
+	<stdint.h>
+	<stdio.h>
+	<stdlib.h>
+	<errno.h>
+
+1557861693 c:\users\egomez\source\repos\32bitsc_library\header.h
+
+1566919463 source:c:\users\egomez\source\repos\32bitsc_library\array.c
+	"array.h"
+
+1557861693 c:\users\egomez\source\repos\32bitsc_library\array.h
+	<string.h>
+	<stdlib.h>
+	<stdint.h>
+	<time.h>
+	<stdio.h>
+	"allocator.h"
+	"swap.h"
+	"aritmethic.h"
+	"print.h"
+	"randomGenerator.h"
+
+1566938408 c:\users\egomez\source\repos\32bitsc_library\allocator.h
+	<stdlib.h>
+	<stdint.h>
+	"header.h"
+	"error.h"
+
+1566939280 c:\users\egomez\source\repos\32bitsc_library\swap.h
+	<stdint.h>
+	<stdlib.h>
+	"header.h"
+	"error.h"
+
+1557861693 c:\users\egomez\source\repos\32bitsc_library\print.h
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	"header.h"
+	"error.h"
+
+1557861693 c:\users\egomez\source\repos\32bitsc_library\randomgenerator.h
+	<stdio.h>
+	<stdint.h>
+
+1566917618 source:c:\users\egomez\source\repos\32bitsc_library\error.c
+	"error.h"
+
+1557861693 source:c:\users\egomez\source\repos\32bitsc_library\file.c
+	"file.h"
+
+1557861693 c:\users\egomez\source\repos\32bitsc_library\file.h
+	<stdio.h>
+	<stdint.h>
+	<stdlib.h>
+	"error.h"
+
+1557861693 source:c:\users\egomez\source\repos\32bitsc_library\print.c
+	"print.h"
+
+1566927848 source:c:\users\egomez\source\repos\32bitsc_library\sort.c
+	"sort.h"
+
+1566922042 c:\users\egomez\source\repos\32bitsc_library\sort.h
+	"error.h"
+	"header.h"
+	"allocator.h"
+	"array.h"
+	"radixSort.h"
+	<stdint.h>
+
+1566929649 c:\users\egomez\source\repos\32bitsc_library\radixsort.h
+
+1566928946 source:c:\users\egomez\source\repos\32bitsc_library\swap.c
+	"swap.h"
+
+1557861852 source:c:\users\egomez\source\repos\32bitsc_library\allocator.c
+	"allocator.h"
+
+1566927651 source:c:\users\egomez\source\repos\32bitsc_library\main.c
+	<stdio.h>
+	"array.h"
+	"aritmethic.h"
+	"sort.h"
+

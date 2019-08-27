@@ -186,7 +186,6 @@ void* _AllocatorCalloc(const uint32_t numberOfElements, const int8_t typeData, c
         ErrorRaise(errorTypeAllocator, fileName, lineNumber, functionName);
     }
 
-
     if(auxiliarMemory == NULL)
     {
         ErrorRaise(errorNoAllocate, fileName, lineNumber, functionName);

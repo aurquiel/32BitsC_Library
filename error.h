@@ -35,7 +35,8 @@ typedef enum {
 
 typedef enum {
     errorTypeAritmethic = -602,             /*!< -602 indicating error of type */
-    errorNegativeNumberArtihmetic = -604    /*!< -604 indicating error negative number */
+    errorSeparatorAritmethic = -603,        /*!< -603 indicating error of null separator */
+    errorNegativeNumberArithmetic = -604    /*!< -604 indicating error negative number */
 } errorAritmethic;
 
 typedef enum {
